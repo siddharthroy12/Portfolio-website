@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { VscHome, VscAccount, VscCode } from 'react-icons/vsc'
 import { BsPen } from 'react-icons/bs'
@@ -7,7 +8,18 @@ import styles from '../styles/Header.module.css'
 export default function Header() {
 	return (
 		<div className={styles.container}>
-			<p className={styles.initials}>SR</p>
+			<p className={styles.initials}>
+				<div>
+					<Image
+						src="/uploads/profilepic.jpeg"
+						width="70"
+						height="70"
+						className={styles.profilePic}
+						layout="fixed"
+					/>
+				</div>
+				<span className={styles.emoji}>ヽ(￣～￣　)ノ</span>
+			</p>
 			<nav className={styles.nav}>
 				<ul>
 					<li className={styles.navItem}>
@@ -31,23 +43,34 @@ export default function Header() {
 						</Link>
 					</li>
 					<li className={styles.navItem}>
-						<div className={styles.navIconContainer}>
-							<VscCode className={styles.navItemIcon}/>
-						</div>
-						<span className={styles.navItemText}>Work</span>
+						<Link href="/works">
+							<a>
+								<div className={styles.navIconContainer}>
+									<VscCode className={styles.navItemIcon}/>
+								</div>
+								<span className={styles.navItemText}>Works</span>
+							</a>
+						</Link>
 					</li>
 					<li className={styles.navItem}>
-						<div className={styles.navIconContainer}>
-							<BsPen className={styles.navItemIcon}/>
-						</div>
-						<span className={styles.navItemText}>Blog</span>
-						
+						<Link href="/#about">
+							<a>
+								<div className={styles.navIconContainer}>
+									<BsPen className={styles.navItemIcon}/>
+								</div>
+								<span className={styles.navItemText}>Blog</span>
+							</a>
+						</Link>
 					</li>
 					<li className={styles.navItem}>
-						<div className={styles.navIconContainer}>
-							<AiOutlinePhone className={styles.navItemIcon}/>
-						</div>
-						<span className={styles.navItemText}>Contact</span>
+						<Link href="/#about">
+							<a>
+								<div className={styles.navIconContainer}>
+									<AiOutlinePhone className={styles.navItemIcon}/>
+								</div>
+								<span className={styles.navItemText}>Contact</span>
+							</a>
+						</Link>
 					</li>
 				</ul>
 			</nav>

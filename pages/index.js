@@ -50,7 +50,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <Section title="About me" id="about">
+      <Section title="About me" subtitle="more" id="about">
         <p className={styles.aboutMe}>
           I'm a front-end web developer with a background in computer
           systems and network infrastructure.
@@ -62,7 +62,7 @@ export default function Home() {
           alongside other amazing programmers and learn so much more!
         </p>
       </Section>
-      <Section title="Featured Projects">
+      <Section title="Featured Projects" subtitle="check out My">
       </Section>
     </Layout>
   )
