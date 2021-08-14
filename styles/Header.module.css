@@ -48,13 +48,18 @@
 	cursor: pointer;
 }
 
+.navItem > a {
+	display: flex;
+}
+
 .navItem:hover {
 	background-color: rgba(225, 225, 225, 0.1);
 	transition-duration: var(--transition-duration);
 }
 
-.navItem:hover > .navItemText {
-	display: inline-block;
+.navIconContainer {
+	width: 25px;
+	height: 25px;
 }
 
 .navItemIcon {
@@ -64,5 +69,10 @@
 .navItemText {
 	display: none;
 	margin-left: 1rem;
+	color: white;
 }
 
+.container:hover .navItemText {
+	display: flex;
+	transition-duration: var(--transition-duration);
+}

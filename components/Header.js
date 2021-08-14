@@ -1,4 +1,4 @@
-
+import Link from 'next/link'
 import { VscHome, VscAccount, VscCode } from 'react-icons/vsc'
 import { BsPen } from 'react-icons/bs'
 import { AiOutlinePhone } from 'react-icons/ai'
@@ -11,23 +11,42 @@ export default function Header() {
 			<nav className={styles.nav}>
 				<ul>
 					<li className={styles.navItem}>
-						<VscHome className={styles.navItemIcon}/>
-						<span className={styles.navItemText}>Home</span>
-						</li>
-					<li className={styles.navItem}>
-						<VscAccount className={styles.navItemIcon}/>
-						<span className={styles.navItemText}>About</span>
+						<Link href="/#top">
+							<a>
+								<div className={styles.navIconContainer}>
+									<VscHome className={styles.navItemIcon}/>
+								</div>
+								<span className={styles.navItemText}>Home</span>
+							</a>
+						</Link>
 					</li>
 					<li className={styles.navItem}>
-						<VscCode className={styles.navItemIcon}/>
+						<Link href="/#about">
+							<a>
+								<div className={styles.navIconContainer}>
+									<VscAccount className={styles.navItemIcon}/>
+								</div>
+								<span className={styles.navItemText}>About</span>
+							</a>
+						</Link>
+					</li>
+					<li className={styles.navItem}>
+						<div className={styles.navIconContainer}>
+							<VscCode className={styles.navItemIcon}/>
+						</div>
 						<span className={styles.navItemText}>Work</span>
 					</li>
 					<li className={styles.navItem}>
-						<BsPen className={styles.navItemIcon}/>
+						<div className={styles.navIconContainer}>
+							<BsPen className={styles.navItemIcon}/>
+						</div>
 						<span className={styles.navItemText}>Blog</span>
+						
 					</li>
 					<li className={styles.navItem}>
-						<AiOutlinePhone className={styles.navItemIcon}/>
+						<div className={styles.navIconContainer}>
+							<AiOutlinePhone className={styles.navItemIcon}/>
+						</div>
 						<span className={styles.navItemText}>Contact</span>
 					</li>
 				</ul>

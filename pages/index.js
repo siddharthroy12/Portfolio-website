@@ -19,7 +19,7 @@ export default function Home() {
           `}
         />
       </Head>
-      <header className={styles.heroContainer}>
+      <header className={styles.heroContainer} id="top">
         <div className={styles.heroImageContainer}>
           <Image
             src="/uploads/profilepic.jpeg"
@@ -50,8 +50,19 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <Section title="title" subtitle="subtitle">
-        hello
+      <Section title="About me" id="about">
+        <p className={styles.aboutMe}>
+          I'm a front-end web developer with a background in computer
+          systems and network infrastructure.
+          My 8 years of IT experience has given me a strong foundation
+          for web development and building complex solutions.
+          Recently, I graduated from the Juno College Immersive
+          Web Development Bootcamp. I am passionate about coding and
+          solving problems through code, and I am excited to work
+          alongside other amazing programmers and learn so much more!
+        </p>
+      </Section>
+      <Section title="Featured Projects">
       </Section>
     </Layout>
   )

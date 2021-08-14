@@ -63,3 +63,9 @@
 .heroIcons > * {
 	margin: 0 1rem;
 }
+
+.aboutMe {
+	line-height: 1.5;
+	font-size: 1.2rem;
+	color: var(--font-color-secondary);
+}

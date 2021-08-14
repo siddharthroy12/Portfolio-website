@@ -1,3 +1,27 @@
 .container {
-	margin-top: 5rem;
+	margin-top: 10rem;
+}
+
+.titleContainer {
+	display: flex;
+	align-items: center;
+}
+
+.line {
+	width: 4rem;
+	height: 1px;
+	background-color: black;
+	margin-right: 2rem;
+}
+
+.title {
+	text-transform: uppercase;
+	font-size: 1.5rem;
+}
+
+.childrenContainer {
+	max-width: 70rem;
+	margin: auto;
+	padding: 0 3rem;
+	margin-top: 4rem;
 }
