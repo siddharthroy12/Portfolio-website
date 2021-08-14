@@ -69,3 +69,7 @@
 	font-size: 1.2rem;
 	color: var(--font-color-secondary);
 }
+
+.featuredProjects > * {
+	margin-bottom: 10rem;
+}

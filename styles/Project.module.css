@@ -1,0 +1,55 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.containerFlip {
+	flex-direction: row-reverse;
+}
+
+.container > div:nth-child(1) {
+	overflow: visible !important;
+}
+
+.preview {
+	border-radius: 2px;
+	box-shadow: 0 10px 30px -15px #ccc9c9;
+	overflow: visible;
+}
+
+.pushPreview {
+	width:27rem;
+}
+
+.projectDetails {
+	position: absolute;
+	width: 31rem;
+	right: 0;
+	text-align: end;
+}
+
+.containerFlip .projectDetails {
+	right:unset;
+	left: 0;
+	text-align: start;
+}
+
+.projectName {
+	font-size: 1.5rem;
+	color: var(--font-color-primary);
+}
+
+.projectInfoContainer {
+	margin: 1.5rem 0;
+	font-size: 1rem;
+	color: white;
+	padding: 1rem;
+	border-radius: 2px;
+	background-color: var(--accent-color);
+}
+
+.projectLinks {
+	margin-top: 1.5rem;
+}

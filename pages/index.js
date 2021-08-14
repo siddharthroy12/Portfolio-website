@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiTypescript } from 'react-icons/si'
 import Layout from '../components/Layout'
+import Project from '../components/Project'
 import styles from '../styles/Home.module.css'
 import Section from '../components/Section'
 
@@ -62,7 +63,13 @@ export default function Home() {
           alongside other amazing programmers and learn so much more!
         </p>
       </Section>
-      <Section title="Featured Projects" subtitle="check out My">
+      <Section
+        title="Featured Projects"
+        subtitle="check out My"
+        className={styles.featuredProjects}
+      >
+        <Project />
+        <Project flip/>
       </Section>
     </Layout>
   )

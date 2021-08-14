@@ -4,6 +4,14 @@ body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
   background-color: #F7F7F7;
+  scrollbar-color: #F7F7F7 var(--accent-color);
+}
+body::-webkit-scrollbar {
+  background-color: var(--accent-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;
 }
 a {
   color: inherit;
