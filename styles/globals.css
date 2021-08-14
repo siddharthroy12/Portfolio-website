@@ -2,10 +2,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #F7F7F7;
 }
-
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +12,13 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --accent-color: #6b38db;
+  --transition-duration: 200ms;
+  --font-color-primary: #333;
+  --font-color-secondary: #54616F;
 }
