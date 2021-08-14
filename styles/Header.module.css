@@ -22,17 +22,24 @@
 
 .emoji {
 	display: none;
-	margin-left: 1rem;
 	font-size: 0.7rem;
 }
 
 .initials {
 	display: flex;
 	align-items: center;
-	padding: 0.6rem;
 	background-color: rgba(0, 0, 0, 0.2);
 	font-weight: 200;
 	font-size: 2rem;
+}
+
+.picContainer {
+	min-width: 6rem;
+  align-items: center;
+  display: -moz-box;
+  display: flex;
+  height: 6rem;
+  justify-content: center;
 }
 
 .profilePic {

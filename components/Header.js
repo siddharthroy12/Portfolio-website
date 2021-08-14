@@ -9,11 +9,11 @@ export default function Header() {
 	return (
 		<div className={styles.container}>
 			<p className={styles.initials}>
-				<div>
+				<div className={styles.picContainer}>
 					<Image
 						src="/uploads/profilepic.jpeg"
-						width="70"
-						height="70"
+						width="60"
+						height="60"
 						className={styles.profilePic}
 						layout="fixed"
 					/>
