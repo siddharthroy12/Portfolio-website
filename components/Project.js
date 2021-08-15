@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import styles from '../styles/Project.module.css'
+import { VscGithubAlt, VscLinkExternal } from 'react-icons/vsc'
 
 export default function Project({ 
-	thumbnail, name, info, stack, code, live, flip
+	title, desc, stack, preview, code, live, flip
 }) {
 	return (
 		<div className={`${styles.container} ${flip && styles.containerFlip}`}>
@@ -14,19 +15,18 @@ export default function Project({
 				className={styles.preview}
 			/>
 			<div className={styles.projectDetails}>
-				<h3 className={styles.projectName}>Agrus</h3>
+				<h3 className={styles.projectName}>{title}</h3>
 				<div className={styles.projectInfoContainer}>
 					<p>
-						A reddit like MVP app with authentication, authorization, post with image, video and text, comments,
-						boards for communities and much more.
+						{desc}
 					</p>
 				</div>
 				<p>
-					React, Typescript, Node.js, MongoDB
+					{stack.map(x => <span>{x}</span>)}
 				</p>
-				<div className={styles.projectLinks}>
-					<a href="#">Github</a>
-					<a href="#">Live</a>
+				<div className={`${styles.projectLinks} ${flip && styles.projectLinksFlip}`}>
+					<a href={code}><VscGithubAlt /></a>
+					<a href={live}><VscLinkExternal /></a>
 				</div>
 			</div>
 			{/* His job is to push the perview to get it smaller when the window is resized*/}

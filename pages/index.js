@@ -6,8 +6,10 @@ import Layout from '../components/Layout'
 import Project from '../components/Project'
 import styles from '../styles/Home.module.css'
 import Section from '../components/Section'
+import fs from 'fs'
+import matter from 'gray-matter'
 
-export default function Home() {
+export default function Home({ projects }) {
   return (
     <Layout>
       <Head>
@@ -68,9 +70,26 @@ export default function Home() {
         subtitle="check out My"
         className={styles.featuredProjects}
       >
-        <Project />
-        <Project flip/>
+        {projects.map((project, index) => {
+          return <Project {...project} flip={index % 2}/>
+        })}
       </Section>
     </Layout>
   )
+}
+
+
+export async function getStaticProps() {
+  const filesInProjects = fs.readdirSync('./content/projects')
+  const projects = filesInProjects.map(file => {
+    const data = matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
+    if (data.featured) {
+      return data
+    }
+  })
+  return {
+    props: {
+      projects
+    }
+  }
 }

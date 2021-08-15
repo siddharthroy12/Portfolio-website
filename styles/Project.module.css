@@ -55,4 +55,25 @@
 
 .projectLinks {
 	margin-top: 1.5rem;
+	display: flex;
+	font-size: 1.5rem;
+	justify-content: flex-end;
+}
+
+.projectLinks > * {
+	margin-left: 1rem;
+}
+
+.projectLinks > *:hover {
+	color: var(--accent-color);
+	transition-duration: var(--transition-duration);
+}
+
+.projectLinksFlip {
+	justify-content: flex-start;
+}
+
+.projectLinksFlip > * {
+	margin-right: 1rem;
+	margin-left: 0;
 }
