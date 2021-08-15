@@ -71,7 +71,7 @@ export default function Home({ projects }) {
         className={styles.featuredProjects}
       >
         {projects.map((project, index) => {
-          return <Project {...project} flip={index % 2}/>
+          return <Project {...project} flip={index % 2} key={index}/>
         })}
       </Section>
     </Layout>
