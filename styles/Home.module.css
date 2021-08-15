@@ -1,7 +1,8 @@
 .heroContainer {
 	display: flex;
 	justify-content: space-between;
-	max-width: 58rem;
+	max-width: 63rem;
+	padding: 0 2rem;
 	margin: auto;
 	margin-top: 10rem;
 }
@@ -71,5 +72,21 @@
 }
 
 .featuredProjects > * {
-	margin-bottom: 10rem;
+	margin-bottom: 6rem;
+}
+
+@media screen and (max-width: 1111px) {
+	.heroContainer {
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+	}
+
+	.heroDescription {
+		margin-top: 4rem;
+	}
+
+	.heroButtons {
+		justify-content: center;
+	}
 }

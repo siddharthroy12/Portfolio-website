@@ -13,11 +13,31 @@
 	overflow: visible !important;
 }
 
-.preview {
-	border-radius: 2px;
+.previewContainer {
+	border-radius: 3px;
 	box-shadow: 0 10px 30px -15px #ccc9c9;
 	overflow: visible;
-	filter: contrast(0.9);
+	position: relative;
+}
+
+.previewOverlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--accent-color);
+	opacity: 0.4;
+	transition-duration: var(--transition-duration);
+	border-radius: 2px;
+}
+
+.preview {
+	border-radius: 3px;
+}
+
+.previewOverlay:hover {
+	opacity: 0;
 }
 
 .pushPreview {
@@ -76,4 +96,60 @@
 .projectLinksFlip > * {
 	margin-right: 1rem;
 	margin-left: 0;
+}
+
+.stack {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.stack > * {
+	margin-right: 1rem;
+}
+
+@media screen and (max-width: 870px) {
+	.previewContainer {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+	}
+
+	.previewOverlay {
+		opacity: 0.9;
+	}
+
+	.projectDetails {
+		position: relative;
+		left: 0;
+		right: 0;
+		width: 100%;
+		text-align: start;
+		color: white;
+		padding: 1rem;
+	}
+
+	.projectName {
+		color: white;
+	}
+
+	.previewContainer > div {
+		height: 100%;
+	}
+
+	.pushPreview {
+		display: none;
+	}
+
+	.projectInfoContainer {
+		padding: 0;
+		background-color: unset;
+	}
+
+	.projectLinks {
+		justify-content: flex-start;
+	}
+
 }

@@ -7,14 +7,19 @@ export default function Project({
 }) {
 	return (
 		<div className={`${styles.container} ${flip && styles.containerFlip}`}>
-			<Image
-				src="https://raw.githubusercontent.com/siddharthroy12/Agrus/main/screenshots/screenshot-1.png"
-				height="300"
-				width="500"
-				objectFit="cover"
-				className={styles.preview}
-				alt="Project's Preview"
-			/>
+			<div className={styles.previewContainer}>
+				<Image
+					src={preview}
+					height="300"
+					width="500"
+					objectFit="cover"
+					className={styles.preview}
+					alt="Project's Preview"
+				/>
+				<div className={styles.previewOverlay}>
+
+				</div>
+			</div>
 			<div className={styles.projectDetails}>
 				<h3 className={styles.projectName}>{title}</h3>
 				<div className={styles.projectInfoContainer}>
@@ -22,7 +27,7 @@ export default function Project({
 						{desc}
 					</p>
 				</div>
-				<p>
+				<p className={styles.stack}>
 					{stack.map(x => <span key={x}>{x}</span>)}
 				</p>
 				<div className={`${styles.projectLinks} ${flip && styles.projectLinksFlip}`}>
