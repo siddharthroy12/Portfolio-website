@@ -8,7 +8,7 @@ import styles from '../styles/Header.module.css'
 export default function Header() {
 	return (
 		<div className={styles.container}>
-			<p className={styles.initials}>
+			<div className={styles.initials}>
 				<div className={styles.picContainer}>
 					<Image
 						src="/uploads/profilepic.jpeg"
@@ -19,7 +19,7 @@ export default function Header() {
 					/>
 				</div>
 				<span className={styles.emoji}>ヽ(￣～￣　)ノ</span>
-			</p>
+			</div>
 			<nav className={styles.nav}>
 				<ul>
 					<li className={styles.navItem}>

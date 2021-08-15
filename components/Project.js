@@ -22,7 +22,7 @@ export default function Project({
 					</p>
 				</div>
 				<p>
-					{stack.map(x => <span>{x}</span>)}
+					{stack.map(x => <span key={x}>{x}</span>)}
 				</p>
 				<div className={`${styles.projectLinks} ${flip && styles.projectLinksFlip}`}>
 					<a href={code}><VscGithubAlt /></a>
