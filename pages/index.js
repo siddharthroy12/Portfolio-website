@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiTypescript } from 'react-icons/si'
-import Layout from '../components/Layout'
 import Project from '../components/Project'
 import styles from '../styles/Home.module.css'
 import Section from '../components/Section'
@@ -86,7 +85,7 @@ export default function Home({ projects, frontmatter }) {
       className={styles.featuredProjects}
     >
       {projects.map((project, index) => {
-        return <Project {...project} flip={index % 2} key={index}/>
+        return <Project {...project} flip={index % 2 !== 0} key={index}/>
       })}
     </Section>
   </>)
@@ -95,12 +94,17 @@ export default function Home({ projects, frontmatter }) {
 
 export async function getStaticProps() {
   const filesInProjects = fs.readdirSync('./content/projects')
-  const projects = filesInProjects.map(file => {
+  let projects = []
+
+  filesInProjects.forEach((file) => {
     const data = matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
     if (data.featured) {
-      return data
-    }
+      projects.push(data)
+    } 
   })
+
+  console.log(projects)
+
   const frontmatter = matter(fs.readFileSync('./content/_index.md', 'utf8')).data
   return {
     props: {

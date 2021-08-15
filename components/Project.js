@@ -39,7 +39,7 @@ export default function Project({
 					${compact && styles.projectDetailsCompact}
 				`}>
 				<h3 
-					lassName={`
+					className={`
 						${styles.projectName}
 						${compact && styles.projectNameCompact}
 					`}
@@ -56,7 +56,12 @@ export default function Project({
 						{desc}
 					</p>
 				</div>
-				<p className={styles.stack}>
+				<p
+					className={`
+						${styles.stack}
+						${flip && styles.stackFlip}
+						${compact && styles.stackCompact}
+					`}>
 					{stack.map(x => <span key={x}>{x}</span>)}
 				</p>
 				<div

@@ -101,17 +101,46 @@
 .stack {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.stackFlip {
+	justify-content: flex-start;
 }
 
 .stack > * {
+	margin-left: 1rem;
+	
+}
+
+.stackFlip > * {
 	margin-right: 1rem;
+	margin-left: 0;
 }
 
 /* Compact styling */
 
 .containerCompact {
 	display: inline-block;
-	max-width: 20rem;
+	max-width: 27rem;
+}
+
+@media screen and (max-width: 1200px) {
+	.containerCompact {
+		max-width: 25rem;
+	}
+}
+
+@media screen and (max-width: 1130px) {
+	.containerCompact {
+		max-width: 20rem;
+	}
+}
+
+@media screen and (max-width: 970px) {
+	.containerCompact {
+		max-width: 100%;
+	}
 }
 
 .previewContainerCompact {
@@ -141,6 +170,7 @@
 	text-align: start;
 	color: white;
 	padding: 1rem;
+	padding-bottom: 5rem !important;
 }
 
 .projectNameCompact {
@@ -151,13 +181,24 @@
 	display: none;
 }
 
+.stackCompact {
+	justify-content: flex-start;
+}
+
+.stackCompact > * {
+	margin-right: 1rem;
+	margin-left: 0;
+}
+
 .projectInfoContainerCompact {
 	padding: 0;
 	background-color: unset;
 }
 
-.projectLinks {
+.projectLinksCompact {
+	position: absolute;
 	justify-content: flex-start;
+	bottom: 1rem;
 }
 
 @media screen and (max-width: 870px) {
