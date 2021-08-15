@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
@@ -10,7 +11,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
 					<link rel="icon" href="/favicon.ico" />
-          <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+          <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
         </Head>
         <body>
           <Main />
@@ -25,8 +26,7 @@ class MyDocument extends Document {
                 }
               });
             }
-          `}>
-          </script>
+          `}/>
         </body>
       </Html>
     )
