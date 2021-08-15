@@ -5,10 +5,10 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<Header />
-			<div style={{marginLeft: '6rem'}}>
-			<div className={styles.container}>
-				{children}
-			</div>
+			<div className={styles.sidePush}>
+				<div className={styles.container}>
+					{children}
+				</div>
 			</div>
 		</>
 	)

@@ -8,6 +8,8 @@ body {
 }
 body::-webkit-scrollbar {
   background-color: var(--accent-color);
+  width: 10px;
+  height: 10px;
 }
 
 body::-webkit-scrollbar-thumb {

@@ -3,3 +3,13 @@
 	max-width: 70rem;
 	padding: 2rem;
 }
+
+.sidePush {
+	margin-left: 6rem;
+}
+
+@media screen and (max-width: 620px) {
+	.sidePush {
+		margin-left: 0;
+	}
+}
