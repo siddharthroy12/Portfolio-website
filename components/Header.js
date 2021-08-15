@@ -16,6 +16,7 @@ export default function Header() {
 						height="60"
 						className={styles.profilePic}
 						layout="fixed"
+						alt="Dev's Picture"
 					/>
 				</div>
 				<span className={styles.emoji}>ヽ(￣～￣　)ノ</span>

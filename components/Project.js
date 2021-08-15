@@ -13,6 +13,7 @@ export default function Project({
 				width="500"
 				objectFit="cover"
 				className={styles.preview}
+				alt="Project's Preview"
 			/>
 			<div className={styles.projectDetails}>
 				<h3 className={styles.projectName}>{title}</h3>

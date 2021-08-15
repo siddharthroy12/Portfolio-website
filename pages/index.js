@@ -9,17 +9,41 @@ import Section from '../components/Section'
 import fs from 'fs'
 import matter from 'gray-matter'
 
-export default function Home({ projects }) {
+export default function Home({ projects, frontmatter }) {
+  const highlightBio = (bio) => {
+    const highlights = [
+      'front-end',
+      'web',
+      'developer'
+    ]
+    const shouldHighlight = (word) => {
+      let result = false
+      highlights.map(highlight => {
+        if (highlight.toLowerCase() === word.toLowerCase()) {
+          result = true
+        }
+      })
+      return result
+    }
+    const words = bio.split(' ')
+    const output = words.map(word => {
+      if (shouldHighlight(word)) {
+        return <span className={styles.highlight}>{word}{' '}</span>
+      } else {
+        return word + ' '
+      }
+    })
+
+    return output
+  }
+
   return (
     <Layout>
       <Head>
-        <title>Siddharth Roy - Web developer</title>
+        <title>{frontmatter.name} - Web developer</title>
         <meta
           name="description"
-          content={`
-            A Front-End Web Developer passionate about creating interactive
-            applications and experiences on the web.
-          `}
+          content={frontmatter.smallbio}
         />
       </Head>
       <header className={styles.heroContainer} id="top">
@@ -34,14 +58,13 @@ export default function Home({ projects }) {
           />
         </div>
         <div className={styles.heroDescription}>
-          <p className={styles.greeting}>HI THERE! I'M</p>
+          <p className={styles.greeting}>HI THERE! I&apos;M</p>
           <h1 className={styles.name}>
-            <span className={styles.highlight}>Siddharth</span> Roy
+            <span className={styles.highlight}>{frontmatter.name.split(' ')[0]}</span>{' '}
+            {frontmatter.name.split(' ')[1]}
           </h1>
           <p className={styles.smallBio}>
-            A <span className={styles.highlight}>Front-End Web Developer</span>{' '}
-            passionate about creating interactive applications
-            and experiences on the web.
+            {highlightBio(frontmatter.smallbio)}
           </p>
           <div className={styles.heroButtons}>
             <a className="button" href="#works">Works</a>
@@ -55,7 +78,7 @@ export default function Home({ projects }) {
       </header>
       <Section title="About me" subtitle="more" id="about">
         <p className={styles.aboutMe}>
-          I'm a front-end web developer with a background in computer
+          I&apos;m a front-end web developer with a background in computer
           systems and network infrastructure.
           My 8 years of IT experience has given me a strong foundation
           for web development and building complex solutions.
@@ -87,9 +110,11 @@ export async function getStaticProps() {
       return data
     }
   })
+  const frontmatter = matter(fs.readFileSync('./content/_index.md', 'utf8')).data
   return {
     props: {
-      projects
+      projects,
+      frontmatter
     }
   }
 }

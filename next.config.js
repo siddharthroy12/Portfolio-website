@@ -1,4 +1,5 @@
 module.exports = {
+  target: "serverless",
   reactStrictMode: true,
   images: {
     domains: ['raw.githubusercontent.com'],

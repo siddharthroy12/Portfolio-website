@@ -1,5 +1,5 @@
 ---
-title: anipahe
+title: Anipahe
 desc: A free open source mobile client for animepahe.com for browsing, watching
   and downloading anime
 stack:
