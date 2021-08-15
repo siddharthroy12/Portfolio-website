@@ -28,9 +28,9 @@ export default function Home({ projects, frontmatter }) {
     const words = bio.split(' ')
     const output = words.map(word => {
       if (shouldHighlight(word)) {
-        return <span className={styles.highlight}>{word}{' '}</span>
+        return <span className={styles.highlight} key={word}>{word}{' '}</span>
       } else {
-        return word + ' '
+        return <span key={word}>{word}{' '}</span>
       }
     })
 
