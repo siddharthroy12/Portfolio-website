@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiTypescript } from 'react-icons/si'
+import { VscLinkExternal } from 'react-icons/vsc'
 import Project from '../components/Project'
 import styles from '../styles/Home.module.css'
 import Section from '../components/Section'
@@ -87,6 +89,17 @@ export default function Home({ projects, frontmatter }) {
       {projects.map((project, index) => {
         return <Project {...project} flip={index % 2 !== 0} key={index}/>
       })}
+      <Link href='/works'>
+        <a className={styles.viewMore}>
+          View More <VscLinkExternal />
+        </a>
+      </Link>
+    </Section>
+    <Section
+      title="Contact"
+      subtitle="Let's have a talk"
+    >
+
     </Section>
   </>)
 }
@@ -102,8 +115,6 @@ export async function getStaticProps() {
       projects.push(data)
     } 
   })
-
-  console.log(projects)
 
   const frontmatter = matter(fs.readFileSync('./content/_index.md', 'utf8')).data
   return {

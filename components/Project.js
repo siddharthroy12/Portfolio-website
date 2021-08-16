@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Project.module.css'
 import { VscGithubAlt, VscLinkExternal } from 'react-icons/vsc'
@@ -5,6 +6,25 @@ import { VscGithubAlt, VscLinkExternal } from 'react-icons/vsc'
 export default function Project({ 
 	title, desc, stack, preview, code, live, flip, compact
 }) {
+	const previewContainer = useRef(null)
+
+	useEffect(() => {
+		const onMouseMove = (e) => {
+			if (previewContainer !== null && compact) {
+				let x = e.clientX
+				let y = e.clientY
+				previewContainer.current.style.top = (y + 20) + 'px';
+				previewContainer.current.style.left = (x + 20) + 'px';
+			}
+		}
+
+		addEventListener('mousemove', onMouseMove)
+
+		return () => {
+			removeEventListener('mousemove', onMouseMove)
+		}
+	}, [compact])
+
 	return (
 		<div 
 			className={`
@@ -13,11 +33,12 @@ export default function Project({
 				${compact && styles.containerCompact}
 			`}>
 			<div
+				ref={previewContainer}
 				className={`
 					${styles.previewContainer}
 					${compact && styles.previewContainerCompact}
 				`}>
-				{!compact && (
+				{true && (
 					<Image
 						src={preview}
 						height="300"

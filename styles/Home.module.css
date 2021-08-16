@@ -71,8 +71,33 @@
 	color: var(--font-color-secondary);
 }
 
+.featuredProjects {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .featuredProjects > * {
 	margin-bottom: 6rem;
+}
+
+.viewMore {
+	background-color: var(--accent-color);
+	padding: 1rem;
+	color: white;
+	border-radius: 3px;
+	display: flex;
+	justify-content: space-between;
+	min-width: 8.6rem;
+	align-items: center;
+	width: max-content;
+	cursor: pointer;
+	transition-duration: var(--transition-duration);
+	margin-bottom: 0;
+}
+
+.viewMore:hover {
+	box-shadow: 0 10px 30px -15px grey;
 }
 
 @media screen and (max-width: 1111px) {

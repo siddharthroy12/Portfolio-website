@@ -123,6 +123,7 @@
 .containerCompact {
 	display: inline-block;
 	max-width: 27rem;
+	background-color: var(--accent-color);
 }
 
 @media screen and (max-width: 1200px) {
@@ -144,12 +145,18 @@
 }
 
 .previewContainerCompact {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
+	position: fixed;
+	display: none;
+	width: 400px;
+	height: 230px;
+	border: 2px solid black;
+	z-index: 2;
+}
+
+.containerCompact:hover .previewContainerCompact {
+	display: block;
+	position: fixed;
+	overflow: hidden;
 }
 
 .previewContainerCompact > div {
@@ -159,6 +166,7 @@
 
 .previewOverlayCompact {
 	opacity: 0.9;
+	background-color: unset;
 }
 
 .projectDetailsCompact {
