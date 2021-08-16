@@ -122,7 +122,7 @@ export default function Home({ projects, frontmatter }) {
       subtitle="Let's have a talk"
     >
       <div className={styles.contactContainer}>
-        <form className={styles.form} data-netlify="true" method="POST" action="/formsuccess">
+        <form name="contact" className={styles.form} data-netlify="true" method="POST" action="/formsuccess">
           <input type="hidden" name="form-name" value="Contact" />
           <label htmlFor="name">Name</label>
           <input
