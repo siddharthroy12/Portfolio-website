@@ -1,7 +1,18 @@
-export default function Blog() {
+import Layout from '@components/Layout'
+import { getAuthorPic } from "utils"
+
+export default function Blog({ authorPic }) {
 	return (
-		<div className="alert alert-warning">
-			Coming Soon
-		</div>
+		<Layout authorPic={authorPic}>
+			<p className="alert alert-warning">Comming Soon</p>
+		</Layout>	
 	)
+}
+
+export async function getStaticProps() {
+	return {
+		props: {
+			authorPic: getAuthorPic()
+		}
+	}
 }

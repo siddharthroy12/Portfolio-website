@@ -1,5 +1,18 @@
-export default function Formsuccess() {
+import Layout from '@components/Layout'
+import { getAuthorPic } from "utils"
+
+export default function Formsuccess({ authorPic }) {
 	return (
-		<p className="alert">Form submitted successfully</p>
+		<Layout authorPic={authorPic}>
+			<p className="alert">Form submitted successfully</p>
+		</Layout>	
 	)
+}
+
+export async function getStaticProps() {
+	return {
+		props: {
+			authorPic: getAuthorPic()
+		}
+	}
 }

@@ -7,7 +7,7 @@ import { BsPen } from 'react-icons/bs'
 import { AiOutlinePhone } from 'react-icons/ai'
 import styles from '../styles/Header.module.css'
 
-export default function Header() {
+export default function Header({ authorPic }) {
 	const [isHeaderOpen, setIsHeaderOpen] = useState(false)
 	return (<>
 		<button className={styles.toggleBtn} onClick={() => setIsHeaderOpen(prev => !prev)}>
@@ -17,7 +17,7 @@ export default function Header() {
 			<div className={styles.initials}>
 				<div className={styles.picContainer}>
 					<Image
-						src="/uploads/profilepic.jpeg"
+						src={authorPic}
 						width="60"
 						height="60"
 						className={styles.profilePic}
