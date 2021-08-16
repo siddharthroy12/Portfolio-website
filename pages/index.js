@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiTypescript } from 'react-icons/si'
 import { VscLinkExternal } from 'react-icons/vsc'
+import { RiTwitterLine } from 'react-icons/ri'
+import { FiGithub, FiInstagram } from 'react-icons/fi'
 import Project from '../components/Project'
 import styles from '../styles/Home.module.css'
 import Section from '../components/Section'
@@ -99,7 +101,45 @@ export default function Home({ projects, frontmatter }) {
       title="Contact"
       subtitle="Let's have a talk"
     >
-
+      <div className={styles.contactContainer}>
+        <form className={styles.form}>
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Name"
+            required
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
+          <label htmlFor="message">Message</label>
+          <input
+            id="message"
+            name="message"
+            type="text"
+            placeholder="Message"
+            required
+          />
+          <button type="submit">Contact us</button>
+        </form>
+        <div className={styles.contactDetailsContainer}>
+          <p className={styles.contactDetailLabel}>Email</p>
+          <p className={styles.contactDetail}>siddharthroy@gmail.com</p>
+          <p className={styles.contactDetailLabel}>Socials</p>
+          <div className={styles.socialLinks}>
+            <a href="https://twitter.com/Siddharth_Roy12" target="_blank"><RiTwitterLine /></a>
+            <a href="https://github.com/siddharthroy12" target="_blank"><FiGithub /></a>
+            <a href="https://www.instagram.com/siddharthroy12/" target="_blank"><FiInstagram /></a>
+          </div>
+        </div>
+      </div>
     </Section>
   </>)
 }

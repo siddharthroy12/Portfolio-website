@@ -10,7 +10,7 @@ export default function Project({
 
 	useEffect(() => {
 		const onMouseMove = (e) => {
-			if (previewContainer !== null && compact) {
+			if (previewContainer.current !== null && compact) {
 				let x = e.clientX
 				let y = e.clientY
 				previewContainer.current.style.top = (y + 20) + 'px';
@@ -92,8 +92,8 @@ export default function Project({
 						${compact && styles.projectLinksCompact}
 					`}
 				>
-					<a href={code}><VscGithubAlt /></a>
-					<a href={live}><VscLinkExternal /></a>
+					<a href={code} target="_blank"><VscGithubAlt /></a>
+					<a href={live} target="_blank"><VscLinkExternal /></a>
 				</div>
 			</div>
 			{/* His job is to push the perview to get it smaller when the window is resized*/}

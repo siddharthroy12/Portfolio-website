@@ -210,6 +210,9 @@
 }
 
 @media screen and (max-width: 870px) {
+	.container {
+		width: 100%;
+	}
 	.previewContainer {
 		position: absolute;
 		top: 0;
@@ -236,6 +239,15 @@
 
 	.projectName {
 		color: white;
+	}
+
+	.stack {
+		justify-content: flex-start;
+	}
+	
+	.stack > * {
+		margin-right: 1rem;
+		margin-left: 0;
 	}
 
 	.previewContainer > div {

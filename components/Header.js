@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { VscHome, VscAccount, VscCode } from 'react-icons/vsc'
+import { AiOutlineMenu } from 'react-icons/ai'
 import { BsPen } from 'react-icons/bs'
 import { AiOutlinePhone } from 'react-icons/ai'
 import styles from '../styles/Header.module.css'
@@ -8,6 +9,9 @@ import styles from '../styles/Header.module.css'
 export default function Header() {
 	return (
 		<div className={styles.container}>
+			<div className={styles.toggleBtn}>
+				<AiOutlineMenu />
+			</div>
 			<div className={styles.initials}>
 				<div className={styles.picContainer}>
 					<Image
@@ -24,7 +28,7 @@ export default function Header() {
 			<nav className={styles.nav}>
 				<ul>
 					<li className={styles.navItem}>
-						<Link href="/#top">
+						<Link href="/">
 							<a>
 								<div className={styles.navIconContainer}>
 									<VscHome className={styles.navItemIcon}/>

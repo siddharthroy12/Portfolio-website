@@ -21,6 +21,15 @@
 	display: block;
 }
 
+.toggleBtn {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	color: black;
+	font-size: 2rem;
+	display: none;
+}
+
 .emoji {
 	display: none;
 	font-size: 0.7rem;
@@ -108,5 +117,9 @@
 	.container {
 		width: 0;
 		overflow: hidden;
+	}
+
+	.toggleBtn {
+		display: inline-block;
 	}
 }
