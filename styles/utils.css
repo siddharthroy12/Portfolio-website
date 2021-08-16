@@ -4,3 +4,18 @@
 	color: white;
 	border-radius: 50px;
 }
+
+.alert {
+	padding: 1rem;
+	font-size: 1rem;
+	background-color: #4FB477;
+	color: white;
+	border-left: 7px solid #3e9963;
+	border-radius: 3px;
+}
+
+.alert-warning {
+	background-color: #FFEB3C;
+	color: black;
+	border-color: #ddc018;
+}

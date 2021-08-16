@@ -25,9 +25,18 @@
 	position: fixed;
 	top: 1rem;
 	right: 1rem;
-	color: black;
 	font-size: 2rem;
 	display: none;
+	width: 3rem;
+	height: 3rem;
+	justify-content: center;
+	align-items: center;
+	background: var(--accent-color);
+	border-radius: 3px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	outline: none;
 }
 
 .emoji {
@@ -119,7 +128,21 @@
 		overflow: hidden;
 	}
 
+	.containerOpen {
+		width: 12rem;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	}
+
+	.containerOpen .emoji {
+		display: block;
+	}
+
+	.containerOpen .navItemText {
+		display: flex;
+		transition-duration: var(--transition-duration);
+	}
+
 	.toggleBtn {
-		display: inline-block;
+		display: flex;
 	}
 }

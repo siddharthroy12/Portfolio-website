@@ -1,6 +1,6 @@
 export default function Blog() {
 	return (
-		<div>
+		<div className="alert alert-warning">
 			Coming Soon
 		</div>
 	)

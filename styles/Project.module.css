@@ -209,6 +209,12 @@
 	bottom: 1rem;
 }
 
+@media screen and (max-width: 620px) {
+	.previewContainerCompact {
+		display: none !important;
+	}
+}
+
 @media screen and (max-width: 870px) {
 	.container {
 		width: 100%;
@@ -220,6 +226,15 @@
 		left: 0;
 		right: 0;
 		width: 100%;
+	}
+
+	.previewContainerCompact {
+		position: fixed;
+		display: none;
+		width: 400px;
+		height: 230px;
+		border: 2px solid black;
+		z-index: 2;
 	}
 
 	.previewOverlay {

@@ -1,5 +1,5 @@
 export default function Formsuccess() {
 	return (
-		<p>Form submitted successfully</p>
+		<p className="alert">Form submitted successfully</p>
 	)
 }

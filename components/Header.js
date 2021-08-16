@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { VscHome, VscAccount, VscCode } from 'react-icons/vsc'
@@ -7,11 +8,12 @@ import { AiOutlinePhone } from 'react-icons/ai'
 import styles from '../styles/Header.module.css'
 
 export default function Header() {
-	return (
-		<div className={styles.container}>
-			<div className={styles.toggleBtn}>
-				<AiOutlineMenu />
-			</div>
+	const [isHeaderOpen, setIsHeaderOpen] = useState(true)
+	return (<>
+		<button className={styles.toggleBtn} onClick={() => setIsHeaderOpen(prev => !prev)}>
+			<AiOutlineMenu />
+		</button>
+		<div className={`${styles.container} ${isHeaderOpen && styles.containerOpen}`}>
 			<div className={styles.initials}>
 				<div className={styles.picContainer}>
 					<Image
@@ -80,5 +82,5 @@ export default function Header() {
 				</ul>
 			</nav>
 		</div>
-	)
+	</>)
 }
