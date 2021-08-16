@@ -123,7 +123,7 @@ export default function Home({ projects, frontmatter }) {
     >
       <div className={styles.contactContainer}>
         <form name="contact" className={styles.form} data-netlify="true" method="POST" action="/formsuccess">
-          <input type="hidden" name="form-name" value="Contact" />
+          <input type="hidden" name="form-name" value="contact" />
           <label htmlFor="name">Name</label>
           <input
             id="name"
