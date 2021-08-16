@@ -40,6 +40,25 @@ export default function Home({ projects, frontmatter }) {
     return output
   }
 
+  // function encode(data) {
+  //   return Object.keys(data)
+  //     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+  //     .join("&")
+  // }
+
+  // const formSubmitHandler = (e) => {
+  //   e.preventDefault()
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({
+  //       "name": e.target.getAttribute("name"),
+  //       "email": e.target.getAttribute("email"),
+  //       "name": e.target.getAttribute("name"),
+  //     })
+  //   }).then(() => navigate("/thank-you/")).catch(error => alert(error))
+  // }
+
   return (<>
     <Head>
       <title>{frontmatter.name} - Web developer</title>
@@ -98,11 +117,12 @@ export default function Home({ projects, frontmatter }) {
       </Link>
     </Section>
     <Section
+      id="contact"
       title="Contact"
       subtitle="Let's have a talk"
     >
       <div className={styles.contactContainer}>
-        <form className={styles.form}>
+        <form className={styles.form} data-netlify="true" method="POST" action="/formsuccess">
           <label htmlFor="name">Name</label>
           <input
             id="name"
@@ -131,7 +151,9 @@ export default function Home({ projects, frontmatter }) {
         </form>
         <div className={styles.contactDetailsContainer}>
           <p className={styles.contactDetailLabel}>Email</p>
-          <p className={styles.contactDetail}>siddharthroy@gmail.com</p>
+          <a className={styles.contactDetail} href={`mailto:${frontmatter.email}`} target="_blank">
+            {frontmatter.email}
+          </a>
           <p className={styles.contactDetailLabel}>Socials</p>
           <div className={styles.socialLinks}>
             <a href="https://twitter.com/Siddharth_Roy12" target="_blank"><RiTwitterLine /></a>
@@ -143,7 +165,6 @@ export default function Home({ projects, frontmatter }) {
     </Section>
   </>)
 }
-
 
 export async function getStaticProps() {
   const filesInProjects = fs.readdirSync('./content/projects')

@@ -44,3 +44,4 @@ collections:
           - {label: "Small Bio", name: smallbio, widget: text}
           - {label: "About", name: about, widget: text}
           - {label: "Picture", name: picture, wiget: image}
+          - {label: "Email", name: email, widget: text}

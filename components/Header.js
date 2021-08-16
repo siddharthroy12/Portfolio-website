@@ -58,7 +58,7 @@ export default function Header() {
 						</Link>
 					</li>
 					<li className={styles.navItem}>
-						<Link href="/#about">
+						<Link href="/blog">
 							<a>
 								<div className={styles.navIconContainer}>
 									<BsPen className={styles.navItemIcon}/>
@@ -68,7 +68,7 @@ export default function Header() {
 						</Link>
 					</li>
 					<li className={styles.navItem}>
-						<Link href="/#about">
+						<Link href="/#contact">
 							<a>
 								<div className={styles.navIconContainer}>
 									<AiOutlinePhone className={styles.navItemIcon}/>
