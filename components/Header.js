@@ -8,7 +8,7 @@ import { AiOutlinePhone } from 'react-icons/ai'
 import styles from '../styles/Header.module.css'
 
 export default function Header() {
-	const [isHeaderOpen, setIsHeaderOpen] = useState(true)
+	const [isHeaderOpen, setIsHeaderOpen] = useState(false)
 	return (<>
 		<button className={styles.toggleBtn} onClick={() => setIsHeaderOpen(prev => !prev)}>
 			<AiOutlineMenu />
