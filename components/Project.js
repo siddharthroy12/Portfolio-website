@@ -92,8 +92,12 @@ export default function Project({
 						${compact && styles.projectLinksCompact}
 					`}
 				>
-					<a href={code} target="_blank"><VscGithubAlt /></a>
-					<a href={live} target="_blank"><VscLinkExternal /></a>
+					<a href={code} target="_blank" rel="noreferrer">
+						<VscGithubAlt />
+					</a>
+					<a href={live} target="_blank" rel="noreferrer">
+						<VscLinkExternal />
+					</a>
 				</div>
 			</div>
 			{/* His job is to push the perview to get it smaller when the window is resized*/}

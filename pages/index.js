@@ -151,14 +151,25 @@ export default function Home({ projects, frontmatter }) {
         </form>
         <div className={styles.contactDetailsContainer}>
           <p className={styles.contactDetailLabel}>Email</p>
-          <a className={styles.contactDetail} href={`mailto:${frontmatter.email}`} target="_blank">
+          <a
+            className={styles.contactDetail}
+            href={`mailto:${frontmatter.email}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             {frontmatter.email}
           </a>
           <p className={styles.contactDetailLabel}>Socials</p>
           <div className={styles.socialLinks}>
-            <a href="https://twitter.com/Siddharth_Roy12" target="_blank"><RiTwitterLine /></a>
-            <a href="https://github.com/siddharthroy12" target="_blank"><FiGithub /></a>
-            <a href="https://www.instagram.com/siddharthroy12/" target="_blank"><FiInstagram /></a>
+            <a href="https://twitter.com/Siddharth_Roy12" target="_blank" rel="noreferrer">
+              <RiTwitterLine />
+            </a>
+            <a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer">
+              <FiGithub />
+              </a>
+            <a href="https://www.instagram.com/siddharthroy12/" target="_blank" rel="noreferrer">
+              <FiInstagram />
+            </a>
           </div>
         </div>
       </div>
