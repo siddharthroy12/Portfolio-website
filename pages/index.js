@@ -42,7 +42,7 @@ export default function Home({ projects, frontmatter }) {
   }
 
   return (<>
-    <Layout authorPic={frontmatter.picture}>
+    <Layout frontData={frontmatter}>
       <Head>
         <title>{frontmatter.name} - Web developer</title>
         <meta

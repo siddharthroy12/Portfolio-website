@@ -5,6 +5,7 @@ import { VscHome, VscAccount, VscCode } from 'react-icons/vsc'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { BsPen } from 'react-icons/bs'
 import { AiOutlinePhone } from 'react-icons/ai'
+import randomEmoji from '../utils/randomEmoji'
 import styles from '../styles/Header.module.css'
 
 export default function Header({ authorPic }) {
@@ -25,7 +26,7 @@ export default function Header({ authorPic }) {
 						alt="Dev's Picture"
 					/>
 				</div>
-				<span className={styles.emoji}>ヽ(￣～￣　)ノ</span>
+				<span className={styles.emoji}>{randomEmoji()}</span>
 			</div>
 			<nav className={styles.nav}>
 				<ul>

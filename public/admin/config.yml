@@ -45,3 +45,5 @@ collections:
           - {label: "About", name: about, widget: text}
           - {label: "Picture", name: picture, widget: "image"}
           - {label: "Email", name: email, widget: string}
+          - {label: "Head Title", name: headtitle, widget: text}
+          - {label: "Head Description", name: headdescription, widget: string}

@@ -1,9 +1,9 @@
 import Layout from '@components/Layout'
-import { getAuthorPic } from "utils"
+import getFrontData from 'utils/getFrontData'
 
-export default function Formsuccess({ authorPic }) {
+export default function Formsuccess({ frontData }) {
 	return (
-		<Layout authorPic={authorPic}>
+		<Layout frontData={frontData}>
 			<p className="alert">Form submitted successfully</p>
 		</Layout>	
 	)
@@ -12,7 +12,7 @@ export default function Formsuccess({ authorPic }) {
 export async function getStaticProps() {
 	return {
 		props: {
-			authorPic: getAuthorPic()
+			frontData: getFrontData()
 		}
 	}
 }

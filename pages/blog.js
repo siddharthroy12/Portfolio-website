@@ -1,9 +1,9 @@
 import Layout from '@components/Layout'
-import { getAuthorPic } from "utils"
+import getFrontData from 'utils/getFrontData'
 
-export default function Blog({ authorPic }) {
+export default function Blog({ frontData }) {
 	return (
-		<Layout authorPic={authorPic}>
+		<Layout frontData={frontData}>
 			<p className="alert alert-warning">Comming Soon</p>
 		</Layout>	
 	)
@@ -12,7 +12,7 @@ export default function Blog({ authorPic }) {
 export async function getStaticProps() {
 	return {
 		props: {
-			authorPic: getAuthorPic()
+			frontData: getFrontData()
 		}
 	}
 }

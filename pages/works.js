@@ -4,11 +4,11 @@ import Section from '@components/Section'
 import Project from '@components/Project'
 import Layout from '@components/Layout'
 import styles from '@styles/Works.module.css'
-import { getAuthorPic } from 'utils'
+import getFrontData from 'utils/getFrontData'
 
-export default function Works({ projects, authorPic }) {
+export default function Works({ projects, frontData }) {
 	return (
-		<Layout authorPic={authorPic}>
+		<Layout frontData={frontData}>
 			<Section title="All Projects" subtitle="Here are my" smallMargin>
 				<div className={styles.flexGrid}>
 				{projects.map((project, index) => <Project {...project} compact key={index}/>)}
@@ -26,7 +26,7 @@ export async function getStaticProps() {
   return {
     props: {
       projects,
-			authorPic: getAuthorPic()
+			frontData: getFrontData()
     }
   }
 }
