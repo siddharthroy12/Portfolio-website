@@ -32,3 +32,9 @@ a {
   --font-color-primary: #333;
   --font-color-secondary: #54616F;
 }
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 0.8rem;
+  }
+}
