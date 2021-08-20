@@ -1,9 +1,12 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 
-export default function getFrontData() {
+export default function withFrontData(data) {
 	const { picture, headtitle, headdescription } = matter(fs.readFileSync('./content/_index.md', 'utf8')).data
 	return {
-		picture, headtitle, headdescription
+		props: {
+			...data?.props,
+			frontData: { picture, headtitle, headdescription }
+		}
 	}
 }

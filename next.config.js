@@ -1,14 +1,9 @@
-module.exports = {
+const withTM = require('next-transpile-modules')(['react-syntax-highlighter']);
+
+module.exports = withTM({
   target: 'serverless',
   reactStrictMode: true,
   images: {
     domains: ['raw.githubusercontent.com'],
-  },
-  webpack: function (config) {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'raw-loader',
-    })
-    return config
-  },
-}
+  }
+})

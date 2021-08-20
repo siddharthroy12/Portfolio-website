@@ -8,6 +8,31 @@
 	margin-left: 6rem;
 }
 
+.footer {
+	background-color: var(--font-color-primary);
+	color: #969696;
+	margin-top: 2rem;
+}
+
+.footer > div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer > div > p {
+	display: flex;
+	align-items: center;
+}
+
+.footer > div > p > svg {
+	margin: 0 5px;
+	transition-duration: var(--transition-duration);
+}
+
+.footer > div > p > svg:hover {
+	color: rgb(34, 180, 238);
+}
+
 @media screen and (max-width: 620px) {
 	.sidePush {
 		margin-left: 0;

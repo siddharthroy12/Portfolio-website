@@ -5,6 +5,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
   background-color: #F7F7F7;
   scrollbar-color: #F7F7F7 var(--accent-color);
+  scroll-behavior: smooth;
 }
 body::-webkit-scrollbar {
   background-color: var(--accent-color);
@@ -29,7 +30,7 @@ a {
 :root {
   --accent-color: #6b38db;
   --transition-duration: 200ms;
-  --font-color-primary: #333;
+  --font-color-primary: #1D1F21;
   --font-color-secondary: #54616F;
 }
 

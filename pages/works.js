@@ -2,19 +2,16 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import Section from '@components/Section'
 import Project from '@components/Project'
-import Layout from '@components/Layout'
 import styles from '@styles/Works.module.css'
-import getFrontData from 'utils/getFrontData'
+import withFrontData from '@utils/withFrontData'
 
-export default function Works({ projects, frontData }) {
+export default function Works({ projects }) {
 	return (
-		<Layout frontData={frontData}>
-			<Section title="All Projects" subtitle="Here are my" smallMargin>
-				<div className={styles.flexGrid}>
-				{projects.map((project, index) => <Project {...project} compact key={index}/>)}
-				</div>
-			</Section>
-		</Layout>
+		<Section title="All Projects" subtitle="Here are my" smallMargin>
+			<div className={styles.flexGrid}>
+			{projects.map((project, index) => <Project {...project} compact key={index}/>)}
+			</div>
+		</Section>
 	)
 }
 
@@ -23,10 +20,9 @@ export async function getStaticProps() {
   const projects = filesInProjects.map(file => {
     return matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
   })
-  return {
+  return withFrontData({
     props: {
-      projects,
-			frontData: getFrontData()
+      projects
     }
-  }
+  })
 }

@@ -14,7 +14,7 @@ class MyDocument extends Document {
           {/* Netlify Widget */}
           <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
           {/* Global site tag (gtag.js) - Google Analytics */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-HH2G2P102C"></script>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-HH2G2P102C" />
           <script dangerouslySetInnerHTML={{
             __html:`
               window.dataLayer = window.dataLayer || [];
@@ -22,8 +22,7 @@ class MyDocument extends Document {
               gtag('js', new Date());
 
               gtag('config', 'G-HH2G2P102C');
-            `
-          }}>
+          `}}>
           </script>
         </Head>
         <body>

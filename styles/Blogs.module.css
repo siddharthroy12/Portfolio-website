@@ -1,0 +1,53 @@
+.card {
+	margin-bottom: 5rem;
+	max-width: 35rem;
+}
+
+.card:hover .name {
+	text-decoration: underline;
+}
+
+.name {
+ font-weight: 500;
+ margin-bottom: 1rem;
+}
+
+.description {
+	color: var(--font-color-secondary);
+	line-height: 20px;
+	margin-bottom: 1rem;
+}
+
+.date {
+	font-weight: 400;
+	font-size: 0.9rem;
+}
+
+.pagination {
+	display: flex;
+	font-size: 1rem;
+}
+
+.pagination ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.pagination ul .active {
+	border: 2px solid var(--font-color-primary);
+}
+
+.pagination li {
+	--size: 2rem;
+	height: var(--size);
+	width: var(--size);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 0.3rem;
+}
+
+.pagination li svg {
+	font-size: 1.5rem;
+}

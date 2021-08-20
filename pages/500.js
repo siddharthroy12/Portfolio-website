@@ -1,8 +1,8 @@
 import withFrontData from '@utils/withFrontData'
 
-export default function Formsuccess() {
+export default function ServerError() {
 	return (
-		<p className="alert">Form submitted successfully</p>
+		<p className="danger">500 - Server Error</p>
 	)
 }
 

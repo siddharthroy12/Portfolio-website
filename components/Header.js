@@ -31,7 +31,7 @@ export default function Header({ authorPic }) {
 			<nav className={styles.nav}>
 				<ul>
 					<li className={styles.navItem}>
-						<Link href="/">
+						<Link href="/#top">
 							<a>
 								<div className={styles.navIconContainer}>
 									<VscHome className={styles.navItemIcon}/>
@@ -61,7 +61,7 @@ export default function Header({ authorPic }) {
 						</Link>
 					</li>
 					<li className={styles.navItem}>
-						<Link href="/blog">
+						<Link href="/blogs/1">
 							<a>
 								<div className={styles.navIconContainer}>
 									<BsPen className={styles.navItemIcon}/>
