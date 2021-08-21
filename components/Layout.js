@@ -12,7 +12,7 @@ export default function Layout({ children, frontData }) {
 			</Head>
 			<Header authorPic={frontData.picture} />
 			<div className={styles.sidePush}>
-				<div className={styles.container} id="top">
+				<div className={`${styles.container} ${styles.content}`} id="top">
 					{children}
 				</div>
 				<footer className={styles.footer}>

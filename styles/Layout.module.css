@@ -8,15 +8,23 @@
 	margin-left: 6rem;
 }
 
+.content {
+	min-height: calc(100vh - 5rem);
+}
+
 .footer {
 	background-color: var(--font-color-primary);
 	color: #969696;
-	margin-top: 2rem;
+	height: 5rem;
 }
 
 .footer > div {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	align-items: center;
+	padding: 0 2rem;
+	height: 100%;
 }
 
 .footer > div > p {
