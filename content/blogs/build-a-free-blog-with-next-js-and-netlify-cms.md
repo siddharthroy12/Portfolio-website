@@ -4,6 +4,7 @@ description: Learn how to build using Next.js and Netlify CMS and host it for fr
 date: 2021-08-23T06:52:52.811Z
 ---
 ## Table of contents
+
 1. [What is Next.js](#what-is-next-js)
 2. [What is Netlify CMS](#what-is-netlify-cms)
 3. [Why Next.js and Netlify CMS](#why-next-js-and-netlify-cms)
@@ -27,12 +28,15 @@ If you are a React Developer and want to build a website with a CMS but hate Wor
 ## Getting Started
 
 Getting set up Next.js is simple, enter this command and it will set up a basic Next.js project for you:
+
 ```bash
 npx create-next-app nextjs-blog
 # or
 yarn create next-app nextjs-blog
 ```
+
 After the setup is complete cd into the folder and run this command to start the app in the development server:
+
 ```
 cd nextjs-blog
 yarn dev
@@ -45,6 +49,7 @@ Visit `localhost:3000` to view your app
 ![Welcome to Next.js](https://nextjs.org/static/images/learn/create-nextjs-app/welcome-to-nextjs.png)
 
 If you look at the folder you will see 3 folders:
+
 1. pages
 2. public
 3. styles
@@ -72,3 +77,31 @@ export default function Testpage() {
 Here the name of the function doesn't matter.
 
 Now if you visit `localhost:300/testpage` you will see this
+
+![Page Screenshot](https://i.imgur.com/wzFwiYy.png)
+
+Each page is associated with a route based on its filename.
+
+## Home Page
+
+Now it's time to make our Home Page to show the list of blogs.
+
+First, delete everything in the \`index.js\` and fill it with this:
+
+```jsx
+import styles from '../styles/Home.module.css'
+
+export default function Home() {
+  return (<div className={styles['container']}>
+    <h1 className={styles['header']}>Welcome to my blog</h1>
+    <p className={styles['subtitle']}>This is a subtitle idk what to type here</p>
+    <ul className={styles['blog-list']}>
+      <li>A cool blog</li>
+      <li>How to train a dragon</li>
+      <li>How to catch a pokemon</li>
+    </ul>
+  </div>)
+}
+```
+
+If you are wondering what is happening in the first line, Next.js allows us to import CSS files as a module then you can access the classes as a key from styles. The name the the CSS file must end with \`.module.css\` for it to work. This prevents class
