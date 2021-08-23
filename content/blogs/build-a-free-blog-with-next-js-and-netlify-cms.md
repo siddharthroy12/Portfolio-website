@@ -1,0 +1,74 @@
+---
+title: Build a free blog with Next.js and Netlify CMS
+description: Learn how to build using Next.js and Netlify CMS and host it for free!
+date: 2021-08-23T06:52:52.811Z
+---
+## Table of contents
+1. [What is Next.js](#what-is-next-js)
+2. [What is Netlify CMS](#what-is-netlify-cms)
+3. [Why Next.js and Netlify CMS](#why-next-js-and-netlify-cms)
+4. [Getting started](#getting-started)
+5. [Home Page](#home-page)
+6. [Blog Page](#blog-page)
+7. [Connect Nextlify CMS](#connect-netlify-cms)
+
+## What is Next.js
+
+Next.js is a React Framework for building fast SEO-friendly websites. It supports serverside rendering, static site generation, optimizations,  and much more. Basically, you can write serverside web apps using React which is necessary for building a blog because every page will be pre-rendered which is necessary for SEO. You will learn more about Next.js and how it works in this tutorial below.
+
+## What is Netlify CMS
+
+It's a git-based Headless CMS build using React. It provides a rich text editor, real-time preview, media uploads all for free If you are hosting your site on Netlify.
+
+## Why Next.js and Netlify CMS
+
+If you are a React Developer and want to build a website with a CMS but hate WordPress then Next.js with Netlify CMS is the best option for you.
+
+## Getting Started
+
+Getting set up Next.js is simple, enter this command and it will set up a basic Next.js project for you:
+```bash
+npx create-next-app nextjs-blog
+# or
+yarn create next-app nextjs-blog
+```
+After the setup is complete cd into the folder and run this command to start the app in the development server:
+```
+cd nextjs-blog
+yarn dev
+# or
+npm dev
+```
+
+Visit `localhost:3000` to view your app
+
+![Welcome to Next.js](https://nextjs.org/static/images/learn/create-nextjs-app/welcome-to-nextjs.png)
+
+If you look at the folder you will see 3 folders:
+1. pages
+2. public
+3. styles
+
+They are pretty self-explanatory, I don't think I need to explain what they do.
+
+Inside the pages folder, you will notice an API folder. This is for writing REST API and we will not use this folder for this project so you can delete that.
+
+The `_app.js` this the entry point of our app just like index.js in create-react-app.
+
+The `index.js` returns a react component and it will render when you visit the front page of the app.
+
+Routing in Next.js is different from traditional create-react-app, we do not use react-router here instead we create a new react component in the pages folder with the name of route as the filename. For example, create a new file `testpage.js` in the pages folder with the following:
+
+```js
+export default function Testpage() {
+	return (
+		<div>
+			<p>Hello</p>
+		</div>
+	)
+}
+```
+
+Here the name of the function doesn't matter.
+
+Now if you visit `localhost:300/testpage` you will see this
