@@ -28,7 +28,12 @@ a {
 }
 
 :root {
-  --accent-color: #6b38db;
+  --color-1: #424242;
+  --color-2: #333333;
+  --page-background-color: #212121;
+  --page-font-color: white;
+  --page-font-color-secondary: #C8C8C8;
+  --accent-color: #1976D2;
   --transition-duration: 200ms;
   --font-color-primary: #1D1F21;
   --font-color-secondary: #54616F;

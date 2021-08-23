@@ -1,87 +1,66 @@
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import { VscHome, VscAccount, VscCode } from 'react-icons/vsc'
-import { AiOutlineMenu } from 'react-icons/ai'
-import { BsPen } from 'react-icons/bs'
-import { AiOutlinePhone } from 'react-icons/ai'
-import randomEmoji from '../utils/randomEmoji'
+import { useRouter } from 'next/router'
 import styles from '../styles/Header.module.css'
+import { RiTwitterLine } from 'react-icons/ri'
+import { FiGithub, FiInstagram } from 'react-icons/fi'
 
-export default function Header({ authorPic }) {
+const navLinks = {
+	About: '/',
+	Projects: '/projects',
+	Blogs: '/blogs/1',
+	Contact: '/contact'
+}
+
+function pathCheck(path, pathToCheck) {
+	if (path === '/' && pathToCheck === '/') {
+		return true
+	}
+
+	const pathToCheckWithoutFirstSlash = pathToCheck.slice(1)
+	let indexOfSecondSlash = pathToCheckWithoutFirstSlash.indexOf('/') + 1
+
+	if (indexOfSecondSlash === 0) {
+		indexOfSecondSlash = pathToCheck.length
+	}
+	const pathToCheckWithoutSecondSlash = pathToCheck.slice(0, indexOfSecondSlash)
+
+	const pathWithoutFirstSlash = path.slice(1)
+	indexOfSecondSlash = pathWithoutFirstSlash.indexOf('/') + 1
+
+	const pathWithoutSecondSlash = path.slice(0, indexOfSecondSlash)
+
+	return pathWithoutSecondSlash === pathToCheckWithoutSecondSlash ? true : false
+}
+
+export default function Header(pageHeader) {
 	const [isHeaderOpen, setIsHeaderOpen] = useState(false)
-	return (<>
-		<button className={styles.toggleBtn} onClick={() => setIsHeaderOpen(prev => !prev)}>
-			<AiOutlineMenu />
-		</button>
-		<div className={`${styles.container} ${isHeaderOpen && styles.containerOpen}`}>
-			<div className={styles.initials}>
-				<div className={styles.picContainer}>
-					<Image
-						src={authorPic}
-						width="60"
-						height="60"
-						className={styles.profilePic}
-						layout="fixed"
-						alt="Dev's Picture"
-					/>
-				</div>
-				<span className={styles.emoji}>{randomEmoji()}</span>
-			</div>
-			<nav className={styles.nav}>
+	const router = useRouter()
+	console.log(router.pathname)
+	return (<header className={styles['container']}>
+		<div className={styles['header-top']}>
+			<ul className={styles['social-link-list']}>
+				<li><RiTwitterLine /></li>
+				<li><FiGithub /></li>
+				<li><FiInstagram /></li>
+			</ul>
+			<nav>
 				<ul>
-					<li className={styles.navItem}>
-						<Link href="/#top">
-							<a>
-								<div className={styles.navIconContainer}>
-									<VscHome className={styles.navItemIcon}/>
-								</div>
-								<span className={styles.navItemText}>Home</span>
-							</a>
-						</Link>
-					</li>
-					<li className={styles.navItem}>
-						<Link href="/#about">
-							<a>
-								<div className={styles.navIconContainer}>
-									<VscAccount className={styles.navItemIcon}/>
-								</div>
-								<span className={styles.navItemText}>About</span>
-							</a>
-						</Link>
-					</li>
-					<li className={styles.navItem}>
-						<Link href="/works">
-							<a>
-								<div className={styles.navIconContainer}>
-									<VscCode className={styles.navItemIcon}/>
-								</div>
-								<span className={styles.navItemText}>Works</span>
-							</a>
-						</Link>
-					</li>
-					<li className={styles.navItem}>
-						<Link href="/blogs/1">
-							<a>
-								<div className={styles.navIconContainer}>
-									<BsPen className={styles.navItemIcon}/>
-								</div>
-								<span className={styles.navItemText}>Blog</span>
-							</a>
-						</Link>
-					</li>
-					<li className={styles.navItem}>
-						<Link href="/#contact">
-							<a>
-								<div className={styles.navIconContainer}>
-									<AiOutlinePhone className={styles.navItemIcon}/>
-								</div>
-								<span className={styles.navItemText}>Contact</span>
-							</a>
-						</Link>
-					</li>
+					{Object.keys(navLinks).map(key => (
+						<li
+							className={
+								pathCheck(router.pathname, navLinks[key]) &&
+								styles['active-link']
+							}
+							key={key}
+						>
+							<Link href={navLinks[key]}>
+								<a>{key}</a>
+							</Link>
+						</li>
+					))}
 				</ul>
 			</nav>
 		</div>
-	</>)
+	</header>)
 }
