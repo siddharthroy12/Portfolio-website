@@ -104,4 +104,4 @@ export default function Home() {
 }
 ```
 
-If you are wondering what is happening in the first line, Next.js allows us to import CSS files as a module then you can access the classes as a key from styles. The name the the CSS file must end with \`.module.css\` for it to work. This prevents class
+If you are wondering what is happening in the first line, Next.js allows us to import CSS files as a module then you can access the classes as a key from styles. The name the the CSS file must end with \`.module.css\` for it to work. This allows you to use the same CSS class name in different files without worrying about collisions.
