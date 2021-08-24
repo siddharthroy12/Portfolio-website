@@ -195,7 +195,7 @@ export default function Home({ blogs }) {
     <p className={styles['subtitle']}>This is a subtitle idk what to type here</p>
     <ul className={styles['blog-list']}>
       {blogs.map(blog => (
-        <li>
+        <li key={blog.slug}>
           <Link href={blog.slug}>
             <a>{blog.date}:{blog.title}</a>
           </Link>
@@ -228,3 +228,9 @@ export async function getStaticProps() {
 
 }
 ```
+
+Explanation:
+
+* In a typical create-react-app, all the rendering happens at the client-side but Next.js allows us to pre-render pages and it has two forms **Static Generation** (Using \`getStaticProps\`) and **Server Side Rendering** (Using \`getServerSideProps\`). [Learn more](https://nextjs.org/docs/basic-features/pages#pre-rendering)
+* In the getStaticProps function, we are listing all the files in the blogs folder, parse the front matter and slug based on filename, and return them.
+* In the Component function, we are simply listing all the blogs from the \`blogs\` array given from \`getStaticProps\` and using \`Link\` from Next.js for fast client-side page transition.
