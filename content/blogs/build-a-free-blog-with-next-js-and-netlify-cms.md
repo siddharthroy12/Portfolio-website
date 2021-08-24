@@ -29,7 +29,7 @@ If you are a React Developer and want to build a website with a CMS but hate Wor
 
 Getting set up Next.js is simple, enter this command and it will set up a basic Next.js project for you:
 
-```bash
+```shell
 npx create-next-app nextjs-blog
 # or
 yarn create next-app nextjs-blog
@@ -37,7 +37,7 @@ yarn create next-app nextjs-blog
 
 After the setup is complete cd into the folder and run this command to start the app in the development server:
 
-```
+```shell
 cd nextjs-blog
 yarn dev
 # or
@@ -58,7 +58,7 @@ They are pretty self-explanatory, I don't think I need to explain what they do.
 
 Inside the pages folder, you will notice an API folder. This is for writing REST API and we will not use this folder for this project so you can delete that.
 
-The `_app.js` this the entry point of our app just like index.js in create-react-app.
+The `_app.js` this is the entry point of our app just like index.js in create-react-app.
 
 The `index.js` returns a react component and it will render when you visit the front page of the app.
 
@@ -77,6 +77,8 @@ export default function Testpage() {
 Here the name of the function doesn't matter.
 
 Now if you visit `localhost:300/testpage` you will see this
+
+> To learn more about pages check out [Next.js Docs](https://nextjs.org/docs/basic-features/pages)
 
 ![Page Screenshot](https://i.imgur.com/wzFwiYy.png)
 
@@ -128,6 +130,11 @@ Then replace everything in the \`Home.module.css\` file in the styles folder wit
   margin: auto;
   width: max-content;
 }
+
+.blog-list a {
+  color: rgb(4, 165, 165);
+  text-decoration: underline;
+}
 ```
 
 Now it should look like this
@@ -154,8 +161,9 @@ date: 24, August, 2021
 
 # Welcome to my blog
 
-This is an markdown file with some frontmatter
-Yes you have key value pair in yaml format covered by --- on the of markdown file
+This is an markdown file with some front matter.
+Yes you have key value pair in yaml format covered by --- on the of markdown file.
+The yaml style key value pair on the top is called front matter.
 
 ## Header 2
 
@@ -164,4 +172,59 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 > a blockquote
 ```
 
-Now In the \`index.js\` file add this
+Before listing our newly created blog on my Home Page we have to install a library to parse the "front matter"
+
+```shell
+npm install gray-matter
+# or
+yarn add gray-matter
+```
+
+Then modify the \`index.js\` file to like this:
+
+```jsx
+import fs from 'fs'
+import matter from 'gray-matter'
+import Link from 'next/link'
+
+import styles from '../styles/Home.module.css'
+
+export default function Home({ blogs }) {
+  return (<div className={styles['container']}>
+    <h1 className={styles['header']}>Welcome to my blog</h1>
+    <p className={styles['subtitle']}>This is a subtitle idk what to type here</p>
+    <ul className={styles['blog-list']}>
+      {blogs.map(blog => (
+        <li>
+          <Link href={blog.slug}>
+            <a>{blog.date}:{blog.title}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>)
+}
+
+export async function getStaticProps() {
+  // List of files in blgos folder
+  const filesInBlogs = fs.readdirSync('./content/blogs')
+
+  // Get the front matter and slug (the filename without .md) of all files
+  const blogs = filesInBlogs.map(filename => {
+    const file = fs.readFileSync(`./content/blogs/${filename}`, 'utf8')
+	const matterData = matter(file)
+    
+    return {
+      ...matterData.data, // matterData.data contains front matter
+      slug: filename.slice(0, filename.indexOf('.'))
+    }
+  })
+
+  return {
+    props: {
+      blogs
+    }
+  }
+
+}
+```
