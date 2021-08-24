@@ -235,3 +235,11 @@ Explanation:
 * In a typical create-react-app, all the rendering happens at the client-side but Next.js allows us to pre-render pages and it has two forms **Static Generation** (Using `getStaticProps`) and **Server Side Rendering** (Using `getServerSideProps`). [Learn more](https://nextjs.org/docs/basic-features/pages#pre-rendering)
 * In the `getStaticProps` function, we are listing all the files in the blogs folder, parse the front matter and slug based on filename, and return them.
 * In the Component function, we are simply listing all the blogs from the `blogs` array given from `getStaticProps` and using `Link` Component from Next.js for fast client-side page transition.
+
+
+
+Let's check how it looks on the browser.
+
+![Front Page Screenshot](https://imgur.com/epyA6HYl.png)
+
+Looks good but If you click on that link, it will show a 404 page. Let's fix that
