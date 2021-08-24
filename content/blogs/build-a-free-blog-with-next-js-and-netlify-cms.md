@@ -64,13 +64,13 @@ The `index.js` returns a react component and it will render when you visit the f
 
 Routing in Next.js is different from traditional create-react-app, we do not use react-router here instead we create a new react component in the pages folder with the name of route as the filename. For example, create a new file `testpage.js` in the pages folder with the following:
 
-```js
+```jsx
 export default function Testpage() {
-	return (
-		<div>
-			<p>Hello</p>
-		</div>
-	)
+  return (
+    <div>
+      <p>Hello</p>
+	</div>
+  )
 }
 ```
 
@@ -86,7 +86,7 @@ Each page is associated with a route based on its filename.
 
 Now it's time to make our Home Page to show the list of blogs.
 
-First, delete everything in the \`index.js\` and fill it with this:
+First, replace everything in the \`index.js\` with this:
 
 ```jsx
 import styles from '../styles/Home.module.css'
@@ -104,4 +104,64 @@ export default function Home() {
 }
 ```
 
-If you are wondering what is happening in the first line, Next.js allows us to import CSS files as a module then you can access the classes as a key from styles. The name the the CSS file must end with \`.module.css\` for it to work. This allows you to use the same CSS class name in different files without worrying about collisions.
+If you are wondering what is happening in the first line, Next.js allows us to import CSS files as a module then you can access the classes as a key from styles. The name of the CSS file must end with \`.module.css\` for it to work. This allows you to use the same CSS class name in different files without worrying about collisions.
+
+Then replace everything in the \`Home.module.css\` file in the styles folder with this:
+
+```css
+.container {
+  text-align: center;
+  padding-top: 10rem;
+  color: #445566;
+}
+
+.header {
+  font-size: 3rem;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+}
+
+.blog-list {
+  text-align: start;
+  margin: auto;
+  width: max-content;
+}
+```
+
+Now it should look like this
+
+![Home Page Screenshot](https://imgur.com/kJECvlJ.png)
+
+## Listing Blogs
+
+Now It's time to add some dummy blogs and list them on Home Page.
+
+First, make a new folder at the root of the project called \`content\`.
+
+> Note: The name of this folder doesn't matter, you can rename it to anything but make sure to modify the code below accordingly.
+
+Inside the \`content\` folder create another folder named 'blogs' this is where we are going to store all our blogs in markdown files.
+
+Inside the \`blogs\` folder create a file named \`my-first-blog.md\` and fill it with this:
+
+```markdown
+---
+title: My First Blog
+date: 24, August, 2021
+---
+
+# Welcome to my blog
+
+This is an markdown file with some frontmatter
+Yes you have key value pair in yaml format covered by --- on the of markdown file
+
+## Header 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+> a blockquote
+```
+
+Now In the \`index.js\` file add this
