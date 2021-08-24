@@ -10,8 +10,9 @@ date: 2021-08-23T06:52:52.811Z
 3. [Why Next.js and Netlify CMS](#why-next-js-and-netlify-cms)
 4. [Getting started](#getting-started)
 5. [Home Page](#home-page)
-6. [Blog Page](#blog-page)
-7. [Connect Nextlify CMS](#connect-netlify-cms)
+6. [Listing Blogs](#listing-blogs)
+7. [Blog Page](#blog-page)
+8. [Connect Nextlify CMS](#connect-netlify-cms)
 
 ## What is Next.js
 
@@ -35,7 +36,7 @@ npx create-next-app nextjs-blog
 yarn create next-app nextjs-blog
 ```
 
-After the setup is complete cd into the folder and run this command to start the app in the development server:
+After the setup is complete \`cd\` into the folder and run this command to start the app in the development server:
 
 ```shell
 cd nextjs-blog
