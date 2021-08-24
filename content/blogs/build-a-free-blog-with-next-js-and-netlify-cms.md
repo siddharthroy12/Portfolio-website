@@ -36,7 +36,7 @@ npx create-next-app nextjs-blog
 yarn create next-app nextjs-blog
 ```
 
-After the setup is complete \`cd\` into the folder and run this command to start the app in the development server:
+After the setup is complete `cd` into the folder and run this command to start the app in the development server:
 
 ```shell
 cd nextjs-blog
@@ -89,7 +89,7 @@ Each page is associated with a route based on its filename.
 
 Now it's time to make our Home Page to show the list of blogs.
 
-First, replace everything in the \`index.js\` with this:
+First, replace everything in the `index.js` with this:
 
 ```jsx
 import styles from '../styles/Home.module.css'
@@ -107,9 +107,9 @@ export default function Home() {
 }
 ```
 
-If you are wondering what is happening in the first line, Next.js allows us to import CSS files as a module then you can access the classes as a key from styles. The name of the CSS file must end with \`.module.css\` for it to work. This allows you to use the same CSS class name in different files without worrying about collisions.
+If you are wondering what is happening in the first line, Next.js allows us to import CSS files as a module then you can access the classes as a key from styles. The name of the CSS file must end with `.module.css` for it to work. This allows you to use the same CSS class name in different files without worrying about collisions.
 
-Then replace everything in the \`Home.module.css\` file in the styles folder with this:
+Then replace everything in the `Home.module.css` file in the styles folder with this:
 
 ```css
 .container {
@@ -146,13 +146,13 @@ Now it should look like this
 
 Now It's time to add some dummy blogs and list them on Home Page.
 
-First, make a new folder at the root of the project called \`content\`.
+First, make a new folder at the root of the project called `content`.
 
 > Note: The name of this folder doesn't matter, you can rename it to anything but make sure to modify the code below accordingly.
 
-Inside the \`content\` folder create another folder named 'blogs' this is where we are going to store all our blogs in markdown files.
+Inside the `content` folder create another folder named `blogs` this is where we are going to store all our blogs in markdown files.
 
-Inside the \`blogs\` folder create a file named \`my-first-blog.md\` and fill it with this:
+Inside the `blogs` folder create a file named `my-first-blog.md` and fill it with this:
 
 ```markdown
 ---
@@ -181,7 +181,7 @@ npm install gray-matter
 yarn add gray-matter
 ```
 
-Then modify the \`index.js\` file to like this:
+Then modify the `index.js` file to look like this:
 
 ```jsx
 import fs from 'fs'
@@ -232,6 +232,6 @@ export async function getStaticProps() {
 
 Explanation:
 
-* In a typical create-react-app, all the rendering happens at the client-side but Next.js allows us to pre-render pages and it has two forms **Static Generation** (Using \`getStaticProps\`) and **Server Side Rendering** (Using \`getServerSideProps\`). [Learn more](https://nextjs.org/docs/basic-features/pages#pre-rendering)
-* In the getStaticProps function, we are listing all the files in the blogs folder, parse the front matter and slug based on filename, and return them.
-* In the Component function, we are simply listing all the blogs from the \`blogs\` array given from \`getStaticProps\` and using \`Link\` from Next.js for fast client-side page transition.
+* In a typical create-react-app, all the rendering happens at the client-side but Next.js allows us to pre-render pages and it has two forms **Static Generation** (Using `getStaticProps`) and **Server Side Rendering** (Using `getServerSideProps`). [Learn more](https://nextjs.org/docs/basic-features/pages#pre-rendering)
+* In the `getStaticProps` function, we are listing all the files in the blogs folder, parse the front matter and slug based on filename, and return them.
+* In the Component function, we are simply listing all the blogs from the `blogs` array given from `getStaticProps` and using `Link` Component from Next.js for fast client-side page transition.
