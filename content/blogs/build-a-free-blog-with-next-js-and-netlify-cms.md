@@ -372,3 +372,5 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
 ```
+
+Learn more about how it works [here](https://www.netlifycms.org/docs/add-to-your-site/#collections).
