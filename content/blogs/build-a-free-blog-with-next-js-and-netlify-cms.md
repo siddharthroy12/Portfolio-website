@@ -368,8 +368,7 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL"}
       - {label: "Body", name: "body", widget: "markdown"}
 ```
 
@@ -412,7 +411,7 @@ class MyDocument extends Document {
 export default MyDocument
 ```
 
-Learn more about _document.js In Netlify Docs
+Learn more about `_document.js` In [Netlify Docs](https://nextjs.org/docs/advanced-features/custom-document)
 
 Push this to Github and Netlify will automatically re-build the site for you.
 
@@ -430,4 +429,6 @@ Now if you go to your website and visit the `/admin` page you will be greeted wi
 
 ## The end
 
-There you go you have made a Next.js powered Markdown blog, backed with a free CMS
+There you go you have made a Next.js powered Markdown blog, backed with a free CMS. If you did everything correctly you will see an admin panel upon visiting `/admin` page.
+
+![Admin panel screenshot](https://i.imgur.com/uTnmMoL.png)
