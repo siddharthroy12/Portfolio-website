@@ -320,3 +320,15 @@ Explanation:
 Now if you visit our blog it will look like this:
 
 ![Blog page screenshot](https://imgur.com/SbBxrt6l.png)
+
+I will not go into the styling here because the blog is getting too long. But if you want to see the final version with styling included, go ahead.
+
+
+
+## Connecting Netlify CMS
+
+Netlify CMS only works with websites that are hosted on Netlify. First, push your code to Github then log in to Netlify, and click "New site from git" and follow the prompts to select your repo. All the build settings should already be filled out for you.
+
+![Netlify build settings screenshot](https://i.imgur.com/R6I3DgE.png)
+
+Click on deploy and within a minute your site will be live.
