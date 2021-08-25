@@ -173,7 +173,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 > a blockquote
 ```
 
-Before listing our newly created blog on my Home Page we have to install a library to parse the "front matter"
+Before listing our newly created blog on my Home Page we have to install a library to parse the "front matter".
 
 ```shell
 npm install gray-matter
@@ -234,12 +234,83 @@ Explanation:
 
 * In a typical create-react-app, all the rendering happens at the client-side but Next.js allows us to pre-render pages and it has two forms **Static Generation** (Using `getStaticProps`) and **Server Side Rendering** (Using `getServerSideProps`). [Learn more](https://nextjs.org/docs/basic-features/pages#pre-rendering)
 * In the `getStaticProps` function, we are listing all the files in the blogs folder, parse the front matter and slug based on filename, and return them.
-* In the Component function, we are simply listing all the blogs from the `blogs` array given from `getStaticProps` and using `Link` Component from Next.js for fast client-side page transition.
-
-
+* In the Component function, we are simply listing all the blogs from the `blogs` array that is given from `getStaticProps` and using `Link` Component from Next.js for fast client-side page transition.
 
 Let's check how it looks on the browser.
 
 ![Front Page Screenshot](https://imgur.com/epyA6HYl.png)
 
-Looks good but If you click on that link, it will show a 404 page. Let's fix that
+Looks good but If you click on that link, it will show a 404 page. Let's fix that.
+
+## Blog Page
+
+Our blog page is a dynamic page and to create a dynamic page in Next.js first create a folder named `blog` in the `pages` folder then inside `blog` create a file `[slug].js` this will match to `/blog/:slug` route.
+
+Before we write anything, we need to install a library to render markdown.
+
+```shell
+ yarn add react-markdown@6.0.3
+ # or
+ npm install react-markdown@6.0.3
+```
+
+> Note: It's important to install that specific version because later versions don't work with Next.js
+
+Now put this into the `[slug].js` file.
+
+```jsx
+import fs from 'fs'
+import ReactMarkdown from 'react-markdown'
+import matter from 'gray-matter'
+
+export default function Blog({ frontmatter, markdown}) {
+  return (
+    <div>
+      <h1>{frontmatter.title}</h1>
+      <span>{frontmatter.date}</span>
+      <hr />
+      <ReactMarkdown>
+		{markdown}
+      </ReactMarkdown>
+	</div>
+  )
+}
+
+export async function getStaticProps({ params: { slug } }) {
+  const fileContent = matter(fs.readFileSync(`./content/blogs/${slug}.md`, 'utf8'))
+  let frontmatter = fileContent.data
+  const markdown = fileContent.content
+
+  return {
+    props: { frontmatter, markdown }
+  }
+}
+
+export async function getStaticPaths() {
+  const filesInProjects = fs.readdirSync('./content/blogs')
+
+  // Getting the filenames excluding .md extension
+  // and returning an array containing slug (the filename) as params for every route
+  // It looks like this
+  // paths = [
+  // { params: { slug: 'my-first-blog' }},
+  // { params: { slug: 'how-to-train-a-dragon' }},
+  // { params: { slug: 'how-to-catch-a-pokemon' }},
+  // ]
+  const paths = filesInProjects.map(file => {
+    const filename = file.slice(0, file.indexOf('.'))
+    return { params: { slug: filename }}
+  })
+
+  return {
+	paths,
+	fallback: false // This shows a 404 page if the page is not found
+  }
+}
+```
+
+Explanation:
+
+* In the `getStaicProps` we are simply getting the slug param and parsing the front matter and markdown from the file. 
+* Because we are using `getStaticProps` on a dynamic page, Next.js expects us to provide the list of paths using `getStaticPaths` that have to be rendered at build time by returning the `paths `array with the required `params` in each.
+* In the Blog component, we are using` react-markdown` to convert markdown to HTML.
