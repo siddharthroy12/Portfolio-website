@@ -314,3 +314,9 @@ Explanation:
 * In the `getStaicProps` we are simply getting the slug param and parsing the front matter and markdown from the file. 
 * Because we are using `getStaticProps` on a dynamic page, Next.js expects us to provide the list of paths using `getStaticPaths` that have to be rendered at build time by returning the `paths `array with the required `params` in each.
 * In the Blog component, we are using` react-markdown` to convert markdown to HTML.
+
+
+
+Now if you visit our blog it will look like this:
+
+![Blog page screenshot](https://imgur.com/SbBxrt6l.png)
