@@ -293,9 +293,9 @@ export async function getStaticPaths() {
   // and returning an array containing slug (the filename) as params for every route
   // It looks like this
   // paths = [
-  // { params: { slug: 'my-first-blog' }},
-  // { params: { slug: 'how-to-train-a-dragon' }},
-  // { params: { slug: 'how-to-catch-a-pokemon' }},
+  //   { params: { slug: 'my-first-blog' }},
+  //   { params: { slug: 'how-to-train-a-dragon' }},
+  //   { params: { slug: 'how-to-catch-a-pokemon' }},
   // ]
   const paths = filesInProjects.map(file => {
     const filename = file.slice(0, file.indexOf('.'))
@@ -312,18 +312,14 @@ export async function getStaticPaths() {
 Explanation:
 
 * In the `getStaicProps` we are simply getting the slug param and parsing the front matter and markdown from the file. 
-* Because we are using `getStaticProps` on a dynamic page, Next.js expects us to provide the list of paths using `getStaticPaths` that have to be rendered at build time by returning the `paths `array with the required `params` in each.
-* In the Blog component, we are using` react-markdown` to convert markdown to HTML.
-
-
+* Because we are using `getStaticProps` on a dynamic page, Next.js expects us to provide the list of paths using `getStaticPaths` that have to be rendered at build time by returning the `paths`array with the required `params` in each.
+* In the Blog component, we are using`react-markdown` to convert markdown to HTML.
 
 Now if you visit our blog it will look like this:
 
 ![Blog page screenshot](https://imgur.com/SbBxrt6l.png)
 
 I will not go into the styling here because the blog is getting too long. But if you want to see the final version with styling included, go ahead.
-
-
 
 ## Connecting Netlify CMS
 
@@ -332,3 +328,47 @@ Netlify CMS only works with websites that are hosted on Netlify. First, push you
 ![Netlify build settings screenshot](https://i.imgur.com/R6I3DgE.png)
 
 Click on deploy and within a minute your site will be live.
+
+Now finally we can connect Netlify CMS to our blog. Create a folder named `admin` inside `public` folder, Inside `admin` folder create two files `index.htm`l and `config.yml` with the following:
+
+`index.html`
+
+```html
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <title>Content Manager</title>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+</body>
+</html>
+```
+
+`config.yml`
+
+```yaml
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "public/uploads" # Where media files will be stored
+public_folder: "/uploads" # Where the media files can be accesed from the server
+publish_mode: editorial_workflow # For Drafts
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "content/blogs" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+```
