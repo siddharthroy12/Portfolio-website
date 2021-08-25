@@ -1,12 +1,8 @@
 import styles from '../styles/Section.module.css'
 
-export default function Section({ children, title, subtitle, id, className, smallMargin }) {
+export default function Section({ children, title, id, className, }) {
 	return (
-		<section className={styles.container} id={id} style={smallMargin && { marginTop: '2rem'}}>
-			<div className={styles.titleContainer}>
-				<div className={styles.line} />
-				<span className={styles.subtitle}>{subtitle}</span>
-			</div>
+		<section className={styles.container} id={id}>
 			<h2 className={styles.title}>{title}</h2>
 			<div className={`${styles.childrenContainer} ${className}`}>
 				{children}

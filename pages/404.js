@@ -1,4 +1,4 @@
-import withFrontData from '@utils/withFrontData'
+import withHeadData from '@utils/withFrontData'
 
 export default function ServerError() {
 	return (
@@ -7,5 +7,5 @@ export default function ServerError() {
 }
 
 export async function getStaticProps() {
-	return withFrontData()
+	return withHeadData()
 }

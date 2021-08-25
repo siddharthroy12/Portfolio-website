@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import styles from '../styles/Header.module.css'
-import { RiTwitterLine } from 'react-icons/ri'
-import { FiGithub, FiInstagram } from 'react-icons/fi'
+import { RiGithubFill, RiInstagramFill, RiTwitterFill } from 'react-icons/ri'
 
 const navLinks = {
 	About: '/',
@@ -33,16 +33,15 @@ function pathCheck(path, pathToCheck) {
 	return pathWithoutSecondSlash === pathToCheckWithoutSecondSlash ? true : false
 }
 
-export default function Header(pageHeader) {
+export default function Header({ headData }) {
 	const [isHeaderOpen, setIsHeaderOpen] = useState(false)
 	const router = useRouter()
-	console.log(router.pathname)
 	return (<header className={styles['container']}>
 		<div className={styles['header-top']}>
 			<ul className={styles['social-link-list']}>
-				<li><RiTwitterLine /></li>
-				<li><FiGithub /></li>
-				<li><FiInstagram /></li>
+				<li><span><RiTwitterFill /></span></li>
+				<li><span><RiGithubFill /></span></li>
+				<li><span><RiInstagramFill /></span></li>
 			</ul>
 			<nav>
 				<ul>
@@ -61,6 +60,23 @@ export default function Header(pageHeader) {
 					))}
 				</ul>
 			</nav>
+		</div>
+		<div className={styles['header-bottom']}>
+			<div className="container">
+				<div className={styles['header-bottom-left']}>
+					<Image
+						src={headData.picture}
+						width="200"
+						height="200"
+						layout="fixed"
+					/>
+				</div>
+				<div className={styles['header-bottom-right']}>
+					<p className={styles['greeting']}>Hi, my name is</p>
+					<p className={styles['name']}>{headData.name}</p>
+					<p className={styles['small-bio']}>{headData.smallbio}</p>
+				</div>
+			</div>
 		</div>
 	</header>)
 }

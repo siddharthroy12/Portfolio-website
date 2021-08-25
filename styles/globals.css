@@ -4,17 +4,20 @@ body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
   background-color: #F7F7F7;
-  scrollbar-color: #F7F7F7 var(--accent-color);
+  scrollbar-color: var(--color-1) white;
   scroll-behavior: smooth;
+  position: relative;
+  min-height: calc(100vh - 3.5rem);
 }
+
 body::-webkit-scrollbar {
-  background-color: var(--accent-color);
+  background-color: white;
   width: 10px;
   height: 10px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: var(--color-1);
 }
 a {
   color: inherit;
@@ -27,14 +30,20 @@ a {
   margin: 0;
 }
 
+.container {
+  margin: auto;
+  max-width: 70rem;
+  padding: 0 2rem;
+}
+
 :root {
-  --color-1: #424242;
-  --color-2: #333333;
+  --trans-dur: 500ms;
+  --color-1: #121212;
+  --color-2: #1D1F21;
   --page-background-color: #212121;
   --page-font-color: white;
   --page-font-color-secondary: #C8C8C8;
-  --accent-color: #1976D2;
-  --transition-duration: 200ms;
+  --accent-color: #6200EE;
   --font-color-primary: #1D1F21;
   --font-color-secondary: #54616F;
 }
