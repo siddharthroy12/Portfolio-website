@@ -374,3 +374,60 @@ collections:
 ```
 
 Learn more about how it works [here](https://www.netlifycms.org/docs/add-to-your-site/#collections).
+
+For this to work we also need to import Netlify Identity widget in the head of every page. To do that create `_document.js `inside `pages` folder with this:
+
+```jsx
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          {/* Netlify Widget */}
+          <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                  if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                      document.location.href = "/admin/";
+                    });
+                  }
+                });
+              }
+          `}}/>
+        </body>
+      </Html>
+    )
+  }
+}
+
+export default MyDocument
+```
+
+Learn more about _document.js In Netlify Docs
+
+Push this to Github and Netlify will automatically re-build the site for you.
+
+Open the site setting in Netlify and enable Identity.
+
+![Netlify indentity setting page screenshot](https://i.imgur.com/FUXdL4A.png)
+
+And after that also enable Git Gateway on the same page.
+
+![Netlify git gateway setting screenshot](https://i.imgur.com/xyktMrb.png)
+
+Now if you go to your website and visit the `/admin` page you will be greeted with Log In and Sign Up Prompt. Go ahead and Sign Up and confirm your email. After you have successfully created your account close the registration in the Site settings so no one can make an account and access the admin panel.
+
+![Registration setting screenshot](https://imgur.com/fR1ko5Rl.png)
+
+## The end
+
+There you go you have made a Next.js powered Markdown blog, backed with a free CMS
