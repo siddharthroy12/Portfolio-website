@@ -5,14 +5,14 @@ date: 2021-08-23T06:52:52.811Z
 ---
 ## Table of contents
 
-1. [What is Next.js](#what-is-next-js)
+1. [What is Next.js](#what-is-nextjs)
 2. [What is Netlify CMS](#what-is-netlify-cms)
-3. [Why Next.js and Netlify CMS](#why-next-js-and-netlify-cms)
+3. [Why Next.js and Netlify CMS](#why-nextjs-and-netlify-cms)
 4. [Getting started](#getting-started)
 5. [Home Page](#home-page)
 6. [Listing Blogs](#listing-blogs)
 7. [Blog Page](#blog-page)
-8. [Connect Nextlify CMS](#connect-netlify-cms)
+8. [Connecting Nextlify CMS](#connecting-netlify-cms)
 
 ## What is Next.js
 
@@ -434,7 +434,7 @@ And after that also enable Git Gateway on the same page.
 
 ![Netlify git gateway setting screenshot](https://i.imgur.com/xyktMrb.png)
 
-Now if you go to your website and visit the `/admin` page you will be greeted with Log In and Sign Up Prompt. Go ahead and Sign Up and confirm your email. After you have successfully created your account close the registration in the Site settings so no one can make an account and access the admin panel.
+Now if you visit your website and go to the `/admin` page you will be greeted with Log In and Sign Up Prompt. Go ahead and Sign Up and confirm your email. After you have successfully created your account close the registration in the Site settings so no one can make an account and access the admin panel.
 
 ![Registration setting screenshot](https://imgur.com/fR1ko5Rl.png)
 
