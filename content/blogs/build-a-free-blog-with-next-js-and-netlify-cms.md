@@ -189,11 +189,14 @@ Then modify the `index.js` file to look like this:
 import fs from 'fs'
 import matter from 'gray-matter'
 import Link from 'next/link'
-
+import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export default function Home({ blogs }) {
   return (<div className={styles['container']}>
+    <Head>
+      <title>Demo Blog</title>
+    </Head>
     <h1 className={styles['header']}>Welcome to my blog</h1>
     <p className={styles['subtitle']}>This is a subtitle idk what to type here</p>
     <ul className={styles['blog-list']}>
@@ -236,7 +239,8 @@ Explanation:
 
 * In a typical create-react-app, all the rendering happens at the client-side but Next.js allows us to pre-render pages and it has two forms **Static Generation** (Using `getStaticProps`) and **Server Side Rendering** (Using `getServerSideProps`). [Learn more](https://nextjs.org/docs/basic-features/pages#pre-rendering)
 * In the `getStaticProps` function, we are listing all the files in the blogs folder, parse the front matter and slug based on filename, and return them.
-* In the Component function, we are simply listing all the blogs from the `blogs` array that is given from `getStaticProps` and using `Link` Component from Next.js for fast client-side page transition.
+* In the Home component, we are simply listing all the blogs from the `blogs` array that is given from `getStaticProps` and using `Link` Component from Next.js for fast client-side page transition.
+* We are using `Head` component from `next/head` to set the title of the page.
 
 Let's check how it looks on the browser.
 
@@ -264,10 +268,14 @@ Now put this into the `[slug].js` file.
 import fs from 'fs'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
+import Head from 'next/head'
 
 export default function Blog({ frontmatter, markdown}) {
   return (
     <div>
+      <Head>
+      	<title>Demo Blog | {frontmatter.title}</title>
+      </Head>
       <h1>{frontmatter.title}</h1>
       <span>{frontmatter.date}</span>
       <hr />
@@ -316,6 +324,7 @@ Explanation:
 * In the `getStaicProps` we are simply getting the slug param and parsing the front matter and markdown from the file. 
 * Because we are using `getStaticProps` on a dynamic page, Next.js expects us to provide the list of paths using `getStaticPaths` that have to be rendered at build time by returning the `paths`array with the required `params` in each.
 * In the Blog component, we are using`react-markdown` to convert markdown to HTML.
+* And again we are using the `Head` component to set the title for SEO.
 
 Now if you visit our blog it will look like this:
 
