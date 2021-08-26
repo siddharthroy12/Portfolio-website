@@ -1,4 +1,4 @@
-const withTM = require('next-transpile-modules')(['react-syntax-highlighter']);
+const withTM = require('next-transpile-modules')(['react-syntax-highlighter', 'react-markdown', 'remark-gfm']);
 
 module.exports = withTM({
   target: 'serverless',

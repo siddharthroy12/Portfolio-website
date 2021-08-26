@@ -6,6 +6,7 @@ import getHumanDate from '@utils/getHumanDate'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkGfm from 'remark-gfm'
+import remarkSlug from 'remark-slug'
 import styles from '@styles/Blog.module.css'
 
 export default function Blog({ frontmatter, markdown }) {
@@ -14,7 +15,7 @@ export default function Blog({ frontmatter, markdown }) {
 		<p className={styles.date}>{frontmatter.date}</p>
 		<hr />
 		<ReactMarkdown
-			remarkPlugins={[remarkGfm]}
+			remarkPlugins={[remarkGfm, remarkSlug]}
 			components={{
 				code({node, inline, className, children, ...props}) {
 					const match = /language-(\w+)/.exec(className || '')
