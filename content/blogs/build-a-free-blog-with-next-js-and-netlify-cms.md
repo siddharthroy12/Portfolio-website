@@ -26,7 +26,7 @@ It's a git-based Headless CMS build using React. It provides a rich text editor,
 
 If you are a React Developer and want to build a website with a CMS but hate WordPress then Next.js with Netlify CMS is the best option for you.
 
-If you want to check the final product, go ahead! here is the [live site](https://next-blog-tutorial.netlify.app/) or the [repo](https://github.com/siddharthroy12/nextjs-blog-tutorial).
+If you want to check the final product, go ahead! here is the [live site](https://next-blog-tutorial.netlify.app/) and the [repo](https://github.com/siddharthroy12/nextjs-blog-tutorial).
 
 ## Getting Started
 
@@ -376,7 +376,7 @@ collections:
 
 Learn more about how it works [here](https://www.netlifycms.org/docs/add-to-your-site/#collections).
 
-For this to work we also need to import Netlify Identity widget in the head of every page. To do that create `_document.js `inside `pages` folder with this:
+For this to work, we also need to import the Netlify Identity widget in the head tag of every page. To do that create `_document.js`inside `pages` folder with this:
 
 ```jsx
 import Document, { Html, Head, Main, NextScript } from 'next/document'
@@ -435,6 +435,6 @@ There you go you have made a Next.js powered Markdown blog, backed with a free C
 
 ![Admin panel screenshot](https://i.imgur.com/uTnmMoL.png)
 
-Whenever you update or create a blog Netlify CMS will push the change to Github and Netlify will re-built your site.
+Whenever you update or create a blog Netlify CMS will push the change to Github and Netlify will re-build your site.
 
-If you got stuck [here](https://next-blog-tutorial.netlify.app/) is the link to the repo.
+If you got stuck [here](https://github.com/siddharthroy12/nextjs-blog-tutorial) is the link to the repo.
