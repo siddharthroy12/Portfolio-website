@@ -5,14 +5,16 @@ date: 2021-08-23T06:52:52.811Z
 ---
 ## Table of contents
 
-1. [What is Next.js](#what-is-nextjs)
-2. [What is Netlify CMS](#what-is-netlify-cms)
-3. [Why Next.js and Netlify CMS](#why-nextjs-and-netlify-cms)
-4. [Getting started](#getting-started)
-5. [Home Page](#home-page)
-6. [Listing Blogs](#listing-blogs)
-7. [Blog Page](#blog-page)
-8. [Connecting Nextlify CMS](#connecting-netlify-cms)
+- [Table of contents](#table-of-contents)
+- [What is Next.js](#what-is-nextjs)
+- [What is Netlify CMS](#what-is-netlify-cms)
+- [Why Next.js and Netlify CMS](#why-nextjs-and-netlify-cms)
+- [Getting Started](#getting-started)
+- [Home Page](#home-page)
+- [Listing Blogs](#listing-blogs)
+- [Blog Page](#blog-page)
+- [Connecting Netlify CMS](#connecting-netlify-cms)
+- [The end](#the-end)
 
 ## What is Next.js
 
@@ -385,7 +387,7 @@ collections:
 
 Learn more about how it works [here](https://www.netlifycms.org/docs/add-to-your-site/#collections).
 
-For this to work, we also need to import the Netlify Identity widget in the head tag of every page. To do that create `_document.js`inside `pages` folder with this:
+For this to work, we also need to import the Netlify Identity widget in the head tag of every page. To do that create `_document.js` inside `pages` folder with this:
 
 ```jsx
 import Document, { Html, Head, Main, NextScript } from 'next/document'
