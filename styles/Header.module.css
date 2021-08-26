@@ -23,7 +23,7 @@
 	margin-right: 1rem;
 }
 
-.social-link-list li span {
+.social-link-list li a {
 	--size: 2.1rem;
 	width: var(--size);
 	height: var(--size);
@@ -86,16 +86,28 @@
 .header-bottom-right .greeting {
 	font-size: 1.3rem;
 	font-weight: 300;
+	margin-bottom: 1rem;
 }
 
 .header-bottom-right .name {
 	font-size: 2.5rem;
-	margin: 1rem 0;
+	margin-bottom: 1rem;
 	font-weight: 500;
 }
 
 .header-bottom-right .small-bio {
 	line-height: 25px;
+	color: rgb(189, 189, 189);
+	font-size: 1.2rem;
+}
+
+.header-bottom-right .date {
+	font-family: 'Roboto Mono', monospace;
+	color: rgb(189, 189, 189);
+}
+
+.header-bottom-right > *:last-child{
+	margin-top: 1rem;
 }
 
 .header-bottom-left {
@@ -104,4 +116,40 @@
 
 .header-bottom-left > * {
 	border-radius: 2%;
+}
+
+.icon-btn {
+	background-color: unset;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 0;
+	font-size: 2rem;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+
+@media screen and (max-width: 800px) {
+	.icon-btn {
+		display: flex;
+	}
+
+	.header-top nav {
+		display: none;
+	}
+
+	.header-bottom > div {
+		flex-direction: column;
+	}
+
+	.header-bottom-left {
+		display: flex;
+		justify-content: center;
+	}
+
+	.header-bottom-right {
+		text-align: center;
+		margin-top: 3rem;
+	}
 }

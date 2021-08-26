@@ -5,11 +5,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* Ubuntu font */}
-          <link
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
-            rel="stylesheet"
-          />
 					<link rel="icon" href="/favicon.ico" />
           {/* Netlify Widget */}
           <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js" />

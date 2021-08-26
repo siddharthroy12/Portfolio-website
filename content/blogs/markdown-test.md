@@ -1,7 +1,7 @@
 ---
 title: Example blog for testing all markdown elements
 description: 'Real blogs are coming soon'
-date: 2021-04-12T09:01:25+05:30
+date: August 12 2021
 ---
 
 # h1 Heading 8-)

@@ -1,17 +1,19 @@
 .container {
 	margin: auto;
 	max-width: 70rem;
-	padding: 2rem;
+	padding: 0 2rem;
+	padding-bottom: 10rem;
 }
 
 .footer {
-	background-color: var(--font-color-primary);
+	background-color: var(--color-1);
 	color: #969696;
 	height: 5rem;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
+	height: 3.5rem;
 }
 
 .footer > div {

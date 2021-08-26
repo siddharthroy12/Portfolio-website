@@ -1,8 +1,81 @@
-.button {
-	padding: 0.7rem 2rem;
+.btn {
+	padding: 0.6rem 0.9rem;
 	background-color: var(--accent-color);
 	color: white;
-	border-radius: 50px;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	border-radius: 2px;
+	border: none;
+	font-weight: 500;
+	letter-spacing: 0.2ch;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+	display: inline-block;
+	width: max-content;
+	--cover-color: var(--font-color-primary)
+}
+
+.btn-outline {
+	border: 1px solid;
+	color: var(--font-color-primary);
+	background-color: unset;
+}
+
+.btn-special {
+	color: white;
+	--cover-color: white;
+}
+
+.btn::after {
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--cover-color);
+	opacity: 0;
+	transition-duration: var(--trans-dur);
+}
+
+.btn:hover::after {
+	opacity: 0.2;
+}
+
+.btn:active::after {
+	opacity: 0.3;
+}
+
+.mt {
+	margin-top: 3rem;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.list > * {
+	margin-bottom: 3rem;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 .alert {

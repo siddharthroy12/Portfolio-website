@@ -1,9 +1,0 @@
-.flexGrid {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-.flexGrid > * {
-	margin: 1rem;
-}

@@ -1,12 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FaReact, FaNodeJs } from 'react-icons/fa'
-import { SiTypescript } from 'react-icons/si'
-import { VscLinkExternal } from 'react-icons/vsc'
-import { RiTwitterLine } from 'react-icons/ri'
-import { FiGithub, FiInstagram } from 'react-icons/fi'
 import Project from '../components/Project'
+import BlogEntry from '@components/BlogEntry'
 import styles from '../styles/Home.module.css'
 import Section from '../components/Section'
 import fs from 'fs'
@@ -41,8 +35,7 @@ const highlightBio = (bio) => {
   return output
 }
 
-
-export default function Home({ projects, frontmatter }) {
+export default function Home({ projects, blogs, frontmatter }) {
   return (<>
     <Head>
       <title>{frontmatter.name} - Web developer</title>
@@ -51,15 +44,23 @@ export default function Home({ projects, frontmatter }) {
         content={frontmatter.smallbio}
       />
     </Head>
-    <Section title="About">
-
+    <Section title="Featured Projects" subtitle="Browse my favourite projects." className="grid">
+      {projects.map((project, index) => <Project {...project} key={index} />)}
+    </Section>
+    <Section title="Popular Articles">
+      {blogs.map((blog, index) => <BlogEntry blog={blog} key={index} />)}
+      <div className="mt">
+        <a className="btn btn-outline">View All</a>
+      </div>
     </Section>
   </>)
 }
 
 export async function getStaticProps() {
   const filesInProjects = fs.readdirSync('./content/projects')
+  const filesInBlogs = fs.readdirSync('./content/blogs')
   let projects = []
+  let blogs = []
 
   filesInProjects.forEach((file) => {
     const data = matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
@@ -68,12 +69,23 @@ export async function getStaticProps() {
     } 
   })
 
+  filesInBlogs.forEach((file) => {
+    const data = matter(fs.readFileSync(`./content/blogs/${file}`, 'utf8')).data
+    if (data.featured) {
+      blogs.push({
+        ...data,
+        slug: file.slice(0, file.indexOf('.'))
+      })
+    } 
+  })
+
   const frontmatter = matter(fs.readFileSync('./content/_index.md', 'utf8')).data
   return {
     props: {
       projects,
+      blogs,
       frontmatter,
-      headData: frontmatter
+      headData: frontmatter,
     }
   }
 }

@@ -1,11 +1,12 @@
-import withFrontData from '@utils/withFrontData'
-
 export default function Formsuccess() {
-	return (
-		<p className="alert">Form submitted successfully</p>
-	)
+	return (<></>)
 }
 
 export async function getStaticProps() {
-	return withFrontData()
+	return {
+		props: {
+			title: 'Message sent successfully',
+			subtitle: 'Thank you for contacting.'
+		}
+	}
 }

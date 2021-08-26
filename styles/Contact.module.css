@@ -1,0 +1,50 @@
+.wrapper form {
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper label {
+	border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; 
+}
+
+.wrapper input,
+.wrapper textarea {
+	width: 100%;
+	max-width: 30rem;
+	resize: none;
+	padding: 1rem;
+	font-size: 1rem;
+	border-radius: 2px;
+	border: 1px solid var(--color-1);
+	margin-left: 1rem;
+}
+
+.wrapper svg {
+	font-size: 2rem;
+}
+
+.wrapper > form > div {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.wrapper > form > div:last-child {
+	align-items: flex-start;
+}
+
+.wrapper > form > div:last-child > svg {
+	margin-top: 1rem;
+}
+
+.wrapper > form > button {
+	margin-left: 3rem;
+}

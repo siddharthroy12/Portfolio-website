@@ -1,6 +1,5 @@
 import matter from 'gray-matter'
 import fs from 'fs'
-import withFrontData from '@utils/withFrontData'
 import ReactMarkdown from 'react-markdown'
 import getHumanDate from '@utils/getHumanDate'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
@@ -9,11 +8,8 @@ import remarkGfm from 'remark-gfm'
 import remarkSlug from 'remark-slug'
 import styles from '@styles/Blog.module.css'
 
-export default function Blog({ frontmatter, markdown }) {
+export default function Blog({ markdown }) {
   return (<div className={styles.wrapper}>
-		<h1 className={styles.title}>{frontmatter.title}</h1>
-		<p className={styles.date}>{frontmatter.date}</p>
-		<hr />
 		<ReactMarkdown
 			remarkPlugins={[remarkGfm, remarkSlug]}
 			components={{
@@ -46,9 +42,14 @@ export async function getStaticProps({ params: { slug } }) {
 	let frontmatter = fileContent.data
 	const markdown = fileContent.content
 	frontmatter.date = getHumanDate(frontmatter.date)
-	return withFrontData({
-		props: { frontmatter, markdown }
-	})
+	return {
+		props: { 
+			markdown,
+			title: frontmatter.title,
+			subtitle: frontmatter.description,
+			date: frontmatter.date
+		}
+	}
 }
 
 export async function getStaticPaths() {

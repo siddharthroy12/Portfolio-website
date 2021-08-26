@@ -1,11 +1,12 @@
-import withFrontData from '@utils/withFrontData'
-
 export default function ServerError() {
-	return (
-		<p className="danger">500 - Server Error</p>
-	)
+	return (<></>)
 }
 
 export async function getStaticProps() {
-	return withFrontData()
+	return {
+		props: {
+			title: '500 - Server Error',
+			subtitle: 'Looks like I messed up ＼(º □ º l|l)/'
+		}
+	}
 }

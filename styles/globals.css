@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #F7F7F7;
   scrollbar-color: var(--color-1) white;
   scroll-behavior: smooth;
@@ -28,6 +31,7 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -38,14 +42,11 @@ a {
 
 :root {
   --trans-dur: 500ms;
-  --color-1: #121212;
-  --color-2: #1D1F21;
-  --page-background-color: #212121;
-  --page-font-color: white;
-  --page-font-color-secondary: #C8C8C8;
+  --color-1: #212121;
+  --color-2: #212121;
   --accent-color: #6200EE;
-  --font-color-primary: #1D1F21;
-  --font-color-secondary: #54616F;
+  --font-color-primary: #212121;
+  --font-color-secondary: #424242;
 }
 
 @media screen and (max-width: 500px) {

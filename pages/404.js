@@ -1,11 +1,12 @@
-import withHeadData from '@utils/withFrontData'
-
 export default function ServerError() {
-	return (
-		<p className="danger">404 - Not Found</p>
-	)
+	return (<></>)
 }
 
 export async function getStaticProps() {
-	return withHeadData()
+	return {
+		props: {
+			title: '404 - Not found',
+			subtitle: 'Looks like you are lost (o_O) !'
+		}
+	}
 }

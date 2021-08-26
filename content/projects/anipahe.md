@@ -7,5 +7,5 @@ stack:
 code: https://github.com/siddharthroy12/anipahe
 live: https://github.com/siddharthroy12/anipahe/releases/tag/v1.0.0
 preview: /uploads/screenshot_2021-08-15_08-50-12.png
-featured: true
+featured: false
 ---
