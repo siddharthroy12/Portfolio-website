@@ -3,6 +3,7 @@ import Project from '../components/Project'
 import BlogEntry from '@components/BlogEntry'
 import styles from '../styles/Home.module.css'
 import Section from '../components/Section'
+import Link from 'next/link'
 import fs from 'fs'
 import matter from 'gray-matter'
 
@@ -50,7 +51,7 @@ export default function Home({ projects, blogs, frontmatter }) {
     <Section title="Popular Articles">
       {blogs.map((blog, index) => <BlogEntry blog={blog} key={index} />)}
       <div className="mt">
-        <a className="btn btn-outline">View All</a>
+        <Link href="/blogs/1"><a className="btn btn-outline">View All</a></Link>
       </div>
     </Section>
   </>)
