@@ -37,11 +37,11 @@
 	margin-bottom: 2rem;
 }
 
-.wrapper > form > div:last-child {
-	align-items: flex-start;
+.wrapper > form > div:nth-last-child(2) {
+	align-items: flex-start !important;
 }
 
-.wrapper > form > div:last-child > svg {
+.wrapper > form > div:nth-last-child(2) > svg {
 	margin-top: 1rem;
 }
 

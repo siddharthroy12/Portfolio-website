@@ -46,11 +46,11 @@ export default function Header({ headData, title, subtitle, date }) {
 	return (<header className={styles['container']}>
 		<div className={styles['header-top']}>
 			<ul className={styles['social-link-list']}>
-				<li><a hrefe="https://twitter.com/Siddharth_Roy12" target="_blank" rel="noopener noreferrer"><RiTwitterFill /></a></li>
+				<li><a href="https://twitter.com/Siddharth_Roy12" target="_blank" rel="noopener noreferrer"><RiTwitterFill /></a></li>
 				<li><a href="https://github.com/siddharthroy12" target="_blank" rel="noopener noreferrer"><RiGithubFill /></a></li>
 				<li><a href="https://www.instagram.com/siddharthroy12/" target="_blank" rel="noopener noreferrer"><RiInstagramFill /></a></li>
-			</ul>
-			<nav>
+			</ul>	
+			<nav className={!isHeaderOpen ? styles['nav-close'] : undefined}>
 				<ul>
 					{Object.keys(navLinks).map(key => (
 						<li
@@ -67,7 +67,9 @@ export default function Header({ headData, title, subtitle, date }) {
 					))}
 				</ul>
 			</nav>
-			<button className={styles['icon-btn']}><IoMenu /></button>
+			<button className={styles['icon-btn']} onClick={() => setIsHeaderOpen(prev => !prev)}>
+				<IoMenu />
+			</button>
 		</div>
 		<div className={styles['header-bottom']}>
 			<div className="container">
@@ -87,7 +89,7 @@ export default function Header({ headData, title, subtitle, date }) {
 						<p className={styles['greeting']}>Hi, my name is</p>
 						<p className={styles['name']}>{headData.name}</p>
 						<p className={styles['small-bio']}>{headData.smallbio}</p>
-						<a className="btn btn-outline btn-special">Contact</a>
+						<Link href="/contact"><a className="btn btn-outline btn-special">Contact</a></Link>
 					</div>
 				) : (
 					<div className={styles['header-bottom-right']}>
@@ -98,7 +100,6 @@ export default function Header({ headData, title, subtitle, date }) {
 						)}
 					</div>
 				)}
-
 			</div>
 		</div>
 	</header>)
