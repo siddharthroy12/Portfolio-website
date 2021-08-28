@@ -7,9 +7,20 @@ import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkGfm from 'remark-gfm'
 import remarkSlug from 'remark-slug'
 import styles from '@styles/Blog.module.css'
+import Head from 'next/head'
 
 export default function Blog({ markdown }) {
   return (<div className={styles.wrapper}>
+		<Head>
+			<meta
+        name="description"
+        content={frontmatter.description}
+      />
+			<title>{frontmatter.title}</title>
+		</Head>
+		<h1 className={styles.title}>{frontmatter.title}</h1>
+		<p className={styles.date}>{frontmatter.date}</p>
+		<hr />
 		<ReactMarkdown
 			remarkPlugins={[remarkGfm, remarkSlug]}
 			components={{
