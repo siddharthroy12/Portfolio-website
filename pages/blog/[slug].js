@@ -1,7 +1,6 @@
 import matter from 'gray-matter'
 import fs from 'fs'
 import ReactMarkdown from 'react-markdown'
-import getHumanDate from '@utils/getHumanDate'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkGfm from 'remark-gfm'
@@ -34,6 +33,18 @@ export default function Blog({ markdown }) {
 		>
 			{markdown}
 		</ReactMarkdown>
+		<div id="disqus_thread"></div>
+		<script dangerouslySetInnerHTML={{
+			__html:`
+				(function() { // DON'T EDIT BELOW THIS LINE
+					var d = document, s = d.createElement('script');
+					s.src = 'https://siddharth-roy.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+				})();
+			`
+		}}>
+		</script>
 	</div>)
 }
 
@@ -41,7 +52,6 @@ export async function getStaticProps({ params: { slug } }) {
 	const fileContent = matter(fs.readFileSync(`./content/blogs/${slug}.md`, 'utf8'))
 	let frontmatter = fileContent.data
 	const markdown = fileContent.content
-	frontmatter.date = getHumanDate(frontmatter.date)
 	return {
 		props: { 
 			markdown,
