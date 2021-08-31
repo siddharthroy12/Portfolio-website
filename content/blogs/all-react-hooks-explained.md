@@ -101,7 +101,7 @@ setUser(prevState => {
   newState.age = prevState.age + 1
   return {...prevState, ...newState} // Make a new copy using spread syntax
 })
-// After re-render user.name is 'React Dev' and user.age is 18
+// After re-render user.age is 18
 
 
 // Not this
