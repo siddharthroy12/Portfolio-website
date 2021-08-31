@@ -4,8 +4,6 @@ description: Learn how to use every built in react hooks and make your own too.
 date: August 30, 2021
 featured: true
 ---
-
-
 Since React 16.8 the most common way to build a react component is using function because now we can have all the features of class components in functional components using hooks.
 
 But why use a functional component instead of a class-based component?
@@ -112,6 +110,25 @@ setUser(prevState => {
   newState.age = prevState.age + 1
   return newState
 })
-
 // Component won't re-render
 ```
+
+The reason behind this is React uses `Object.is` for comparing new value to previous value and if they are the same It won't re-render, and `Object.is` does not check what's inside the object.
+
+```jsx
+let obj1 = { name: 's' }
+let obj2 = { name: 's' }
+
+Object.is(obj1, obj2) // => false
+
+obj2 = obj1
+
+Object.is(obj1, obj2) // => true
+
+// Using spread operator to copy the object
+obj2 = { ...obj1 }
+
+Object.is(obj1, obj2) // => false
+```
+
+> **NOTE:** Spread operator won't copy nested objects, you will have to copy them manually.
