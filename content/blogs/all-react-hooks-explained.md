@@ -4,6 +4,8 @@ description: Learn how to use every built in react hooks and make your own too.
 date: August 30, 2021
 featured: true
 ---
+
+
 Since React 16.8 the most common way to build a react component is using function because now we can have all the features of class components in functional components using hooks.
 
 But why use a functional component instead of a class-based component?
@@ -69,3 +71,47 @@ export default App;
 ```
 
 ![App Demo gif](https://i.imgur.com/TNHiwNK.gif)
+
+> **NOTE:** It's doesn't have to be named as value and setValue, you can name it anything you want but value and setValue style is preferred among all developers.
+
+If the new value is based on the previous value then you can do this:
+
+```jsx
+const [number, setNumber] = useState(0)
+
+ function updateNumber() {
+   // Do this
+   setNumber(prevNumber => prevNumber + 1)
+   // not this
+   setNumber(number + 1)
+ }
+```
+
+If you are storing an object inside a state then always use the object spread syntax to make a copy otherwise the component won't re-render.
+
+```jsx
+const initialUserState = {
+  name: 'Siddharth Roy',
+  age: 17
+}
+
+const [user, setUser] = useState(initialUserState)
+
+// Do this
+setUser(prevState => {
+  let newState = prevState
+  newState.age = prevState.age + 1
+  return {...prevState, ...newState} // Make a new copy using spread syntax
+})
+// After re-render user.name is 'React Dev' and user.age is 18
+
+
+// Not this
+setUser(prevState => {
+  let newState = prevState
+  newState.age = prevState.age + 1
+  return newState
+})
+
+// Component won't re-render
+```
