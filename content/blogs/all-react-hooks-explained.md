@@ -262,4 +262,4 @@ useEffect(() => {
 }, [])
 ```
 
-Sometimes when we run an async function when the comp gets mounted if the function tries to update a state after the comp gets unmounted it can cause memory leaks to it's better to stop that from happining using cleanup function.
+Sometimes when we run an async function when the comp gets mounted if the function tries to update a state after the comp gets unmounted it can cause memory leaks so it's better to stop that from happening using the cleanup function.
