@@ -160,11 +160,11 @@ export default App;
 
 ```
 
-The useEffect hook is a function that takes a function as it's first argument and that function will run when the component mounts, update, un-mount.
+The useEffect hook is a function that takes a function as it's first argument and that function will run when the component mounts and update
 
 ![](https://i.imgur.com/3btMOl3.gif)
 
-As you saw the function ran the first time when the component gets mounted and whenever it is updated.
+As you saw the function ran the first time when the component got mounted and whenever it updated.
 
 This function in the first argument of useEffect hook will only run when the component gets mounted and updated.
 
@@ -234,3 +234,18 @@ export default App;
 ```
 
 ![](https://i.imgur.com/y2RbyxI.gif)
+
+You can put multiple states in the dependency list but do note that if you are accessing any state from inside the function in useEffect hook then you have to put that state in the dependencies list.
+
+```jsx
+useEffect(() => {
+  // Do stuffs
+}, [state1, state2, state3])
+
+// Don't do this
+useEffect(() => {
+  // Doing something with state1
+}, []) // <= Not providing state1 in dependencies list
+```
+
+Now the last thing left is cleanup function
