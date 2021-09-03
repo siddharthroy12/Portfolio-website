@@ -199,7 +199,7 @@ The array we passed on in the second argument is called dependency list, when we
 
 ![](https://i.imgur.com/9AuZ4FS.gif)
 
-You can also put state inside the dependencies list and it will only run when the component gets mounted and when the state changed.
+You can also put state inside the dependencies list and it will only run when the component gets mounted and when the state changes.
 
 ```jsx
 import { useState, useEffect } from 'react'
