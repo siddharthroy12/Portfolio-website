@@ -248,4 +248,18 @@ useEffect(() => {
 }, []) // <= Not providing state1 in dependencies list
 ```
 
-Now the last thing left is cleanup function
+Now the last thing left is the cleanup function, this function is return by the function from the first argument and will run when the component gets unmounted.
+
+```jsx
+useEffect(() => {
+  // Initiate a request to API and update a state
+  API.requestUserData()
+  
+  return () => { // Cleanup function
+    // Cancel the request when the component gets unmounted
+    API.cancelUserDataRequest()
+  }
+}, [])
+```
+
+Sometimes when we run an async function when the comp gets mounted if the function tries to update a state after the comp gets unmounted it can cause memory leaks to it's better to stop that from happining using cleanup function.
