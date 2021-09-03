@@ -132,3 +132,105 @@ Object.is(obj1, obj2) // => false
 ```
 
 > **NOTE:** Spread operator won't copy nested objects, you will have to copy them manually.
+
+## useEffect
+
+The useEffect hook has many use cases, it is a combination of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount `from Class Components.
+
+Here is a simple demo of useEffect hook:
+
+```jsx
+import { useState, useEffect } from 'react'
+
+function App() {
+  const [number, setNumber] = useState(0)
+
+  useEffect(() => {
+    console.log('This runs') // This will run when it mounts and update
+  })
+
+  return (<>
+    <p>{ number }</p>
+    <br />
+    <button onClick={() => setNumber(prevNum => prevNum + 1)}>Increase Number</button>
+  </>)
+}
+
+export default App;
+
+```
+
+The useEffect hook is a function that takes a function as it's first argument and that function will run when the component mounts, update, un-mount.
+
+![](https://i.imgur.com/3btMOl3.gif)
+
+As you saw the function ran the first time when the component gets mounted and whenever it is updated.
+
+This function in the first argument of useEffect hook will only run when the component gets mounted and updated.
+
+It also takes an array as a second optional argument and it behaves differently based on the array.
+
+Like for this example, the function will run only run when the component mounts.
+
+```jsx
+import { useState, useEffect } from 'react'
+
+function App() {
+  const [number, setNumber] = useState(0)
+
+  useEffect(() => {
+    console.log('Component Mounted') // Only runs when the component gets mounted
+  }, []) // <-- Give an empty array in second argument
+
+  return (<>
+    <p>{ number }</p>
+    <br />
+    <button onClick={() => setNumber(prevNum => prevNum + 1)}>Increase Number</button>
+  </>)
+}
+
+export default App;
+
+```
+
+![](https://i.imgur.com/9AuZ4FS.gif)
+
+The array we passed on in the second argument is called dependency list, when we omit the list the function run when the component mounts and when the component update (eg. When a state change), when we put an empty array in the second argument it only runs when the component gets mounted.
+
+![](https://i.imgur.com/9AuZ4FS.gif)
+
+You can also put state inside the dependencies list and it will only run when the component gets mounted and when the state changed.
+
+```jsx
+import { useState, useEffect } from 'react'
+
+function App() {
+  const [number, setNumber] = useState(0)
+  const [message, setMessage] = useState('Hi')
+
+  useEffect(() => {
+    console.log('Component Mounted') // Only runs when the component gets mounted
+  }, []) // <-- Give an empty array in second argument
+
+  useEffect(() => {
+    console.log('Component mounted or message changed')
+  }, [message])
+
+  useEffect(() => {
+    console.log('Component mounted or number changed')
+  }, [number])
+
+  return (<>
+    <p> { message} </p>
+    <p>{ number }</p>
+    <br />
+    <button onClick={() => setMessage(prevMsg => prevMsg + 'i')}>Increase Hi</button>
+    <button onClick={() => setNumber(prevNum => prevNum + 1)}>Increase Number</button>
+  </>)
+}
+
+export default App;
+
+```
+
+![](https://i.imgur.com/y2RbyxI.gif)
