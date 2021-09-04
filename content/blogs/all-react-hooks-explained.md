@@ -159,13 +159,13 @@ function App() {
 export default App;
 ```
 
-The useEffect hook is a function that takes a function as it's first argument and that function will run when the component mounts and update
+The `useEffect` hook is a function that takes a function as it's first argument and that function will run when the component mounts and update
 
 ![](https://i.imgur.com/3btMOl3.gif)
 
 As you saw the function ran the first time when the component got mounted and whenever it updated.
 
-This function in the first argument of useEffect hook will only run when the component gets mounted and updated.
+This function in the first argument of `useEffect` hook will only run when the component gets mounted and updated.
 
 It also takes an array as a second optional argument and it behaves differently based on the array.
 
@@ -232,7 +232,7 @@ export default App;
 
 ![](https://i.imgur.com/y2RbyxI.gif)
 
-You can put multiple states in the dependency list but do note that if you are accessing any state from inside the function in useEffect hook then you have to put that state in the dependencies list.
+You can put multiple states in the dependency list but do note that if you are accessing any state from inside the function in `useEffect` hook then you have to put that state in the dependencies list.
 
 ```jsx
 useEffect(() => {
@@ -261,8 +261,80 @@ useEffect(() => {
 
 Sometimes when we run an async function when the comp gets mounted if the function tries to update a state after the comp gets unmounted it can cause memory leaks so it's better to stop that from happening using the cleanup function.
 
+## useContext
 
+Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that `useContext` allow you to have global state accessible from any component without passing down the state.
 
-### useContext
+> There are two functions to note when using Context API
 
-Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that
+```jsx
+// Create a context with a default value
+const context = createContext(defaultValue) // defaultValue is optional
+
+const value = useContext(conext) // Get the value from context
+```
+
+Here is an example using Context API
+
+In `App.js`:
+
+```jsx
+import { useState, createContext } from 'react'
+import Component1 from './Component1'
+import Component2 from './Component2'
+import Adder from './Adder'
+
+const Context = createContext()
+
+function App() {
+  const [number, setNumber] = useState(0)
+
+  return (<Context.Provider value={{number, setNumber}}>
+    <p>Number: { number }</p>
+    {/* Any component inside this component can access the value of the context */}
+    {/* We can also provide the value of the context here */}
+    
+      <Component1> {/* Dummy component */}
+        <Component2> {/* Dummy component */}
+          <Adder />
+        </Component2>
+      </Component1>
+    
+  </Context.Provider>)
+}
+
+export { Context };
+export default App;
+```
+
+In `Adder.js`:
+
+```jsx
+import { useContext } from 'react'
+import { Context } from './App'
+
+export default function Adder() {
+	const contextValue = useContext(Context)
+
+	return (<div style={{border: '1px solid black'}}>
+		<p>Inside Adder Component</p>
+		<p>Number: { contextValue.number }</p>
+		<button onClick={() => contextValue.setNumber(prevNum => prevNum + 1)}>Add Number</button>
+	</div>)
+}
+```
+
+The result:
+![](https://i.imgur.com/ftehJrU.gif)
+
+### Explanation
+
+* In `App.js` we are creating a context and using the `Provider` Component inside the `Context` object returned by `createContext` as the uppermost component. Any component inside `Context.Provider` component can access the value of the `Context`
+* We are also passing the `number` and `setNumber` from `App.js` as the value of the `Context` using the value prop of the `Context.Provider` component
+* We need to export this `Context` object to be used inside the other components when using `useContext`
+* In `Adder.js` we are simply importing the `Context` object and using it with `useContext` hook to get the value of the context
+* The object returned by `useContext` contains the value we provided in the value prop of the provider component
+
+Note that whenever the value of context change the entire component tree gets re-rendered and can affect performance. If you don't want that behavior it's better to use external solutions for global state management like `react-redux` that only re-render the desired component.
+
+You can also have multiple context and context providers if you want.
