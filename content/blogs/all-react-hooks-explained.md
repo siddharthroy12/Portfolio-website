@@ -135,7 +135,7 @@ Object.is(obj1, obj2) // => false
 
 ## useEffect
 
-The useEffect hook has many use cases, it is a combination of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount `from Class Components.
+The useEffect hook has many use cases, it is a combination of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`from Class Components.
 
 Here is a simple demo of useEffect hook:
 
@@ -157,7 +157,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 The useEffect hook is a function that takes a function as it's first argument and that function will run when the component mounts and update
@@ -190,7 +189,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ![](https://i.imgur.com/9AuZ4FS.gif)
@@ -230,7 +228,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ![](https://i.imgur.com/y2RbyxI.gif)
@@ -263,3 +260,9 @@ useEffect(() => {
 ```
 
 Sometimes when we run an async function when the comp gets mounted if the function tries to update a state after the comp gets unmounted it can cause memory leaks so it's better to stop that from happening using the cleanup function.
+
+
+
+### useContext
+
+Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that
