@@ -76,10 +76,6 @@
 	display: flex;
 }
 
-.header-bottom > div > div {
-	padding: 0 2rem;
-}
-
 .header-bottom-right .greeting {
 	font-size: 1.3rem;
 	font-weight: 300;
@@ -109,6 +105,7 @@
 
 .header-bottom-left {
 	z-index: 1;
+	margin-right: 4rem;
 }
 
 .header-bottom-left > * {
@@ -167,6 +164,7 @@
 	.header-bottom-left {
 		display: flex;
 		justify-content: center;
+		margin-right: 0;
 	}
 
 	.header-bottom-right {

@@ -64,7 +64,7 @@ export async function getStaticProps({ params: { page } }) {
 				lastPage: pages,
 			},
 			title: 'Siddharth Roy\'s Blog',
-			subtitle: 'I write about web development.',
+			subtitle: 'I write about web development, React, Javascript, C.',
 			headData: {
 				headtitle: 'Siddharth Roy | Blogs'
 			}
