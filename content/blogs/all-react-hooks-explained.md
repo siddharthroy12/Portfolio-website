@@ -12,15 +12,16 @@ Using a functional component with hooks reduces the line of codes and makes it l
 
 In this blog, you are going to learn how to use the most used built-in react hooks and how to make a custom hook from scratch.
 
-* `useState`
-* `useEffect`
-* `useContext`
-* `useReducer`
-* `useCallback`
-* `useMemo`
-* `useRef`
+- [`useState`](#usestate)
+- [`useEffect`](#useeffect)
+- [`useContext`](#usecontext)
+- [`useReducer`](#usereducer)
+- [`useCallback`](#usecallback)
+- [`useMemo`](#usememo)
+- [`useRef`](#useref)
 
-## useState
+
+## `useState`
 
 If you are used to class-based components you know that functional components don't state.
 
@@ -133,7 +134,7 @@ Object.is(obj1, obj2) // => false
 
 > **NOTE:** Spread operator won't copy nested objects, you will have to copy them manually.
 
-## useEffect
+## `useEffect`
 
 The useEffect hook has many use cases, it is a combination of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`from Class Components.
 
@@ -261,9 +262,10 @@ useEffect(() => {
 
 Sometimes when we run an async function when the comp gets mounted if the function tries to update a state after the comp gets unmounted it can cause memory leaks so it's better to stop that from happening using the cleanup function.
 
-## useContext
 
-Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that `useContext` allow you to have global state accessible from any component without passing down the state.
+## `useContext`
+
+Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that `useContext` allow you to have global state accessble from any component without passing down the state.
 
 > There are two functions to note when using Context API
 
@@ -329,12 +331,248 @@ The result:
 
 ### Explanation
 
-* In `App.js` we are creating a context and using the `Provider` Component inside the `Context` object returned by `createContext` as the uppermost component. Any component inside `Context.Provider` component can access the value of the `Context`
-* We are also passing the `number` and `setNumber` from `App.js` as the value of the `Context` using the value prop of the `Context.Provider` component
-* We need to export this `Context` object to be used inside the other components when using `useContext`
-* In `Adder.js` we are simply importing the `Context` object and using it with `useContext` hook to get the value of the context
-* The object returned by `useContext` contains the value we provided in the value prop of the provider component
+- In `App.js` we are creating a context and using the `Provider` Component inside the `Context` object returned by `createContext` as the uppermost component. Any component inside `Context.Provider` Component can access the value of the `Context`
+- We are also passing the `number` and `setNumber` from `App.js` as the value of the `Context` using the value prop of the `Context.Provider` component
+- We need to export this `Context` object to be used inside the other components when using `useContext`
+- In `Adder.js` we are simply importing the `Context` object and using it with `useContext` hook to get the value of the context
+- The object returned by `useContext` contains the value we provided in the value prop of the provider component
+  
+Note that whenever the value of context change the entire component tree gets re-rendered and can effect performance. If you don't want that behaviour it's better to use external solution for global state management like `react-redux` that only re-render the desired component.
 
-Note that whenever the value of context change the entire component tree gets re-rendered and can affect performance. If you don't want that behavior it's better to use external solutions for global state management like `react-redux` that only re-render the desired component.
+You can also have multiple context and context provider if you want.
 
-You can also have multiple context and context providers if you want.
+## `useReducer`
+
+This is an alternative to `useState` it take an additional function called reducer, it's similar to how redux handle state.
+
+`useReducer` is useful when you have complex state, like an object with multiple sub values.
+
+Here is an simple counter example from [React Docs](https://reactjs.org/docs/hooks-reference.html#usereducer) using  `useReducer`:
+
+```jsx
+import { useReducer } from 'react'
+
+const initialState = {count: 0}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1}
+    case 'decrement':
+      return {count: state.count - 1}
+    default:
+      throw new Error()
+  }
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+    </>
+  )
+}
+
+export default App
+```
+
+![](https://i.imgur.com/qXrCLXn.gif)
+
+Here is an another example using complex state:
+
+```jsx
+import { useReducer } from 'react'
+
+const initialState = {
+  username: 'Siddharth_Roy12',
+  age: 17,
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment_age':
+      return {...state, age: state.age + 1}
+    case 'decrement_age':
+      return {...state, age: state.age - 1}
+    case 'change_username':
+      return {...state, username: action.payload}
+    default:
+      throw new Error();
+  }
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+  return (
+    <>
+      <p>Username: { state.username }</p>
+      <p>Age: { state.age }</p>
+      
+      <button onClick={() => dispatch({type: 'decrement_age'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment_age'})}>+</button>
+      <input
+        type="text"
+        value={state.username}
+        onChange={(e) => dispatch({
+          type: 'change_username',
+          payload: e.target.value
+        })}
+      />
+    </>
+  )
+}
+
+export default App;
+```
+![](https://i.imgur.com/ZRO48vJ.gif)
+
+### Lazy initialization
+
+You can also create the initial state lazily. To do this, you can pass an init function as the third argument. The initial state will be set to `init(initialArg)`.
+
+It lets you extract the logic for calculating the initial state outside the reducer. This is also handy for resetting the state later in response to an action:
+
+```jsx
+import { useReducer } from 'react'
+
+const initialCount = 0
+
+function init(initialCount) {
+  return {count: initialCount};
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1}
+    case 'decrement':
+      return {count: state.count - 1}
+    default:
+      throw new Error()
+  }
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialCount, init)
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+    </>
+  )
+}
+
+export default App
+```
+
+## `useCallback`
+
+```jsx
+const memoizedCallback = useCallback(
+  () => {
+    doSomething(a, b);
+  },
+  [a, b],
+);
+```
+
+Usually if you have an inline function in a react component, whenever that component re-render that function will also gets re-created
+
+The `useCallback` hook takes an inline function and an dependencies list and return an memorized version of that function. That function will only recreate when it's dependencies change.
+
+
+You can visualize the function re-creation using a `Set`
+
+> **NOTE:** `Set` can only have unique elements. `Object.is` is used to check and remove duplicate elements.
+
+Without `useCallback`:
+
+```jsx
+import { useState } from 'react'
+
+const functionsCounter = new Set()
+
+function App() {
+  const [count, setCount] = useState(0)
+  const [otherCounter, setOtherCounter] = useState(0)
+
+  const increment = () => {
+    setCount(count + 1)
+  }
+  const decrement = () => {
+    setCount(count - 1)
+  }
+  const incrementOtherCounter = () => {
+    setOtherCounter(otherCounter + 1)
+  }
+
+  functionsCounter.add(increment)
+  functionsCounter.add(decrement)
+  functionsCounter.add(incrementOtherCounter)
+
+  console.log(functionsCounter.size)
+
+  return (
+    <>
+      Count: {count}
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={incrementOtherCounter}>incrementOtherCounter</button>
+    </>
+  )
+}
+
+export default App;
+```
+
+![](https://i.imgur.com/T5UTWvT.gif)
+
+With `useCallback`:
+
+
+```jsx
+import { useState, useCallback } from 'react'
+
+const functionsCounter = new Set()
+
+function App() {
+  const [count, setCount] = useState(0)
+  const [otherCounter, setOtherCounter] = useState(0)
+
+  const increment = useCallback(() => {
+    setCount(count + 1)
+  }, [count])
+  const decrement = useCallback(() => {
+    setCount(count - 1)
+  }, [count])
+  const incrementOtherCounter = useCallback(() => {
+    setOtherCounter(otherCounter + 1)
+  }, [otherCounter])
+
+  
+  functionsCounter.add(increment)
+  functionsCounter.add(decrement)
+  functionsCounter.add(incrementOtherCounter)
+
+  console.log(functionsCounter.size)
+
+  return (
+    <>
+      Count: {count}
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={incrementOtherCounter}>incrementOtherCounter</button>
+    </>
+  )
+}
+
+export default App;
+```
+
+![](https://i.imgur.com/hmZEO4g.gif)
+
+The use case of the hook is very small, you will most likely never have to use this hook.
