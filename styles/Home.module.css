@@ -1,3 +1,7 @@
 .highlight {
 	color: var(--accent-color);
 }
+
+.articles > article {
+	margin-bottom: 2rem;
+}

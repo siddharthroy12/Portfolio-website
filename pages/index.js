@@ -48,7 +48,7 @@ export default function Home({ projects, blogs, frontmatter }) {
     <Section title="Featured Projects" subtitle="Browse my favourite projects." className="grid">
       {projects.map((project, index) => <Project {...project} key={index} />)}
     </Section>
-    <Section title="Popular Articles">
+    <Section title="Popular Articles" className={styles['articles']}>
       {blogs.map((blog, index) => <BlogEntry blog={blog} key={index} />)}
       <div className="mt">
         <Link href="/blogs/1"><a className="btn btn-outline">View All</a></Link>
