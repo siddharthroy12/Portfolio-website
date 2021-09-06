@@ -8,20 +8,23 @@ Since React 16.8 the most common way to build a react component is using functio
 
 But why use a functional component instead of a class-based component?
 
-Using a functional component with hooks reduces the line of codes and makes it look more clean and readable.
+Using a functional component with hooks reduces the line of codes and makes our code look more clean and readable.
 
-In this blog, you are going to learn how to use the most used built-in react hooks and how to make a custom hook from scratch.
+In this blog, you are going to learn how to use the most used built-in react hooks and how to make a [custom hook from scratch](#custom-hook-from-scratch).
 
-- [`useState`](#usestate)
-- [`useEffect`](#useeffect)
-- [`useContext`](#usecontext)
-- [`useReducer`](#usereducer)
-- [`useCallback`](#usecallback)
-- [`useMemo`](#usememo)
-- [`useRef`](#useref)
-
+* [`useState`](#usestate)
+* [`useEffect`](#useeffect)
+* [`useContext`](#usecontext)
+* [`useReducer`](#usereducer)
+* [`useCallback`](#usecallback)
+* [`useMemo`](#usememo)
+* [`useRef`](#useref)
 
 ## `useState`
+
+```jsx
+const [state, setState] = useState(initialState)
+```
 
 If you are used to class-based components you know that functional components don't state.
 
@@ -135,6 +138,10 @@ Object.is(obj1, obj2) // => false
 > **NOTE:** Spread operator won't copy nested objects, you will have to copy them manually.
 
 ## `useEffect`
+
+```jsx
+useEffect(didUpdate)
+```
 
 The useEffect hook has many use cases, it is a combination of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`from Class Components.
 
@@ -262,10 +269,13 @@ useEffect(() => {
 
 Sometimes when we run an async function when the comp gets mounted if the function tries to update a state after the comp gets unmounted it can cause memory leaks so it's better to stop that from happening using the cleanup function.
 
-
 ## `useContext`
 
-Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that `useContext` allow you to have global state accessble from any component without passing down the state.
+```jsx
+const value = useContext(MyContext)
+```
+
+Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that `useContext` allow you to have global state accessible from any component without passing down the state.
 
 > There are two functions to note when using Context API
 
@@ -331,23 +341,27 @@ The result:
 
 ### Explanation
 
-- In `App.js` we are creating a context and using the `Provider` Component inside the `Context` object returned by `createContext` as the uppermost component. Any component inside `Context.Provider` Component can access the value of the `Context`
-- We are also passing the `number` and `setNumber` from `App.js` as the value of the `Context` using the value prop of the `Context.Provider` component
-- We need to export this `Context` object to be used inside the other components when using `useContext`
-- In `Adder.js` we are simply importing the `Context` object and using it with `useContext` hook to get the value of the context
-- The object returned by `useContext` contains the value we provided in the value prop of the provider component
-  
-Note that whenever the value of context change the entire component tree gets re-rendered and can effect performance. If you don't want that behaviour it's better to use external solution for global state management like `react-redux` that only re-render the desired component.
+* In `App.js` we are creating a context and using the `Provider` Component inside the `Context` object returned by `createContext` as the uppermost component. Any component inside `Context.Provider` Component can access the value of the `Context`
+* We are also passing the `number` and `setNumber` from `App.js` as the value of the `Context` using the value prop of the `Context.Provider` component
+* We need to export this `Context` object to be used inside the other components when using `useContext`
+* In `Adder.js` we are simply importing the `Context` object and using it with `useContext` hook to get the value of the context
+* The object returned by `useContext` contains the value we provided in the value prop of the provider component
 
-You can also have multiple context and context provider if you want.
+Note that whenever the value of context change the entire component tree gets re-rendered and can affect performance. If you don't want that behavior it's better to use external solutions for global state management like `react-redux` that only re-render the desired component.
+
+You can also have multiple context and context providers if you want.
 
 ## `useReducer`
 
-This is an alternative to `useState` it take an additional function called reducer, it's similar to how redux handle state.
+```jsx
+const [state, dispatch] = useReducer(reducer, initialArg, init)
+```
 
-`useReducer` is useful when you have complex state, like an object with multiple sub values.
+This is an alternative to `useState`, it take an additional function called reducer, it's similar to how redux handle state.
 
-Here is an simple counter example from [React Docs](https://reactjs.org/docs/hooks-reference.html#usereducer) using  `useReducer`:
+`useReducer` is useful when you have a complex state, like an object with multiple sub-values.
+
+Here is a simple counter example from [React Docs](https://reactjs.org/docs/hooks-reference.html#usereducer) using  `useReducer`:
 
 ```jsx
 import { useReducer } from 'react'
@@ -381,7 +395,7 @@ export default App
 
 ![](https://i.imgur.com/qXrCLXn.gif)
 
-Here is an another example using complex state:
+Here is another example using complex state:
 
 ```jsx
 import { useReducer } from 'react'
@@ -427,6 +441,7 @@ function App() {
 
 export default App;
 ```
+
 ![](https://i.imgur.com/ZRO48vJ.gif)
 
 ### Lazy initialization
@@ -480,10 +495,9 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Usually if you have an inline function in a react component, whenever that component re-render that function will also gets re-created
+Usually, if you have an inline function in a react component, whenever that component re-render that function will also get re-created
 
-The `useCallback` hook takes an inline function and an dependencies list and return an memorized version of that function. That function will only recreate when it's dependencies change.
-
+The `useCallback` hook takes an inline function and a dependencies list and returns a [memoized](https://en.wikipedia.org/wiki/Memoization) version of that function. That function will only recreate when its dependencies change.
 
 You can visualize the function re-creation using a `Set`
 
@@ -533,7 +547,6 @@ export default App;
 
 With `useCallback`:
 
-
 ```jsx
 import { useState, useCallback } from 'react'
 
@@ -575,4 +588,136 @@ export default App;
 
 ![](https://i.imgur.com/hmZEO4g.gif)
 
-The use case of the hook is very small, you will most likely never have to use this hook.
+The use cases of the hook are very small, you will most likely never have to use this hook.
+
+## `useMemo`
+
+```jsx
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
+
+The `useMemo` hooks take a function to compute a value and a dependency array and return a memoized value. This will only re-compute the value when its dependencies have changed.
+
+This hook is useful when you are doing expensive calculations inside a component every time it renders.
+
+An example without `useMemo`:
+
+```jsx
+function DemoComponent() {
+  const [state1, setState1] = useState(3)
+  const [state2, setState2] = useState(Math.PI)
+
+  const someValue = computeExpensiveValue(state1, state2) // Takes 0.6ms on every render
+
+  return (<>
+    { someValue }
+  </>)
+}
+```
+
+With `useMemo`:
+
+```jsx
+function DemoComponent() {
+  const [state1, setState1] = useState(3)
+  const [state2, setState2] = useState(Math.PI)
+
+  const someValue = useMemo(() => {
+    return computeExpensiveValue(state1, state2) // This only runs when the state1 or state2 changes
+  }, [state1, state2])
+
+  return (<>
+    { someValue }
+  </>)
+}
+```
+
+## `useRef`
+
+```jsx
+const refContainer = useRef(initialValue)
+```
+
+`useRef` returns a mutable ref object whose `.current` property is initialized to the passed argument `(initialValue)`. The returned object will persist for the full lifetime of the component.
+
+The most common use case of this hook is to store a reference to a DOM Element.
+
+```jsx
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null)
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current.focus()
+  };
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  );
+}
+```
+
+Another use case is to store a mutable value and it will persist during the entire life cycle of the component, but do note that whenever you change the `.current` property the component won't re-render.
+
+## Custom hook form scratch
+
+Now that you have learned how to use all react hooks It's time to build your own hook from scratch.
+
+A custom hook is just a regular javascript function that uses the other hooks provided by React to extract component logic into a reusable function.
+
+For example, look at this component
+
+```jsx
+function App() {
+  const mounted = useRef(false)
+
+  useEffect(() => { // To check if component is mounted or not
+		mounted.current = true
+
+		return () => { 
+			mounted.current = false
+		}
+	}, [])
+
+  // To check if the component is mounted or not check mounted.current
+  if (mounted.current) {
+    ...
+  }
+}
+```
+
+This component uses two hooks to check if the component is mounted or not. This is useful when you are running a long async function and the component can dismount at any time.
+
+We can extract this logic into a reusable function.
+
+```jsx
+function useIsMounted() { // React hook name must start from use
+  const mounted = useRef(false)
+
+  useEffect(() => {
+		mounted.current = true
+
+		return () => { 
+			mounted.current = false
+		}
+	}, [])
+
+  return () => mounted.current
+}
+```
+
+Then use it like this
+
+```jsx
+function App() {
+  const isMounted = useIsMounted()
+
+  // To check if is mounted
+  if (isMounted()) {
+    ...
+  }
+}
+```
+
+Now our code looks more cleaner and we can use the same logic in many components.
