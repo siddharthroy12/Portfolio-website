@@ -3,6 +3,9 @@ const withTM = require('next-transpile-modules')(['react-syntax-highlighter', 'r
 module.exports = withTM({
   reactStrictMode: true,
   images: {
-    domains: ['raw.githubusercontent.com'],
+    domains: [
+      'raw.githubusercontent.com',
+      'i.imgur.com/'
+    ],
   }
 })
