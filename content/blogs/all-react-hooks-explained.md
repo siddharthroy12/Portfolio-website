@@ -28,7 +28,7 @@ const [state, setState] = useState(initialState)
 
 If you are used to class-based components you know that functional components don't state.
 
-`useState`allows you to have state in functional components.
+`useState` allows you to have state in functional components.
 
 ```jsx
 // const [value, setValue] = useState(initialValue)
@@ -143,9 +143,9 @@ Object.is(obj1, obj2) // => false
 useEffect(didUpdate)
 ```
 
-The useEffect hook has many use cases, it is a combination of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`from Class Components.
+The `useEffect` hook has many use cases, it is a combination of `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` from Class Components.
 
-Here is a simple demo of useEffect hook:
+Here is a simple demo of `useEffect` hook:
 
 ```jsx
 import { useState, useEffect } from 'react'
@@ -167,7 +167,7 @@ function App() {
 export default App;
 ```
 
-The `useEffect` hook is a function that takes a function as it's first argument and that function will run when the component mounts and update
+The `useEffect` hook is a function that takes a function as its first argument and that function will run when the component mounts and update
 
 ![](https://i.imgur.com/3btMOl3.gif)
 
@@ -275,7 +275,7 @@ Sometimes when we run an async function when the comp gets mounted if the functi
 const value = useContext(MyContext)
 ```
 
-Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that `useContext` allow you to have global state accessible from any component without passing down the state.
+Normally if you want to share a state between components you would have to move the state to the uppermost component and then pass it down using props of every component. This method might be ok for small scale project but for a big scale project this can be tedious so to help with that `useContext` allow you to have a global state accessible from any component without passing down the state.
 
 > There are two functions to note when using Context API
 
@@ -357,7 +357,7 @@ You can also have multiple context and context providers if you want.
 const [state, dispatch] = useReducer(reducer, initialArg, init)
 ```
 
-This is an alternative to `useState`, it take an additional function called reducer, it's similar to how redux handle state.
+This is an alternative to `useState`, it takes an additional function called reducer, it's similar to how redux handles state.
 
 `useReducer` is useful when you have a complex state, like an object with multiple sub-values.
 
