@@ -56,7 +56,7 @@ To create a `tsconfig.json` file simply run this command:
 tsc --init
 ```
 
-This command will create the `tsconfig.json` file with the default configuration. This file will contain a lot of settings, most of which is commented out. However, there are some settings that are important to know:
+This command will create the `tsconfig.json` file with the default configuration. This file will contain a lot of settings, most of which are commented out. However, there are some settings that are important to know:
 
 * `target` This specifies which ECMAScript version your code will compile to. By default, this is set to `ES5` which is supported by most browsers. This allows you to use modern Javascript features without compromising browser support.
 * `module` This specifies what module code generator to use. By default it uses `common.js`.
