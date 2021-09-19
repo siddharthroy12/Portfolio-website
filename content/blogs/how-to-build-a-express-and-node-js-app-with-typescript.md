@@ -33,14 +33,14 @@ Now we can add the dependencies.
 
 We need to add two frameworks Express and Typescript to our project. To do so run the following command.
 
-```bash
+```shell
 npm install express
 npm install typescript --save-dev
 ```
 
 Because we are using Typescript we also need to install the types provided by Express.
 
-```bash
+```shell
 npm install @types/express --save-dev
 ```
 
@@ -52,7 +52,7 @@ Before we use Typescript we need to configure it. You will need to create a `tsc
 
 To create a `tsconfig.json` file simply run this command:
 
-```bash
+```shell
 tsc --init
 ```
 
@@ -99,7 +99,7 @@ If you run `tsc --watch` it will automatically compile your ts files to js whene
 
 Add two new dependency `nodemon` and `concurrently` to your project.
 
-```bash
+```shell
 npm install nodemon concurrently --save-dev
 ```
 
