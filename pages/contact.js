@@ -34,6 +34,8 @@ export default function Contact() {
 				<div>
 					<MdMessage />
 					<textarea
+            id="message"
+            name="message"
 						placeholder="Message"
 						required
 						spellCheck
