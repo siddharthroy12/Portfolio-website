@@ -9,11 +9,15 @@ export default function Navbar() {
 				<img src="/BrandLogo.svg" alt="BrandIcon" className={styles.brandlogo}/>
 				<p className={styles.brandname}>SiddharthRoy</p>
 			</div>
-			<nav>
+			<nav className={styles.nav}>
 				<ul>
-					<li><Link href="/">Home</Link></li>
+					<li className={styles.active}><Link href="/">Home</Link></li>
+					<li><Link href="/portfolio">Portfolio</Link></li>
+					<li><Link href="/blogs">Blogs</Link></li>
+					<li><Link href="/templates">Templates</Link></li>
 				</ul>
 			</nav>
+			<a href="#contact" className={styles["contact-btn"]}>Contact</a>
 		</div>
 	)
 }

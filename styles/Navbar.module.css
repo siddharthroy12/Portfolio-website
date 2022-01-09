@@ -1,5 +1,8 @@
 .container {
 	display: flex;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .brand {
@@ -16,4 +19,46 @@
 .brandname {
 	font-weight: bold;
 	margin-left: 10px;
+}
+
+.nav {
+	position: absolute;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.nav ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+.nav ul li {
+	margin: 0 10px;
+}
+
+.nav ul li.active {
+	font-weight: 500;
+	position: relative;
+}
+
+.nav ul li.active::before {
+	position: absolute;
+	content: '';
+	top: -15px;
+	left: 0;
+	right: 0;
+	height: 9px;
+	background-color: var(--text-color1);
+	border-radius: 50px;
+}
+
+.contact-btn {
+	padding: .4em 1.1em;
+	background-color: var(--text-color1);
+	color: var(--page-color);
+	border-radius: 50px;
 }
