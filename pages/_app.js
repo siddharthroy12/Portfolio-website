@@ -13,12 +13,7 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout
-      headData={pageProps.headData}
-      title={pageProps.title}
-      subtitle={pageProps.subtitle}
-      date={pageProps.date}
-    >
+    <Layout>
       <Component {...pageProps} />
     </Layout>
   )

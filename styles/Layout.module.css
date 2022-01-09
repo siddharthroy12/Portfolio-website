@@ -1,40 +1,8 @@
 .container {
 	margin: auto;
-	max-width: 70rem;
-	padding: 0 2rem;
+	max-width: 1150px;
+	padding: 0 50px;
+	margin-top: 50px;
 	padding-bottom: 10rem;
 }
 
-.footer {
-	background-color: var(--color-1);
-	color: #969696;
-	height: 5rem;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 3.5rem;
-}
-
-.footer > div {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	align-items: center;
-	padding: 0 2rem;
-	height: 100%;
-}
-
-.footer > div > p {
-	display: flex;
-	align-items: center;
-}
-
-.footer > div > p > svg {
-	margin: 0 5px;
-	transition-duration: var(--transition-duration);
-}
-
-.footer > div > p > svg:hover {
-	color: rgb(34, 180, 238);
-}

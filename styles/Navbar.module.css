@@ -1,0 +1,19 @@
+.container {
+	display: flex;
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+}
+
+.brandlogo {
+	display: block;
+	width: 36px;
+	height: 36px;
+}
+
+.brandname {
+	font-weight: bold;
+	margin-left: 10px;
+}
