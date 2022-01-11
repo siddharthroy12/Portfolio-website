@@ -1,7 +1,36 @@
-.highlight {
-	color: var(--accent-color);
+.header {
+	margin-top: 110px;
+	display: flex;
+	height: 20em;
 }
 
-.articles > article {
-	margin-bottom: 2rem;
+.header__left {
+	width: 50%;
+}
+
+.header__left h1 {
+	color: var(--text-color1);
+	font-size: 3.7rem;
+	line-height: 4.3rem;
+	max-width: 7.8em;
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
+
+.header__left__cta {
+	display: flex;
+}
+
+.cta-link {
+	font-size: 1.3rem;
+}
+
+.header__right {
+	width: 50%;
+	height: 100%;
+}
+
+.header__right__illustration {
+	display: block;
+	height: 100%;
 }
