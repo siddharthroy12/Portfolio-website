@@ -15,11 +15,25 @@
 	max-width: 7.8em;
 	margin-top: 40px;
 	margin-bottom: 50px;
+	position: relative;
+	z-index: 1;
+}
+
+.header__left h1::before {
+	content: '';
+	position: absolute;
+	width: 50em;
+	height: 5em;
+	left: -48em;
+	top: -1em;
+	background-color: #EDEDED;
+	z-index: -1;
 }
 
 .header__left__cta {
 	display: flex;
 	align-items: center;
+	margin-top: 90px;
 }
 
 .cta-link {
@@ -69,15 +83,11 @@
 	height: 100%;
 }
 
-.about {
-	display: flex;
-	margin-top: 200px;
+.section {
+	margin-top: 150px;
 }
 
-.about__left {
-}
-
-.about-header {
+.section-header {
 	font-size: 3rem;
 	font-weight: 600;
 	position: relative;
@@ -85,8 +95,7 @@
 	color: var(--text-color1);
 }
 
-.about-header::before {
-	content: 'About Me';
+.section-header::before {
 	position: absolute;
 	left: 0;
 	top: -0.6em;
@@ -95,4 +104,42 @@
 	z-index: -1;
 }
 
+.about {
+	display: flex;
+	align-items: center;
+	margin-top: 200px;
+}
 
+.about__left {
+	width: 50%;
+}
+
+.about__header::before {
+	content: 'About Me';
+}
+
+.about__paragraph {
+	margin-top: 50px;
+	color: var(--text-color2);
+	font-size: 1.5rem;
+	max-width: 400px;
+}
+
+.about__right {
+	width: 50%;
+	padding: 100px;
+}
+
+.about__right img {
+	display: block;
+	width: 100%;
+}
+
+.divider {
+	height: 500px;
+	border-left: 2px solid var(--text-color1);
+}
+
+.skills__header::before {
+	content: 'Skills';
+}

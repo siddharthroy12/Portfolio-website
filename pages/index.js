@@ -30,16 +30,23 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 				<img className={styles.header__right__illustration} src="/illustration.svg" alt="hero-illustration"/>
 			</div>
 		</header>
-		<section id="#about" className={styles.about}>
-			<div className={styles.about__left}>
-				<h2 className={styles["about-header"]}>About Me</h2>
-				<p>{frontmatter.about}</p>
-			</div>
-			<div className={styles.divider} />
-			<div className={styles.about__right}>
-				<img src="/BrandLogo.svg" alt="Brand Logo"/>
-			</div>
-		</section>
+		<main>
+			<section id="#about" className={styles.about + ' ' + styles.section}>
+				<div className={styles.about__left}>
+					<h2 className={styles["section-header"]+' '+styles.about__header}>About Me</h2>
+					<p className={styles.about__paragraph}>{frontmatter.about}</p>
+				</div>
+				<div className={styles.divider} />
+				<div className={styles.about__right}>
+					<img src="/BrandLogo.svg" alt="Brand Logo"/>
+				</div>
+			</section>
+			<section id="#skills" className={styles.skills + ' ' + styles.section}>
+				<h2 className={styles.skills__header + ' ' + styles["section-header"]}>
+					What I do
+				</h2>
+			</section>
+		</main>
 	</>)
 }
 
