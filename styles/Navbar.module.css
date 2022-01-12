@@ -8,6 +8,7 @@
 .brand {
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 
 .brandlogo {
@@ -26,10 +27,11 @@
 	position: absolute;
 	margin: auto;
 	height: 100%;
-	width: 100%;
 	display: flex;
 	justify-content: center;
 	color: var(--text-color1);
+	left: 50%;
+	transform: translate(-50%, 0%);
 }
 
 .nav ul {

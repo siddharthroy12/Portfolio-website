@@ -18,13 +18,28 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 				<h1>{frontmatter.smallbio}</h1>
 				<div className={styles.header__left__cta}>
 					<a href="#about" className={styles["cta-link"]}>About Me</a>
-					<a href="#contact" className={styles["cta-link-special"]}>Contact</a>
+					<a href="#contact" className={styles["cta-link-special"]}>
+						Contact
+						<svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M19.997 11.997C20.5477 11.4464 20.5477 10.5536 19.997 10.003L11.0238 1.0298C10.4732 0.479157 9.58044 0.479157 9.0298 1.0298C8.47916 1.58044 8.47916 2.4732 9.0298 3.02384L17.006 11L9.0298 18.9762C8.47916 19.5268 8.47916 20.4196 9.0298 20.9702C9.58043 21.5208 10.4732 21.5208 11.0238 20.9702L19.997 11.997ZM-1.23266e-07 12.41L19 12.41L19 9.59L1.23266e-07 9.59L-1.23266e-07 12.41Z" fill="#272727"/>
+						</svg>
+					</a>
 				</div>
 			</div>
 			<div className={styles.header__right}>
 				<img className={styles.header__right__illustration} src="/illustration.svg" alt="hero-illustration"/>
 			</div>
 		</header>
+		<section id="#about" className={styles.about}>
+			<div className={styles.about__left}>
+				<h2 className={styles["about-header"]}>About Me</h2>
+				<p>{frontmatter.about}</p>
+			</div>
+			<div className={styles.divider} />
+			<div className={styles.about__right}>
+				<img src="/BrandLogo.svg" alt="Brand Logo"/>
+			</div>
+		</section>
 	</>)
 }
 

@@ -17,10 +17,12 @@ export default function Navbar() {
 
 	return (
 		<div className={styles.container}>
+			<Link href="/">
 			<div className={styles.brand}>
 				<img src="/BrandLogo.svg" alt="BrandIcon" className={styles.brandlogo}/>
 				<p className={styles.brandname}>SiddharthRoy</p>
 			</div>
+			</Link>
 			<nav className={styles.nav}>
 				<ul>
 					<li className={isActive('/')}><Link href="/">Home</Link></li>

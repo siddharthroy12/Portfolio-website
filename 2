@@ -34,29 +34,18 @@
 	color: var(--text-color1);
 	position: relative;
 	z-index: 2;
-	display: flex;
-	align-items: center;
-}
-
-.cta-link-special svg {
-	margin-left: 10px;
 }
 
 .cta-link-special::before {
 	content: '';
-	width: 2.5em;
-	height: 2.5em;
+	width: 50px;
+	height: 50px;
 	position: absolute;
 	background-color: #D0D0D0;
-	left: -0.7em;
-	top: -0.5em;
+	left: 0;
+	top: -0.4em;
 	border-radius: 50px;
 	z-index: -1;
-	transition-duration: var(--trans-dur);
-}
-
-.cta-link-special:hover::before {
-	width: 7em;
 }
 
 .header__right {
@@ -68,31 +57,3 @@
 	display: block;
 	height: 100%;
 }
-
-.about {
-	display: flex;
-	margin-top: 200px;
-}
-
-.about__left {
-}
-
-.about-header {
-	font-size: 3rem;
-	font-weight: 600;
-	position: relative;
-	z-index: 1;
-	color: var(--text-color1);
-}
-
-.about-header::before {
-	content: 'About Me';
-	position: absolute;
-	left: 0;
-	top: -0.6em;
-	color: #E8E8E8;
-	font-size: 3.5rem;
-	z-index: -1;
-}
-
-
