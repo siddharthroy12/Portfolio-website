@@ -15,7 +15,7 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 		</Head>
 		<header className={styles.header}>
 			<div className={styles.header__left}>
-				<h1>{frontmatter.smallbio}</h1>
+				<h1>I <span className={styles.highlight}>Design</span> and <span className={styles.highlight}>Develop</span> apps and websites</h1>
 				<div className={styles.header__left__cta}>
 					<a href="#about" className={styles["cta-link"]}>About Me</a>
 					<a href="#contact" className={styles["cta-link-special"]}>
@@ -44,6 +44,31 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 			<section id="#skills" className={styles.skills + ' ' + styles.section}>
 				<h2 className={styles.skills__header + ' ' + styles["section-header"]}>
 					What I do
+				</h2>
+				<div className={styles.skills__list}>
+					<div className={styles.skill}>
+						<div className={styles["skill__icon-container"]}>
+							<img className={styles["skill__icon"]} src="/pen.svg" alt="Pen Icon" />
+						</div>
+						<h3 className={styles["skill__header"]}>UI/UX Design</h3>
+						<p className={styles["skill__paragraph"]}>
+							I value simple clean and structural design and good user experience.
+						</p>
+					</div>
+					<div className={styles.skill}>
+						<div className={styles["skill__icon-container"]}>
+							<img className={styles["skill__icon"]} src="/code.svg" alt="Pen Icon" />
+						</div>
+						<h3 className={styles["skill__header"]}>Web app Developmet</h3>
+						<p className={styles["skill__paragraph"]}>
+							I like to code things from scratch, and enjoy bringing ideas to life in the browser.
+						</p>
+					</div>
+				</div>
+			</section>
+			<section id="#techprojects" className={styles.section}>
+				<h2 className={styles.tech__header + ' ' + styles["section-header"]}>
+					Technical Projects
 				</h2>
 			</section>
 		</main>

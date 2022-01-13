@@ -8,6 +8,10 @@
 	width: 50%;
 }
 
+.highlight {
+	color: var(--highlight-color);
+}
+
 .header__left h1 {
 	color: var(--text-color1);
 	font-size: 3.7rem;
@@ -140,6 +144,52 @@
 	border-left: 2px solid var(--text-color1);
 }
 
+.skills__header {
+	margin-bottom: 60px;
+}
+
 .skills__header::before {
 	content: 'Skills';
 }
+
+.skills__list {
+	display: flex;
+}
+
+.skill {
+	max-width: 400px;
+	margin-right: 70px;
+}
+
+.skill__icon-container {
+	background-color: #E1E1E1;
+	border-radius: 10px;
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.skill__icon {
+	display: block;
+	width: 45px;
+}
+
+.skill__header {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	color: var(--text-color1);
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+.skill__paragraph {
+	color: var(--text-color2);
+	font-size: 1.2rem;
+}
+
+.tech__header::before {
+	content: 'Technical Projects';
+}
+
