@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import Project from '../components/Project'
 import fs from 'fs'
 import matter from 'gray-matter'
 
@@ -42,7 +43,7 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 				</div>
 			</section>
 			<section id="#skills" className={styles.skills + ' ' + styles.section}>
-				<h2 className={styles.skills__header + ' ' + styles["section-header"]}>
+				<h2 className={styles["margin-bottom"] + ' ' + styles.skills__header + ' ' + styles["section-header"]}>
 					What I do
 				</h2>
 				<div className={styles.skills__list}>
@@ -59,7 +60,7 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 						<div className={styles["skill__icon-container"]}>
 							<img className={styles["skill__icon"]} src="/code.svg" alt="Pen Icon" />
 						</div>
-						<h3 className={styles["skill__header"]}>Web app Developmet</h3>
+						<h3 className={styles["skill__header"]}>Web App Developmet</h3>
 						<p className={styles["skill__paragraph"]}>
 							I like to code things from scratch, and enjoy bringing ideas to life in the browser.
 						</p>
@@ -67,9 +68,12 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 				</div>
 			</section>
 			<section id="#techprojects" className={styles.section}>
-				<h2 className={styles.tech__header + ' ' + styles["section-header"]}>
+				<h2 className={styles.tech__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
 					Technical Projects
 				</h2>
+				<div className={styles["project-list"]}>
+					<Project />
+				</div>
 			</section>
 		</main>
 	</>)
