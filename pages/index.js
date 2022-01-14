@@ -5,7 +5,7 @@ import Project from '../components/Project'
 import fs from 'fs'
 import matter from 'gray-matter'
 
-export default function Home({ projects, blogs, frontmatter, headData }) {
+export default function Home({ projects, designs, frontmatter}) {
 	return (<>
 		<Head>
 			<title>{frontmatter.headtitle}</title>
@@ -72,7 +72,15 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 					Technical Projects
 				</h2>
 				<div className={styles["project-list"]}>
-					<Project />
+					{ projects.map(project => <Project {...project}/>)}
+				</div>
+			</section>
+			<section id="#designprojects" className={styles.section}>
+				<h2 className={styles.design__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
+					Design Projects
+				</h2>
+				<div className={styles["project-list"]}>
+					{ designs.map(project => <Project {...project}/>)}
 				</div>
 			</section>
 		</main>
@@ -81,9 +89,9 @@ export default function Home({ projects, blogs, frontmatter, headData }) {
 
 export async function getStaticProps() {
   const filesInProjects = fs.readdirSync('./content/projects')
-  const filesInBlogs = fs.readdirSync('./content/blogs')
+  const filesInDesigns = fs.readdirSync('./content/designs')
   let projects = []
-  let blogs = []
+  let designs = []
 
   filesInProjects.forEach((file) => {
     const data = matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
@@ -92,21 +100,19 @@ export async function getStaticProps() {
     }
   })
 
-  filesInBlogs.forEach((file) => {
-    const data = matter(fs.readFileSync(`./content/blogs/${file}`, 'utf8')).data
+  filesInDesigns.forEach((file) => {
+    const data = matter(fs.readFileSync(`./content/designs/${file}`, 'utf8')).data
     if (data.featured) {
-      blogs.push({
-        ...data,
-        slug: file.slice(0, file.indexOf('.'))
-      })
+      designs.push(data)
     }
   })
 
   const frontmatter = matter(fs.readFileSync('./content/_index.md', 'utf8')).data
+
   return {
     props: {
       projects,
-      blogs,
+      designs,
       frontmatter,
     }
   }

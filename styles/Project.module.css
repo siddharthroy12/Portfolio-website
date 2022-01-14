@@ -1,8 +1,16 @@
 .container {
 	padding: 20px;
 	background-color: var(--text-color1);
-	width: 350px;
-	border-radius: 10px;
+	min-width: 310px;
+	border-radius: 5px;
+}
+
+.container:hover .image-container {
+	width: 50%;
+}
+
+.container__top {
+	display: flex;
 }
 
 .image-container {
@@ -11,10 +19,32 @@
 	position: relative;
 	border-radius: 4px;
 	overflow: hidden;
+	transition-duration: var(--trans-dur);
 }
 
 .image-container img {
 	object-fit: cover;
+}
+
+.links {
+	width: 0;
+	height: 190px;
+	overflow: hidden;
+	transition-duration: var(--trans-dur);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.container:hover .links {
+	width: 50%;
+}
+
+.icon {
+	display: block;
+	width: 40px;
+	height: 40px;
 }
 
 .title {

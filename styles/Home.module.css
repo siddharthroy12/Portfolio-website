@@ -193,3 +193,17 @@
 	content: 'Technical Projects';
 }
 
+.project-list {
+	display: flex;
+	overflow-x: scroll;
+	padding-bottom: 20px;
+}
+
+.project-list > * {
+	margin-right: 50px;
+}
+
+.design__header::before {
+	content: "Design Projects"
+}
+
