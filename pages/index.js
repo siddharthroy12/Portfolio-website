@@ -2,6 +2,11 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Project from '../components/Project'
+import SendIcon from '../components/icons/Send'
+import InstagramIcon from '../components/icons/Instagram'
+import GithubIcon from '../components/icons/Github'
+import TwitterIcon from '../components/icons/Twitter'
+import AtIcon from '../components/icons/At'
 import fs from 'fs'
 import matter from 'gray-matter'
 
@@ -32,7 +37,7 @@ export default function Home({ projects, designs, frontmatter}) {
 			</div>
 		</header>
 		<main>
-			<section id="#about" className={styles.about + ' ' + styles.section}>
+			<section id="about" className={styles.about + ' ' + styles.section}>
 				<div className={styles.about__left}>
 					<h2 className={styles["section-header"]+' '+styles.about__header}>About Me</h2>
 					<p className={styles.about__paragraph}>{frontmatter.about}</p>
@@ -42,7 +47,7 @@ export default function Home({ projects, designs, frontmatter}) {
 					<img src="/BrandLogo.svg" alt="Brand Logo"/>
 				</div>
 			</section>
-			<section id="#skills" className={styles.skills + ' ' + styles.section}>
+			<section id="skills" className={styles.skills + ' ' + styles.section}>
 				<h2 className={styles["margin-bottom"] + ' ' + styles.skills__header + ' ' + styles["section-header"]}>
 					What I do
 				</h2>
@@ -67,7 +72,7 @@ export default function Home({ projects, designs, frontmatter}) {
 					</div>
 				</div>
 			</section>
-			<section id="#techprojects" className={styles.section}>
+			<section id="techprojects" className={styles.section}>
 				<h2 className={styles.tech__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
 					Technical Projects
 				</h2>
@@ -75,12 +80,45 @@ export default function Home({ projects, designs, frontmatter}) {
 					{ projects.map(project => <Project {...project}/>)}
 				</div>
 			</section>
-			<section id="#designprojects" className={styles.section}>
+			<section id="designprojects" className={styles.section}>
 				<h2 className={styles.design__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
 					Design Projects
 				</h2>
 				<div className={styles["project-list"]}>
 					{ designs.map(project => <Project {...project}/>)}
+				</div>
+			</section>
+			<section id="contact"  className={styles.section}>
+				<div className={styles["contact-box"]}>
+					<form className={styles["contact-box__left"]} data-netlify="true" method="POST" action="/formsuccess">
+						<label htmlFor="name">
+							Name
+						</label>
+						<input type="text" id="name" name="name" required placeholder="Name" />
+						<label htmlFor="email">
+							Email
+						</label>
+						<input type="email" id="email" name="email" required placeholder="Email" />
+						<label htmlFor="message">
+							Message
+						</label>
+						<textarea name="message" id="message"  required placeholder="Message"/>
+						<button type="submit" className={styles["submit-button"]}>
+							<SendIcon />
+								Submit
+						</button>
+					</form>
+					<div className={styles["contact-box__right"]}>
+						<p>Contact me using this form or email me at <a href={`mailto:${frontmatter.email}`}>{frontmatter.email}</a></p>
+						<div className={styles["social-icons"]}>
+							<InstagramIcon />
+							<GithubIcon />
+							<TwitterIcon />
+						</div>
+						<div className={styles["icon-container"]}>
+							<AtIcon />
+						</div>
+					</div>
 				</div>
 			</section>
 		</main>
