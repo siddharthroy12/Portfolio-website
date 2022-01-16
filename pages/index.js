@@ -89,8 +89,11 @@ export default function Home({ projects, designs, frontmatter}) {
 				</div>
 			</section>
 			<section id="contact"  className={styles.section}>
+				<h2 className={styles.contact__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
+					Contact
+				</h2>
 				<div className={styles["contact-box"]}>
-					<form className={styles["contact-box__left"]} data-netlify="true" method="POST" action="/formsuccess">
+					<form className={styles["contact-box__left"]} data-netlify="true" method="POST" action="/#formsuccess">
 						<label htmlFor="name">
 							Name
 						</label>
@@ -111,8 +114,12 @@ export default function Home({ projects, designs, frontmatter}) {
 					<div className={styles["contact-box__right"]}>
 						<p>Contact me using this form or email me at <a href={`mailto:${frontmatter.email}`}>{frontmatter.email}</a></p>
 						<div className={styles["social-icons"]}>
-							<InstagramIcon />
-							<GithubIcon />
+							<a href="https://www.instagram.com/siddharthroy12" target="_blank" rel="noreferrer">
+								<InstagramIcon />
+							</a>
+							<a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer">
+								<GithubIcon />
+							</a>
 							<TwitterIcon />
 						</div>
 						<div className={styles["icon-container"]}>

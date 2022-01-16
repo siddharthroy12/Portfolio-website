@@ -209,6 +209,10 @@
 
 /* Contact */
 
+.contact__header::before {
+	content: 'Contact Me';
+}
+
 .contact-box {
 	background-color: var(--text-color1);
 	padding: 35px;
@@ -259,6 +263,10 @@
 	align-items: center;
 	justify-content: center;
 	font-weight: 500;
+}
+
+.submit-button:target {
+	background-color: red;
 }
 
 .submit-button > svg {
