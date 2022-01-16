@@ -5,7 +5,7 @@ import styles from '../styles/Layout.module.css'
 export default function Layout({ children }) {
 	return (
 		<>
-			<div className={styles.container}>
+			<div className={styles.container} id="#top">
 				<Navbar />
 				{children}
 			</div>
@@ -14,10 +14,10 @@ export default function Layout({ children }) {
 					<p className={styles.copyright}>
 						© Siddharth Roy, 2022
 					</p>
-					<div className={styles.footer__right}>
+					<a href="#top" className={styles.footer__right}>
 						<UpIcon />
 						<p>Back To Top</p>
-					</div>
+					</a>
 				</div>
 			</footer>
 		</>

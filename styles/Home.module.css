@@ -1,3 +1,4 @@
+/* Header */
 .header {
 	margin-top: 110px;
 	display: flex;
@@ -108,6 +109,8 @@
 	z-index: -1;
 }
 
+/* About */
+
 .about {
 	display: flex;
 	align-items: center;
@@ -148,6 +151,8 @@
 	margin-bottom: 60px;
 }
 
+/* Skills */
+
 .skills__header::before {
 	content: 'Skills';
 }
@@ -169,6 +174,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	box-shadow: var(--box-shadow);
 }
 
 .skill__icon {
@@ -192,6 +198,8 @@
 .tech__header::before {
 	content: 'Technical Projects';
 }
+
+/* Projects */
 
 .project-list {
 	display: flex;
@@ -218,6 +226,7 @@
 	padding: 35px;
 	border-radius: 5px;
 	display: flex;
+	box-shadow: var(--box-shadow);
 }
 
 .contact-box__left {
@@ -265,10 +274,6 @@
 	font-weight: 500;
 }
 
-.submit-button:target {
-	background-color: red;
-}
-
 .submit-button > svg {
 	margin-right: 20px;
 }
@@ -310,3 +315,29 @@
 	height: 30px;
 }
 
+.form-success-container {
+	display: none;
+}
+
+.form-success-container:target {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+.form-success {
+	display: flex;
+	background-color: #8EF16C;
+	align-items: center;
+	justify-content: center;
+	color: #436F34;
+	font-weight: 500;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+	box-shadow: var(--box-shadow);
+}
+
+.form-success svg {
+	margin-left: 20px;
+	width: 30px;
+}

@@ -65,4 +65,5 @@
 	background-color: var(--highlight-color);
 	color: var(--page-color);
 	border-radius: 50px;
+	font-weight: 500;
 }

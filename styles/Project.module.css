@@ -3,6 +3,7 @@
 	background-color: var(--text-color1);
 	min-width: 310px;
 	border-radius: 5px;
+	box-shadow: var(--box-shadow);
 }
 
 .container:hover .image-container {

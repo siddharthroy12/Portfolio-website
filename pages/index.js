@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Project from '../components/Project'
 import SendIcon from '../components/icons/Send'
+import TickIcon from '../components/icons/Tick'
 import InstagramIcon from '../components/icons/Instagram'
 import GithubIcon from '../components/icons/Github'
 import TwitterIcon from '../components/icons/Twitter'
@@ -120,7 +121,9 @@ export default function Home({ projects, designs, frontmatter}) {
 							<a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer">
 								<GithubIcon />
 							</a>
-							<TwitterIcon />
+							<a href="https://twitter.com/Siddharth_Roy12" target="_blank" rel="noreferrer">
+								<TwitterIcon />
+							</a>
 						</div>
 						<div className={styles["icon-container"]}>
 							<AtIcon />
@@ -128,6 +131,12 @@ export default function Home({ projects, designs, frontmatter}) {
 					</div>
 				</div>
 			</section>
+			<div className={styles["form-success-container"]} id="formsuccess">
+				<div className={styles["form-success"]}>
+					Message send successfully
+					<TickIcon />
+				</div>
+			</div>
 		</main>
 	</>)
 }
