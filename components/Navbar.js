@@ -31,7 +31,7 @@ export default function Navbar() {
 					<li className={isActive('/templates')}><Link href="/templates">Templates</Link></li>
 				</ul>
 			</nav>
-			<Link href="/#contact" className={styles["contact-btn"]}>Contact</Link>
+			<Link href="/#contact"><span className={styles["contact-btn"]}>Contact</span></Link>
 		</div>
 	)
 }
