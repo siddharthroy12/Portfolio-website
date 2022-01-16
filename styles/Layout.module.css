@@ -6,3 +6,24 @@
 	padding-bottom: 10rem;
 }
 
+.footer {
+	background-color: var(--text-color1);
+}
+
+.footer > * {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 1em;
+	padding-top: 1em;
+	color: #BEBEBE;
+	font-weight: 500;
+}
+
+.footer__right {
+	display: flex;
+	align-items: center;
+}
+
+.footer__right > svg {
+	height: 25px;
+}
