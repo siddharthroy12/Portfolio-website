@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import Project from '@components/Project'
@@ -6,19 +7,24 @@ import styles from '@styles/Portfolio.module.css'
 
 const PER_PAGE = 6
 
-export default function Portfolio({ projects, pagination }) {
+export default function Portfolio({ projects, designs, pagination }) {
+	const [tab, setTab] = useState(0)
+
 	return (<>
 		<header className={styles.header}>
 			<h1>My Portfolio</h1>
 		</header>
 		<div className={styles["switch-container"]}>
 			<div className={styles.switch}>
-				<p className={styles.active}>Code</p>
-				<p>Design</p>
+				<p className={ tab === 0 ? styles.active : ''} onClick={() => setTab(0)}>Code</p>
+				<p className={ tab === 1 ? styles.active : ''} onClick={() => setTab(1)}>Design</p>
 			</div>
 		</div>
 		<div className={styles.grid}>
-			{projects.map((project, index) => <Project {...project} key={index}/>)}
+			{tab === 0 ?
+				projects.map((project, index) => <Project {...project} key={index}/>)
+			 : designs.map((design, index) => <Project {...design} key={index} />)
+			}
 		</div>
 		<div className={styles.pagination}>
 			<Pagination {...pagination} />
@@ -28,12 +34,18 @@ export default function Portfolio({ projects, pagination }) {
 
 export async function getStaticProps({ params: { page }}) {
 	const filesInProjects = fs.readdirSync('./content/projects')
-  
-	const projects = filesInProjects.map(file => {
-    return matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
-  })
+	const filesInDesigns = fs.readdirSync('./content/designs')
+	const largestLength = Math.max(filesInDesigns.length, filesInProjects.length)
 
-	const pages = Math.ceil(filesInProjects.length / PER_PAGE)
+	const projects = filesInProjects.map(file => {
+		return matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
+	})
+
+	const designs = filesInDesigns.map(file => {
+		return matter(fs.readFileSync(`./content/designs/${file}`, 'utf8')).data
+	})
+
+	const pages = Math.ceil(largestLength / PER_PAGE)
 
 	let nextPages = []
 
@@ -54,10 +66,12 @@ export async function getStaticProps({ params: { page }}) {
 	}
 
 	const projectsInThisPage = projects.slice((page-1) * PER_PAGE, page * PER_PAGE)
+	const designsInThisPage = designs.slice((page-1) * PER_PAGE, page * PER_PAGE)
 
-  return {
-    props: {
-      projects: projectsInThisPage,
+	return {
+		props: {
+			projects: projectsInThisPage,
+			designs: designsInThisPage,
 			pagination: {
 				nextPage: page < pages,
 				prevPage: page > 1,
@@ -70,13 +84,16 @@ export async function getStaticProps({ params: { page }}) {
 			headData: {
 				headtitle: 'Siddharth Roy | Projects'
 			}
-    }
-  }
+		}
+	}
 }
 
 export async function getStaticPaths() {
 	const filesInProjects = fs.readdirSync('./content/projects')
-	const numberOfPages = Math.ceil(filesInProjects.length / PER_PAGE)
+	const filesInDesigns = fs.readdirSync('./content/designs')
+	const largestLength = Math.max(filesInDesigns.length, filesInProjects.length)
+
+	const numberOfPages = Math.ceil(largestLength / PER_PAGE)
 	let paths = []
 
 	for (let i = 1; i <= numberOfPages; i++) {

@@ -1,26 +1,27 @@
 .pagination {
 	display: flex;
 	font-size: 1rem;
+	justify-content: center;
 }
 
 .pagination ul {
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
+	background-color: var(--text-color1);
+	color: var(--text-color2);
 }
 
 .pagination ul .active {
-	border: 2px solid var(--font-color-primary);
+	background-color: var(--text-color2);
+	color: var(--text-color1);
 }
 
 .pagination li {
-	--size: 2rem;
-	height: var(--size);
-	width: var(--size);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 0.3rem;
+	padding: 0.5em 1em;
 }
 
 .pagination li svg {

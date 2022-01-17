@@ -78,7 +78,7 @@ export default function Home({ projects, designs, frontmatter}) {
 					Technical Projects
 				</h2>
 				<div className={styles["project-list"]}>
-					{ projects.map(project => <Project {...project}/>)}
+					{ projects.map(project => <Project {...project} key={project.title}/>)}
 				</div>
 			</section>
 			<section id="designprojects" className={styles.section}>
@@ -86,7 +86,7 @@ export default function Home({ projects, designs, frontmatter}) {
 					Design Projects
 				</h2>
 				<div className={styles["project-list"]}>
-					{ designs.map(project => <Project {...project}/>)}
+					{ designs.map(project => <Project {...project} key={project.title}/>)}
 				</div>
 			</section>
 			<section id="contact"  className={styles.section}>
