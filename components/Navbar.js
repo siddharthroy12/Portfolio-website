@@ -26,8 +26,8 @@ export default function Navbar() {
 			<nav className={styles.nav}>
 				<ul>
 					<li className={isActive('/')}><Link href="/">Home</Link></li>
-					<li className={isActive('/portfolio')}><Link href="/portfolio">Portfolio</Link></li>
-					<li className={isActive('/blogs')}><Link href="/blogs">Blogs</Link></li>
+					<li className={isActive('/portfolio')}><Link href="/portfolio/1">Portfolio</Link></li>
+					<li className={isActive('/blogs')}><Link href="/blogs/1">Blogs</Link></li>
 					<li className={isActive('/templates')}><Link href="/templates">Templates</Link></li>
 				</ul>
 			</nav>

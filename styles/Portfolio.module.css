@@ -1,0 +1,60 @@
+.header {
+	text-align: center;
+	font-size: 2rem;
+	padding: 1em;
+	margin-top: 100px;
+}
+
+.header > * {
+	color: var(--text-color1);
+	position: relative;
+	z-index: 1;
+}
+
+.header > *::before {
+	content: 'My Portfolio';
+	position: absolute;
+	top: -5rem;
+	left: 0;
+	right: 0;
+	font-size: 6rem;
+	font-weight: 600;
+	color: #E8E8E8;
+	z-index: -1;
+}
+
+.switch-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 100px;
+}
+
+.switch {
+	display: flex;
+	border: 2px solid var(--text-color1);
+	border-radius: 50px;
+	padding: 0.2em ;
+}
+
+.switch > * {
+	padding: 0.5em 1em;
+	cursor: pointer;
+}
+
+.switch > .active {
+	background-color: var(--text-color1);
+	color: var(--page-color);
+	border-radius: 50px;
+}
+
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.grid > * {
+	margin: 20px;
+}

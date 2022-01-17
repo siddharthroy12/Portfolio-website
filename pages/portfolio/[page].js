@@ -2,15 +2,25 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import Project from '@components/Project'
 import Pagination from '@components/Pagination'
+import styles from '@styles/Portfolio.module.css'
 
 const PER_PAGE = 6
 
-export default function Works({ projects, pagination }) {
+export default function Portfolio({ projects, pagination }) {
 	return (<>
-		<div className="grid mt">
+		<header className={styles.header}>
+			<h1>My Portfolio</h1>
+		</header>
+		<div className={styles["switch-container"]}>
+			<div className={styles.switch}>
+				<p className={styles.active}>Code</p>
+				<p>Design</p>
+			</div>
+		</div>
+		<div className={styles.grid}>
 			{projects.map((project, index) => <Project {...project} key={index}/>)}
 		</div>
-		<div className="mt center">
+		<div className={styles.pagination}>
 			<Pagination {...pagination} />
 		</div>
 	</>)

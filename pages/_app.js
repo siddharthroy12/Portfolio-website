@@ -3,7 +3,6 @@ import NProgress from 'nprogress'
 import Layout from '@components/Layout'
 import 'nprogress/nprogress.css'
 import '../styles/globals.css'
-import '../styles/utils.css'
 
 //Binding events. 
 NProgress.settings.showSpinner = false
