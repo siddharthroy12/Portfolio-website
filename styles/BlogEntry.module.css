@@ -1,6 +1,10 @@
+.card {
+	margin-bottom: 50px;
+}
 .date {
-	font-family: 'Roboto Mono', monospace;
+	font-family: monospace;
 	color: var(--font-color-secondary);
+	font-size: 1rem;
 }
 
 .name {

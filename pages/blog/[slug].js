@@ -7,8 +7,13 @@ import remarkGfm from 'remark-gfm'
 import remarkSlug from 'remark-slug'
 import styles from '@styles/Blog.module.css'
 
-export default function Blog({ markdown }) {
-  return (<div className={styles.wrapper}>
+export default function Blog({ markdown, title, subtitle, date }) {
+	return (<>
+		<header className={styles.header}>
+			<h1 className={styles.title}>{title}</h1>
+			<p className={styles.date}>{date}</p>
+		</header>
+		<div className={styles.wrapper}>
 		<ReactMarkdown
 			remarkPlugins={[remarkGfm, remarkSlug]}
 			components={{
@@ -45,7 +50,8 @@ export default function Blog({ markdown }) {
 			`
 		}}>
 		</script>
-	</div>)
+	</div>
+	</>)
 }
 
 export async function getStaticProps({ params: { slug } }) {
@@ -53,7 +59,7 @@ export async function getStaticProps({ params: { slug } }) {
 	let frontmatter = fileContent.data
 	const markdown = fileContent.content
 	return {
-		props: { 
+		props: {
 			markdown,
 			title: frontmatter.title,
 			subtitle: frontmatter.description,

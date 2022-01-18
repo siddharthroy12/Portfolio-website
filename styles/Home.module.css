@@ -227,6 +227,7 @@
 	border-radius: 5px;
 	display: flex;
 	box-shadow: var(--box-shadow);
+	margin-bottom: 80px
 }
 
 .contact-box__left {
@@ -317,6 +318,7 @@
 
 .form-success-container {
 	display: none;
+	margin-bottom: 80px;
 }
 
 .form-success-container:target {

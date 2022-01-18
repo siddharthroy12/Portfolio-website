@@ -1,3 +1,7 @@
+.header {
+	margin: 90px auto;
+	max-width: 900px;
+}
 .wrapper {
 	color: var(--font-color-primary);
 	letter-spacing: 0.5px;
@@ -13,12 +17,14 @@
 	font-size: 2.5rem;
 	margin-top: 5rem !important;
 	margin-bottom: 0rem !important;
+	text-align: center;
 }
 
 .date {
 	color: var(--font-color-secondary);
 	font-size: 1.2rem;
 	margin-top: 0.5rem !important;
+	text-align: end;
 }
 
 .wrapper h1,
@@ -65,7 +71,6 @@
 }
 
 .wrapper pre div {
-	padding: 0 !important;
 }
 
 .wrapper blockquote {

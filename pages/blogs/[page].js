@@ -3,18 +3,22 @@ import matter from 'gray-matter'
 import { inPlaceSort } from 'fast-sort'
 import BlogEntry from '@components/BlogEntry'
 import Pagination from '@components/Pagination'
+import styles from '@styles/Blogs.module.css'
 
 const BLOGS_PER_PAGE = 6
 
 const BlogsPage = ({ blogs, pagination }) => {
-  return (<div className="mt">
-		<div className="list">
-			{blogs.map((blog, index) => (
-				<BlogEntry blog={blog} key={index} />
-			))}
-		</div>
+	return (<>
+	<header className={styles.header}>
+		<h1>Checkout my blogs on Javascript, React and Web development</h1>
+	</header>
+	<div className={styles.list}>
+		{blogs.map((blog, index) => (
+			<BlogEntry blog={blog} key={index} />
+		))}
 		<Pagination {...pagination} />
-	</div>)
+	</div>
+		</>)
 }
 
 export default BlogsPage

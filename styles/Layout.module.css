@@ -2,7 +2,7 @@
 	margin: auto;
 	max-width: 1150px;
 	padding: 0 50px;
-	margin-top: 50px;
+	min-height: calc(100vh - 59px);
 }
 
 .footer {
@@ -16,6 +16,7 @@
 	padding-top: 1em;
 	color: #BEBEBE;
 	font-weight: 500;
+	min-height: unset;
 }
 
 .footer__right {

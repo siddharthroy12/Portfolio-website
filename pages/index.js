@@ -133,7 +133,7 @@ export default function Home({ projects, designs, frontmatter}) {
 			</section>
 			<div className={styles["form-success-container"]} id="formsuccess">
 				<div className={styles["form-success"]}>
-					Message send successfully
+					Message sent successfully
 					<TickIcon />
 				</div>
 			</div>

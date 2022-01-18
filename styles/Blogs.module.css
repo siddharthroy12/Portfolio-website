@@ -1,24 +1,26 @@
-.card {
-	margin-bottom: 5rem;
-	max-width: 35rem;
+.header {
+	margin: 90px 0;
 }
 
-.card:hover .name {
-	text-decoration: underline;
+.header > * {
+	max-width: 500px;
+	font-size: 2.5rem;
+	color: var(--text-color1);
+	line-height: 1.2em;
+	position: relative;
+	z-index: 1;
 }
 
-.name {
- font-weight: 500;
- margin-bottom: 1rem;
+.header > *::before {
+	position: absolute;
+	left: 0;
+	top: -10px;
+	content: 'BLOG';
+	font-size: 15rem;
+	z-index: -1;
+	color: #EFEFEF;
 }
 
-.description {
-	color: var(--font-color-secondary);
-	line-height: 20px;
-	margin-bottom: 1rem;
-}
-
-.date {
-	font-weight: 400;
-	font-size: 0.9rem;
+.list {
+	margin-bottom: 50px;
 }
