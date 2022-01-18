@@ -1,7 +1,6 @@
 .pagination {
-	display: flex;
 	font-size: 1rem;
-	justify-content: center;
+	display: inline-block;
 }
 
 .pagination ul {
@@ -9,11 +8,15 @@
 	display: flex;
 	flex-wrap: wrap;
 	background-color: var(--text-color1);
-	color: var(--text-color2);
+	color: #DEDEDE; 
+	border-radius: 5px;
+	overflow: hidden;
+	font-weight: 500;
+	box-shadow: var(--box-shadow);
 }
 
 .pagination ul .active {
-	background-color: var(--text-color2);
+	background-color: #DEDEDE;
 	color: var(--text-color1);
 }
 
@@ -21,9 +24,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0.5em 1em;
+	padding: 0.5em 1.2em;
+}
+
+.pagination li a {
+	display: flex;
+	align-items: center;
 }
 
 .pagination li svg {
-	font-size: 1.5rem;
+	height: 2em;
 }

@@ -58,3 +58,9 @@
 .grid > * {
 	margin: 20px;
 }
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin: 50px 0;
+}

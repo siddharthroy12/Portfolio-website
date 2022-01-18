@@ -1,5 +1,6 @@
-import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 import { useRouter } from 'next/router'
+import RightIcon from '@components/icons/Right'
+import LeftIcon from '@components/icons/Left'
 import Link from 'next/link'
 import styles from '@styles/Pagination.module.css'
 
@@ -12,7 +13,7 @@ export default function Pagination({ nextPage, prevPage, nextPages, prevPages, l
 			<ul>
 				{prevPage && <li>
 					<Link href={`${Number(page)-1}`}><a>
-						<GrFormPrevious />
+						<LeftIcon />
 					</a></Link>
 				</li>}
 				{prevPages.length !== 0 && prevPages[0] !== 1 && (<>
@@ -52,7 +53,7 @@ export default function Pagination({ nextPage, prevPage, nextPages, prevPages, l
 				</>)}
 				{nextPage && <li>
 					<Link href={`${Number(page)+1}`}><a>
-						<GrFormNext />
+						<RightIcon />
 					</a></Link>
 				</li>}
 			</ul>
