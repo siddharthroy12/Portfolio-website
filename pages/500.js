@@ -1,12 +1,8 @@
-export default function ServerError() {
-	return (<></>)
-}
+import styles from '@styles/404.module.css'
 
-export async function getStaticProps() {
-	return {
-		props: {
-			title: '500 - Server Error',
-			subtitle: 'Looks like I messed up ＼(º □ º l|l)/'
-		}
-	}
+export default function ServerError() {
+	return (<div className={styles.container}>
+		<h1> Looks like I did an oopsi</h1>
+		<img src="/500.svg" />
+		</div>)
 }

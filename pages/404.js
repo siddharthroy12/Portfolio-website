@@ -1,12 +1,7 @@
-export default function ServerError() {
-	return (<></>)
-}
+import styles from '@styles/404.module.css'
 
-export async function getStaticProps() {
-	return {
-		props: {
-			title: '404 - Not found',
-			subtitle: 'Looks like you are lost (o_O) !'
-		}
-	}
+export default function ServerError() {
+	return (<div className={styles.container>
+		<img src="/404.svg" />
+		</div>)
 }
