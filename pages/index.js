@@ -94,8 +94,8 @@ export default function Home({ projects, designs, frontmatter}) {
 					Contact
 				</h2>
 				<div className={styles["contact-box"]}>
-					<form className={styles["contact-box__left"]} data-netlify="true" method="POST" action="/#formsuccess">
-						<input type='hidden' name='form-name' value='contact-form' />
+					<form className={styles["contact-box__left"]} name="contact" data-netlify="true" method="POST" action="/#formsuccess">
+						<input type='hidden' name='form-name' value='contact' />
 						<label htmlFor="name">
 							Name
 						</label>
