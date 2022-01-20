@@ -41,3 +41,10 @@ a {
 	--highlight-color: #6C63FF;
 	--box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
+
+@media screen and (max-width: 950px) {
+	html {
+		font-size: 0.9rem;
+	}
+}

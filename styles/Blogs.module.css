@@ -24,3 +24,9 @@
 .list {
 	margin-bottom: 50px;
 }
+
+@media screen and (max-width: 650px) {
+	.header > *::before {
+		display: none;
+	}
+}

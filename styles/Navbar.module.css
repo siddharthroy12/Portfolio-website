@@ -4,7 +4,7 @@
 	justify-content: space-between;
 	align-items: flex-end;
 	z-index: 100;
-	height: 87.781px;
+	height: 5rem;
 }
 
 .brand {
@@ -35,6 +35,8 @@
 	left: 50%;
 	transform: translate(-50%, 0%);
 }
+
+
 
 .nav ul {
 	list-style: none;
@@ -70,4 +72,50 @@
 	font-weight: 500;
 	cursor: pointer;
 	box-shadow: var(--box-shadow);
+	transition-duration: var(--trans-dur);
+}
+
+.contact-btn:hover {
+	box-shadow: none;
+}
+
+.menu-btn {
+	border: none;
+	background-color: unset;
+	display: none;
+	cursor: pointer;
+}
+
+.menu-btn svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+@media screen and (max-width: 950px) {
+	.menu-btn {
+		display: block;
+	}
+
+	.contact-btn {
+		display: none;
+	}
+
+	.nav {
+		display: flex;
+		position: fixed;
+		align-items: center;
+		justify-content: center;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 5rem;
+		background-color: rgba(255, 255, 255, 0.9);
+		transform: unset;
+		box-shadow: var(--box-shadow);
+	}
+
+	.nav .active::before {
+		top: 26px !important;
+	}
+
 }

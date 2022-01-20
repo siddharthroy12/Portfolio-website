@@ -1,8 +1,8 @@
 .container {
 	margin: auto;
-	max-width: 1150px;
-	padding: 0 50px;
-	min-height: calc(100vh - 59px);
+	max-width: 70rem;
+	padding: 0 2rem;
+	min-height: calc(100vh - 56px);
 }
 
 .footer {
@@ -26,4 +26,26 @@
 
 .footer__right > svg {
 	height: 25px;
+}
+
+
+@media screen and (max-width: 950px) {
+	.footer > * {
+		flex-direction: column;
+		justify-content: start;
+	}
+
+	.footer {
+		padding-top: 1rem;
+		margin-bottom: 5rem;
+	}
+
+	.footer > * > * {
+		margin-bottom: 1rem;
+	}
+
+	.footer a {
+		flex-direction: row-reverse;
+		justify-content: start;
+	}
 }

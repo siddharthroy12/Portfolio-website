@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import Link from 'next/link'
+import MenuIcon from '@components/icons/Menu'
 import { useRouter } from 'next/router'
 import styles from '../styles/Navbar.module.css'
 
 export default function Navbar() {
+	const [sideBarOpen, setSideBarOpen] = useState(false)
 	const router = useRouter();
 
 	const isActive = (path) => {
@@ -23,7 +26,7 @@ export default function Navbar() {
 				<p className={styles.brandname}>SiddharthRoy</p>
 			</div>
 			</Link>
-			<nav className={styles.nav}>
+			<nav className={styles.nav + ' ' + (sideBarOpen ? styles["nav-open"] : ' ')}>
 				<ul>
 					<li className={isActive('/')}><Link href="/">Home</Link></li>
 					<li className={isActive('/portfolio')}><Link href="/portfolio/1">Portfolio</Link></li>

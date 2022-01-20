@@ -1,5 +1,5 @@
 ---
-title: How to build a Express and Node.js app with Typescript
+title: How to build an Express and Node.js app with Typescript
 description: In this tutorial you will learn how to setup a Node.js and Express
   project with Typescript and live auto reloading.
 date: September 19, 2021

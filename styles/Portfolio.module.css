@@ -64,3 +64,10 @@
 	justify-content: center;
 	margin: 50px 0;
 }
+
+
+@media screen and (max-width: 650px) {
+	.header > *::before {
+		display: none;
+	}
+}
