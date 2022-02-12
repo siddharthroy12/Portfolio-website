@@ -116,13 +116,13 @@ export default function Home({ projects, designs, frontmatter}) {
 					<div className={styles["contact-box__right"]}>
 						<p>Contact me using this form or email me at <a href={`mailto:${frontmatter.email}`}>{frontmatter.email}</a></p>
 						<div className={styles["social-icons"]}>
-							<a href="https://www.instagram.com/siddharthroy12" target="_blank" rel="noreferrer">
+							<a href="https://www.instagram.com/reactoverflow" target="_blank" rel="noreferrer">
 								<InstagramIcon />
 							</a>
 							<a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer">
 								<GithubIcon />
 							</a>
-							<a href="https://twitter.com/Siddharth_Roy12" target="_blank" rel="noreferrer">
+							<a href="https://twitter.com/reactoverflow" target="_blank" rel="noreferrer">
 								<TwitterIcon />
 							</a>
 						</div>
