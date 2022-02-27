@@ -2,7 +2,7 @@ import Switch from '@components/Switch';
 import BrandIcon from '@components/icons/Brand';
 import styles from '@styles/Navbar.module.css';
 
-export default function Navbar() {
+export default function Navbar({ darkTheme, setDarkTheme }) {
   return (
     <header className={styles.header}>
       <div className="container">
@@ -18,7 +18,7 @@ export default function Navbar() {
               <li><a href="https://dev.to/siddharthroy" rel="noreferrer" target="_blank">Blogs</a></li>
             </ul>
           </nav>
-          <Switch />
+          <Switch on={darkTheme} onChange={e => setDarkTheme(e.target.checked)} />
         </div>
       </div>
     </header>

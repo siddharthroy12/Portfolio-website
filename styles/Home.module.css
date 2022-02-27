@@ -42,7 +42,7 @@
   padding: 0.8em 1em;
   background-color: var(--accent-color);
   font-weight: 500;
-  color: var(--text-color-1);
+  color: #ffffff;
   border-radius: 3px;
   transition-duration: 500ms;
   text-align: center;

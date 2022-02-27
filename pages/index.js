@@ -180,52 +180,7 @@ export default function Home() {
         </div>
       </div>
     </section>
-    <section className={styles.section}>
-      <h2 className={styles.section__heading}>Websites for Startups</h2>
-      <p className={styles.section__paragraph}>
-        If you want to build a presence on the internet
-        then having a website is must and I can create one for you
-      </p>
-      <div className={styles['flex-box']} style={{alignItems: 'end'}}>
-        <div className={styles['pricing']}>
-          <div className={styles['pricing__inner']}>
-            <h3 className={styles['pricing__level']}>Basic</h3>
-            <p className={styles['pricing__desc']}> Essential Features </p>
-            <span className={styles['pricing__price']}>
-              $200
-            </span>
-            <ul className={styles['pricing__features']}>
-              <li><TickIcon /> Responsive Design</li>
-              <li><TickIcon /> 1 Page</li>
-              <li><TickIcon /> $100 for each extra page</li>
-            </ul>
-            <a href="#" className={styles['pricing__button']}>
-              Choose Basic
-            </a>
-          </div>
-        </div>
-        <div className={styles['pricing'] + ' ' + styles['pricing-rec']}>
-          <p> RECOMMENDED </p>
-          <div className={styles['pricing__inner']}>
-            <h3 className={styles['pricing__level']}>Standard</h3>
-            <p className={styles['pricing__desc']}> Essential Features </p>
-            <span className={styles['pricing__price']}>
-              $400
-            </span>
-            <ul className={styles['pricing__features']}>
-              <li><TickIcon /> Responsive Desgin</li>
-              <li><TickIcon /> Google Analytics Integration</li>
-              <li><TickIcon /> CMS Integration</li>
-              <li><TickIcon /> Upto 5 pages</li>
-            </ul>
-            <a href="#" className={styles['pricing__button']}>
-              Choose Standard
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section className={styles.section}>
+   <section className={styles.section}>
       <h2 className={styles.section__heading}>Read My Articles</h2>
       <p className={styles.section__paragraph}>
         I write blogs about Web development, React, JavaScript and useful resources
@@ -257,10 +212,56 @@ export default function Home() {
           <p className={styles['blog-title']}>
             How to build blog  with Next.js and Netlify CMS
           </p>
-          <a href="#" className={styles['button']}>Read</a>
+          <a href="#contact" className={styles['button']}>Read</a>
         </div>
       </div>
     </section>
+    <section className={styles.section}>
+      <h2 className={styles.section__heading}>Websites for Startups</h2>
+      <p className={styles.section__paragraph}>
+        If you want to build a presence on the internet
+        then having a website is must and I can create one for you
+      </p>
+      <div className={styles['flex-box']} style={{alignItems: 'end'}}>
+        <div className={styles['pricing']}>
+          <div className={styles['pricing__inner']}>
+            <h3 className={styles['pricing__level']}>Basic</h3>
+            <p className={styles['pricing__desc']}> Essential Features </p>
+            <span className={styles['pricing__price']}>
+              $200
+            </span>
+            <ul className={styles['pricing__features']}>
+              <li><TickIcon /> Responsive Design</li>
+              <li><TickIcon /> 1 Page</li>
+              <li><TickIcon /> $100 for each extra page</li>
+            </ul>
+            <a href="#contact" className={styles['pricing__button']}>
+              Choose Basic
+            </a>
+          </div>
+        </div>
+        <div className={styles['pricing'] + ' ' + styles['pricing-rec']}>
+          <p> RECOMMENDED </p>
+          <div className={styles['pricing__inner']}>
+            <h3 className={styles['pricing__level']}>Standard</h3>
+            <p className={styles['pricing__desc']}> Essential Features </p>
+            <span className={styles['pricing__price']}>
+              $400
+            </span>
+            <ul className={styles['pricing__features']}>
+              <li><TickIcon /> Responsive Desgin</li>
+              <li><TickIcon /> Google Analytics Integration</li>
+              <li><TickIcon /> CMS Integration</li>
+              <li><TickIcon /> Upto 5 pages</li>
+            </ul>
+            <a href="#contact" className={styles['pricing__button']}>
+              Choose Standard
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
     <section className={styles.section} id="contact">
       <h2 className={styles.section__heading}>Connect with me</h2>
       <p className={styles.section__paragraph}>
@@ -269,23 +270,24 @@ export default function Home() {
         <a href="mailto:siddharthroy36912@gmail.com"> siddharthroy36912@gmail.com </a>
         and ~let's talk.
       </p>
-      <form class={styles['contact-form']}>
-        <div class={styles['contact-form__top']}>
-          <div class={styles['contact-form-input']} style={{marginRight: '10px'}}>
+      <form className={styles['contact-form']} data-netlify="true" method="POST">
+        <input type="hidden" name="form-name" value="contact" />
+        <div className={styles['contact-form__top']}>
+          <div className={styles['contact-form-input']} style={{marginRight: '10px'}}>
             { name.trim() === '' ? (
-              <label for="name">Name</label>) : null }
+              <label htmlFor="name">Name</label>) : null }
             <input type="text" name="name" value={name} onChange={e => setName(e.target.value)}/>
           </div>
-          <div class={styles['contact-form-input']} style={{marginLeft: '10px'}}>
+          <div className={styles['contact-form-input']} style={{marginLeft: '10px'}}>
             { email.trim() === '' ? (
-              <label for="email">Email</label>) : null }
+              <label htmlFor="email">Email</label>) : null }
             <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>
           </div>
         </div>
-        <div class={styles['contact-form__bottom']} style={{marginTop: '20px'}}>
+        <div className={styles['contact-form__bottom']} style={{marginTop: '20px'}}>
           <div className={styles['contact-form-input']}>
             { message.trim() === '' ? (
-              <label for="message">Message</label>) : null }
+              <label htmlFor="message">Message</label>) : null }
             <textarea
               name="message"
               value={message}
