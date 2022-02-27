@@ -1,40 +1,26 @@
-import { useState } from 'react'
-import Link from 'next/link'
-import MenuIcon from '@components/icons/Menu'
-import { useRouter } from 'next/router'
-import styles from '../styles/Navbar.module.css'
+import Switch from '@components/Switch';
+import BrandIcon from '@components/icons/Brand';
+import styles from '@styles/Navbar.module.css';
 
 export default function Navbar() {
-	const [sideBarOpen, setSideBarOpen] = useState(false)
-	const router = useRouter();
-
-	const isActive = (path) => {
-		if (path === '/') {
-			if (router.asPath === '/') {
-				return styles.active
-			}
-		} else {
-			return router.asPath.startsWith(path) ? styles.active : ''
-		}
-	}
-
-	return (
-		<div className={styles.container}>
-			<Link href="/">
-			<div className={styles.brand}>
-				<img src="/BrandLogo.svg" alt="BrandIcon" className={styles.brandlogo}/>
-				<p className={styles.brandname}>SiddharthRoy</p>
-			</div>
-			</Link>
-			<nav className={styles.nav + ' ' + (sideBarOpen ? styles["nav-open"] : ' ')}>
-				<ul>
-					<li className={isActive('/')}><Link href="/">Home</Link></li>
-					<li className={isActive('/portfolio')}><Link href="/portfolio/1">Portfolio</Link></li>
-					<li className={isActive('/blogs')}><Link href="/blogs/1">Blogs</Link></li>
-					<li className={isActive('/templates')}><Link href="/templates">Templates</Link></li>
-				</ul>
-			</nav>
-			<Link href="/#contact"><span className={styles["contact-btn"]}>Contact</span></Link>
-		</div>
-	)
+  return (
+    <header className={styles.header}>
+      <div className="container">
+        <div className={styles.left}>
+          <BrandIcon />
+        </div>
+        <div className={styles.right}>
+          <nav className={styles.nav}>
+            <ul className={styles['nav-list']}>
+              <li className={styles.active}><a>Home</a></li>
+              <li><a>About</a></li>
+              <li><a>Proof Of Work</a></li>
+              <li><a>Blog</a></li>
+            </ul>
+          </nav>
+          <Switch />
+        </div>
+      </div>
+    </header>
+  );
 }

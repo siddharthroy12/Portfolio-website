@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-					<link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.ico" />
           {/* Netlify Widget */}
           <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
           {/* Global site tag (gtag.js) - Google Analytics */}
@@ -37,8 +37,8 @@ class MyDocument extends Document {
           `}}/>
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

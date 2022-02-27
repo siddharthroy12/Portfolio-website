@@ -1,0 +1,49 @@
+.switch {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 3;
+  width: var(--width);
+  height: var(--height);
+}
+
+.container {
+  cursor: pointer;
+  --width: 43px;
+  --height: 21px;
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+}
+
+.background {
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--text-color-2);
+  border-radius: 50px;
+  opacity: 50%;
+  display: block;
+  position: absolute;
+}
+
+.handle {
+  --size: 13px;
+  position: absolute;
+  background-color: var(--text-color-1);
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  border-radius: 50px;
+  top: 4px;
+  left: 4px;
+  transition-duration: 0.2s;
+}
+
+.switch:checked ~ .handle {
+  left: 25px;
+  background-color: var(--accent-color);
+}
+
+.switch:checked ~ .background {
+  background-color: var(--accent-color);
+}
