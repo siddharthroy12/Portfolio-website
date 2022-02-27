@@ -28,6 +28,7 @@
   font-weight: 400;
   max-width: 500px;
   margin-bottom: 30px;
+  color: var(--text-color-4);
 }
 
 
@@ -44,6 +45,9 @@
   color: var(--text-color-1);
   border-radius: 3px;
   transition-duration: 500ms;
+  text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -69,7 +73,24 @@
   color: var(--text-color-1);
   font-size: 2em;
   font-weight: 500;
-  margin-bottom: 90px;
+  margin-bottom: 20px;
+}
+
+.section__paragraph {
+  text-align: center;
+  color: var(--text-color-1);
+  font-weight: 500;
+  font-size: 1.2em;
+  max-width: 650px;
+  margin: auto;
+  margin-bottom: 50px;
+  line-height: 25px;
+  color: var(--text-color-4);
+}
+
+.section__paragraph a {
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .flex-box {
@@ -126,6 +147,11 @@
   margin-bottom: 10px;
 }
 
+.project-description {
+  color: var(--text-color-4);
+  font-weight: 500;
+}
+
 .project__bottom {
   border-top: 1px solid var(--border-color);
   background-color: var(--page-color);
@@ -151,4 +177,145 @@
 
 .project-link > * {
   margin: 0 5px;
+}
+
+.pricing {
+  background-color: var(--card-color);
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 340px;
+  margin: 0 30px;
+  height: fit-content;
+}
+
+.pricing-rec {
+  background-color: var(--accent-color);
+}
+
+.pricing > p {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: var(--text-color-1);
+}
+
+.pricing__level {
+  text-align: center;
+  color: var(--text-color-1);
+  font-size: 1.7em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.pricing__inner {
+  background-color: var(--card-color);
+  padding: 30px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  min-height: 500px;
+  position: relative;
+}
+
+.pricing__desc {
+  text-align: center;
+  color: var(--text-color-3);
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.pricing__price {
+  text-align: center;
+  display: block;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: var(--text-color-1);
+  margin-bottom: 50px;
+}
+
+.pricing__features {
+  list-style: none;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.pricing__features li {
+  color: var(--text-color-4);
+  font-weight: 500;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.pricing__features li svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.pricing__button {
+  background-color: var(--accent-color);
+  display: block;
+  padding: 1em;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+}
+
+.blog {
+  background-color: var(--card-color);
+  max-width: 400px;
+  padding: 15px;
+  margin: 30px;
+}
+
+.blog img {
+  display: block;
+  width: 100%;
+}
+
+.blog-title {
+  margin: 20px 0;
+  color: var(--text-color-1);
+}
+
+
+.contact-form {
+  margin: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.contact-form__top {
+  display: flex;
+}
+
+.contact-form-input {
+  position: relative;
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  padding: 18px;
+  width: 100%;
+}
+
+.contact-form-input label {
+  position: absolute;
+  font-weight: 500;
+  color: var(--text-color-4);
+}
+
+.contact-form-input input,
+.contact-form-input textarea {
+  border: none;
+  background-color: unset;
+  outline: none;
+  font-weight: 500;
+  font-size: 1em;
+  color: var(--text-color-2);
+  width: 100%;
+  resize: none;
 }

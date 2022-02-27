@@ -13,9 +13,9 @@ export default function Navbar() {
           <nav className={styles.nav}>
             <ul className={styles['nav-list']}>
               <li className={styles.active}><a>Home</a></li>
-              <li><a>About</a></li>
-              <li><a>Proof Of Work</a></li>
-              <li><a>Blog</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Proof Of Work</a></li>
+              <li><a href="https://dev.to/siddharthroy" rel="noreferrer" target="_blank">Blogs</a></li>
             </ul>
           </nav>
           <Switch />
