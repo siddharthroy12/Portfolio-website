@@ -119,7 +119,7 @@ export default function Home({ projects, blogs }) {
       </p>
       <div className={styles['flex-box']} style={{alignItems: 'end'}}>
         { blogs.map(blog => (
-          <div className={styles['blog']}>
+          <div className={styles['blog']} key={blog.title}>
             <img src={blog.cover} alt="cover-image"/>
             <p className={styles['blog-title']}>
               { blog.title }
@@ -245,8 +245,6 @@ export async function getStaticProps() {
       cover: blog.cover_image
     });
   });
-
-  console.log(blogsMin);
 
   return {props: { projects, blogs: blogsMin }};
 }
