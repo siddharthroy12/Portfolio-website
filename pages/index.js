@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import fs from 'fs';
+import matter from 'gray-matter';
 import GithubIcon from '@components/icons/Github';
 import InstagramIcon from '@components/icons/Instagram';
 import TwitterIcon from '@components/icons/Twitter';
@@ -10,7 +12,7 @@ import TickIcon from '@components/icons/Tick';
 import Game from '@components/Game';
 import styles from '@styles/Home.module.css';
 
-export default function Home() {
+export default function Home({ projects, blogs }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -25,13 +27,13 @@ export default function Home() {
           <a href="#contact" className={styles.button}>
             Connect with me
           </a>
-          <a href="#contact" className={styles['social-button']}>
+          <a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer" className={styles['social-button']}>
             <GithubIcon />
           </a>
-          <a href="#contact" className={styles['social-button']}>
+          <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer" className={styles['social-button']}>
             <InstagramIcon />
           </a>
-          <a href="#contact" className={styles['social-button']}>
+          <a href="https://twitter.com/reactoverflow" target="_blank" rel="noreferrer" className={styles['social-button']}>
             <TwitterIcon />
           </a>
         </div>
@@ -88,96 +90,26 @@ export default function Home() {
     <section className={styles.section} id="projects">
       <h2 className={styles.section__heading}>Apps I’ve made</h2>
       <div className={styles['flex-box']}>
-        <div className={styles.project}>
-          <div className={styles['project__top']}>
-            <h3 className={styles['project-title']}>
-              Reddit MVP Clone
-            </h3>
-            <p className={styles['project-description']}>
-              Reddit MVP Clone App made using MERN stack
-            </p>
+        { projects.map(project => (
+          <div className={styles.project} key={project.title}>
+            <div className={styles['project__top']}>
+              <h3 className={styles['project-title']}>
+                { project.title }
+              </h3>
+              <p className={styles['project-description']}>
+                { project.desc }
+              </p>
+            </div>
+            <div className={styles['project__bottom']}>
+              <a href={project.code} target="_blank" rel="noreferrer" className={styles['project-link']}>
+                View Code <UpRightIcon />
+              </a>
+              <a href={project.live} target="_blank" rel="noreferrer" className={styles['project-link']}>
+                View Live <UpRightIcon />
+              </a>
+            </div>
           </div>
-          <div className={styles['project__bottom']}>
-            <a href="#" className={styles['project-link']}>
-              View Code <UpRightIcon />
-            </a>
-            <a href="#" className={styles['project-link']}>
-              View Live <UpRightIcon />
-            </a>
-          </div>
-        </div>
-        <div className={styles.project}>
-          <div className={styles['project__top']}>
-            <h3 className={styles['project-title']}>
-              Reddit MVP Clone
-            </h3>
-            <p className={styles['project-description']}>
-              Reddit MVP Clone App made using MERN stack
-            </p>
-          </div>
-          <div className={styles['project__bottom']}>
-            <a href="#" className={styles['project-link']}>
-              View Code <UpRightIcon />
-            </a>
-            <a href="#" className={styles['project-link']}>
-              View Live <UpRightIcon />
-            </a>
-          </div>
-        </div>
-        <div className={styles.project}>
-          <div className={styles['project__top']}>
-            <h3 className={styles['project-title']}>
-              Reddit MVP Clone
-            </h3>
-            <p className={styles['project-description']}>
-              Reddit MVP Clone App made using MERN stack
-            </p>
-          </div>
-          <div className={styles['project__bottom']}>
-            <a href="#" className={styles['project-link']}>
-              View Code <UpRightIcon />
-            </a>
-            <a href="#" className={styles['project-link']}>
-              View Live <UpRightIcon />
-            </a>
-          </div>
-        </div>
-        <div className={styles.project}>
-          <div className={styles['project__top']}>
-            <h3 className={styles['project-title']}>
-              Reddit MVP Clone
-            </h3>
-            <p className={styles['project-description']}>
-              Reddit MVP Clone App made using MERN stack
-            </p>
-          </div>
-          <div className={styles['project__bottom']}>
-            <a href="#" className={styles['project-link']}>
-              View Code <UpRightIcon />
-            </a>
-            <a href="#" className={styles['project-link']}>
-              View Live <UpRightIcon />
-            </a>
-          </div>
-        </div>
-        <div className={styles.project}>
-          <div className={styles['project__top']}>
-            <h3 className={styles['project-title']}>
-              Reddit MVP Clone
-            </h3>
-            <p className={styles['project-description']}>
-              Reddit MVP Clone App made using MERN stack
-            </p>
-          </div>
-          <div className={styles['project__bottom']}>
-            <a href="#" className={styles['project-link']}>
-              View Code <UpRightIcon />
-            </a>
-            <a href="#" className={styles['project-link']}>
-              View Live <UpRightIcon />
-            </a>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
    <section className={styles.section}>
@@ -186,34 +118,15 @@ export default function Home() {
         I write blogs about Web development, React, JavaScript and useful resources
       </p>
       <div className={styles['flex-box']} style={{alignItems: 'end'}}>
-        <div className={styles['blog']}>
-          <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--f-YQQc2B--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tyck62e0zc5u244tptyu.png" />
-          <p className={styles['blog-title']}>
-            How to build blog  with Next.js and Netlify CMS
-          </p>
-          <a href="#" className={styles['button']}>Read</a>
-        </div>
-        <div className={styles['blog']}>
-          <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--f-YQQc2B--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tyck62e0zc5u244tptyu.png" />
-          <p className={styles['blog-title']}>
-            How to build blog  with Next.js and Netlify CMS
-          </p>
-          <a href="#" className={styles['button']}>Read</a>
-        </div>
-        <div className={styles['blog']}>
-          <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--f-YQQc2B--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tyck62e0zc5u244tptyu.png" />
-          <p className={styles['blog-title']}>
-            How to build blog  with Next.js and Netlify CMS
-          </p>
-          <a href="#" className={styles['button']}>Read</a>
-        </div>
-        <div className={styles['blog']}>
-          <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--f-YQQc2B--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tyck62e0zc5u244tptyu.png" />
-          <p className={styles['blog-title']}>
-            How to build blog  with Next.js and Netlify CMS
-          </p>
-          <a href="#contact" className={styles['button']}>Read</a>
-        </div>
+        { blogs.map(blog => (
+          <div className={styles['blog']}>
+            <img src={blog.cover} alt="cover-image"/>
+            <p className={styles['blog-title']}>
+              { blog.title }
+            </p>
+            <a href={blog.url} target="_blank" rel="noreferrer" className={styles['button']}>Read</a>
+          </div>
+        ))}
       </div>
     </section>
     <section className={styles.section}>
@@ -308,5 +221,32 @@ export default function Home() {
 }
 
 export async function getStaticProps() {
-  return {props: {}};
+  const filesInProjects = fs.readdirSync('./content/projects');
+
+  const projects = filesInProjects.map(file => {
+    return matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
+  });
+
+  const response = await fetch("https://dev.to/api/articles/me/published", {
+    headers: {
+      "api-key": process.env.DEVTO_KEY
+    }
+  });
+
+  let blogs = await response.json();
+
+  blogs = blogs.slice(0, 4);
+  let blogsMin = [];
+
+  blogs.forEach(blog => {
+    blogsMin.push({
+      title: blog.title,
+      url: blog.url,
+      cover: blog.cover_image
+    });
+  });
+
+  console.log(blogsMin);
+
+  return {props: { projects, blogs: blogsMin }};
 }

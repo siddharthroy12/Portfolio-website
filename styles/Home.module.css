@@ -150,6 +150,7 @@
 .project-description {
   color: var(--text-color-4);
   font-weight: 500;
+  line-height: 20px;
 }
 
 .project__bottom {
@@ -197,7 +198,7 @@
   padding: 10px 0;
   text-align: center;
   font-size: 0.8em;
-  color: var(--text-color-1);
+  color: #ffffff;
 }
 
 .pricing__level {
@@ -255,6 +256,7 @@
 
 .pricing__button {
   background-color: var(--accent-color);
+  color: #ffffff;
   display: block;
   padding: 1em;
   border-radius: 5px;
