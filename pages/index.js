@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Image from 'next/image';
 import fs from 'fs';
+import Image from 'next/image';
 import matter from 'gray-matter';
 import GithubIcon from '@components/icons/Github';
 import InstagramIcon from '@components/icons/Instagram';
@@ -140,7 +140,7 @@ export default function Home({ projects, blogs }) {
         If you want to build a presence on the internet
         then having a website is must and I can create one for you
       </p>
-      <div className={styles['flex-box']} style={{alignItems: 'end'}}>
+      <div style={{alignItems: 'end', display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
         <div className={styles['pricing']}>
           <div className={styles['pricing__inner']}>
             <h3 className={styles['pricing__level']}>Basic</h3>
