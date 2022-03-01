@@ -1,121 +1,63 @@
-.container {
-	display: flex;
-	position: relative;
-	justify-content: space-between;
-	align-items: flex-end;
-	z-index: 100;
-	height: 5rem;
+.header {
+  height: 60px;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.brand {
-	display: flex;
-	align-items: center;
-	cursor: pointer;
+.header > *,
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.brandlogo {
-	display: block;
-	width: 36px;
-	height: 36px;
-}
-
-.brandname {
-	font-weight: bold;
-	margin-left: 10px;
-	color: var(--text-color1);
+.left svg {
+  width: 30px;
+  height: 30px;
 }
 
 .nav {
-	position: absolute;
-	margin: auto;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	color: var(--text-color1);
-	left: 50%;
-	transform: translate(-50%, 0%);
+  height: 100%;
 }
 
-
-
-.nav ul {
-	list-style: none;
-	display: flex;
-	align-items: flex-end;
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin-right: 30px;
+  height: 100%;
 }
 
-.nav ul li {
-	margin: 0 10px;
+.nav-list li {
+  margin-left: 30px;
+  font-size: 15px;
+  color: var(--text-color-1);
+  font-weight: 500;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.nav ul li.active {
-	font-weight: 500;
-	position: relative;
+.nav-list li svg {
+  display: none;
 }
 
-.nav ul li.active::before {
-	position: absolute;
-	content: '';
-	top: -15px;
-	left: 0;
-	right: 0;
-	height: 9px;
-	background-color: var(--text-color1);
-	border-radius: 50px;
+@media screen and (max-width: 502px) {
+  .nav-list li svg {
+    display: inline-block;
+    width: 20px;
+    fill: var(--text-color-1) !important;
+  }
+
+  .nav-list li svg * {
+    fill: var(--text-color-2) !important;
+  }
+
+  .nav-list li span {
+    display: none;
+  }
 }
 
-.contact-btn {
-	padding: .4em 1.1em;
-	background-color: var(--highlight-color);
-	color: var(--page-color);
-	border-radius: 50px;
-	font-weight: 500;
-	cursor: pointer;
-	box-shadow: var(--box-shadow);
-	transition-duration: var(--trans-dur);
-}
-
-.contact-btn:hover {
-	box-shadow: none;
-}
-
-.menu-btn {
-	border: none;
-	background-color: unset;
-	display: none;
-	cursor: pointer;
-}
-
-.menu-btn svg {
-	width: 1.5rem;
-	height: 1.5rem;
-}
-
-@media screen and (max-width: 950px) {
-	.menu-btn {
-		display: block;
-	}
-
-	.contact-btn {
-		display: none;
-	}
-
-	.nav {
-		display: flex;
-		position: fixed;
-		align-items: center;
-		justify-content: center;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 5rem;
-		background-color: rgba(255, 255, 255, 0.9);
-		transform: unset;
-		box-shadow: var(--box-shadow);
-	}
-
-	.nav .active::before {
-		top: 26px !important;
-	}
-
+.active {
+  border-bottom: 1px solid var(--text-color-2);
 }

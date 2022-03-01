@@ -1,174 +1,255 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
-import Project from '../components/Project'
-import SendIcon from '../components/icons/Send'
-import TickIcon from '../components/icons/Tick'
-import InstagramIcon from '../components/icons/Instagram'
-import GithubIcon from '../components/icons/Github'
-import TwitterIcon from '../components/icons/Twitter'
-import AtIcon from '../components/icons/At'
-import fs from 'fs'
-import matter from 'gray-matter'
+import { useState } from 'react';
+import Image from 'next/image';
+import fs from 'fs';
+import matter from 'gray-matter';
+import GithubIcon from '@components/icons/Github';
+import InstagramIcon from '@components/icons/Instagram';
+import TwitterIcon from '@components/icons/Twitter';
+import CodeIcon from '@components/icons/Code';
+import WebIcon from '@components/icons/Web';
+import DesignIcon from '@components/icons/Design';
+import UpRightIcon from '@components/icons/UpRight';
+import TickIcon from '@components/icons/Tick';
+import Game from '@components/Game';
+import styles from '@styles/Home.module.css';
 
-export default function Home({ projects, designs, frontmatter}) {
-	return (<>
-		<Head>
-			<title>{frontmatter.headtitle}</title>
-			<meta
-				name="description"
-				content={frontmatter.headdescription}
-			/>
-		</Head>
-		<header className={styles.header}>
-			<div className={styles.header__left}>
-				<h1>I <span className={styles.highlight}>Design</span> and <span className={styles.highlight}>Develop</span> apps and websites</h1>
-				<div className={styles.header__left__cta}>
-					<a href="#about" className={styles["cta-link"]}>About Me</a>
-					<a href="#contact" className={styles["cta-link-special"]}>
-						Contact
-						<svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M19.997 11.997C20.5477 11.4464 20.5477 10.5536 19.997 10.003L11.0238 1.0298C10.4732 0.479157 9.58044 0.479157 9.0298 1.0298C8.47916 1.58044 8.47916 2.4732 9.0298 3.02384L17.006 11L9.0298 18.9762C8.47916 19.5268 8.47916 20.4196 9.0298 20.9702C9.58043 21.5208 10.4732 21.5208 11.0238 20.9702L19.997 11.997ZM-1.23266e-07 12.41L19 12.41L19 9.59L1.23266e-07 9.59L-1.23266e-07 12.41Z" fill="#272727"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			<div className={styles.header__right}>
-				<img className={styles.header__right__illustration} src="/illustration.svg" alt="hero-illustration"/>
-			</div>
-		</header>
-		<main>
-			<section id="about" className={styles.about + ' ' + styles.section}>
-				<div className={styles.about__left}>
-					<h2 className={styles["section-header"]+' '+styles.about__header}>About Me</h2>
-					<p className={styles.about__paragraph}>{frontmatter.about}</p>
-				</div>
-				<div className={styles.divider} />
-				<div className={styles.about__right}>
-					<img src="/BrandLogo.svg" alt="Brand Logo"/>
-				</div>
-			</section>
-			<section id="skills" className={styles.skills + ' ' + styles.section}>
-				<h2 className={styles["margin-bottom"] + ' ' + styles.skills__header + ' ' + styles["section-header"]}>
-					What I do
-				</h2>
-				<div className={styles.skills__list}>
-					<div className={styles.skill}>
-						<div className={styles["skill__icon-container"]}>
-							<img className={styles["skill__icon"]} src="/pen.svg" alt="Pen Icon" />
-						</div>
-						<h3 className={styles["skill__header"]}>UI/UX Design</h3>
-						<p className={styles["skill__paragraph"]}>
-							I value simple clean and structural design and good user experience.
-						</p>
-					</div>
-					<div className={styles.skill}>
-						<div className={styles["skill__icon-container"]}>
-							<img className={styles["skill__icon"]} src="/code.svg" alt="Pen Icon" />
-						</div>
-						<h3 className={styles["skill__header"]}>Web App Developmet</h3>
-						<p className={styles["skill__paragraph"]}>
-							I like to code things from scratch, and enjoy bringing ideas to life in the browser.
-						</p>
-					</div>
-				</div>
-			</section>
-			<section id="techprojects" className={styles.section}>
-				<h2 className={styles.tech__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
-					Technical Projects
-				</h2>
-				<div className={styles["project-list"]}>
-					{ projects.map(project => <Project {...project} key={project.title}/>)}
-				</div>
-			</section>
-			<section id="designprojects" className={styles.section}>
-				<h2 className={styles.design__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
-					Design Projects
-				</h2>
-				<div className={styles["project-list"]}>
-					{ designs.map(project => <Project {...project} key={project.title}/>)}
-				</div>
-			</section>
-			<section id="contact"  className={styles.section}>
-				<h2 className={styles.contact__header + ' ' + styles["section-header"] + ' ' + styles["margin-bottom"]}>
-					Contact
-				</h2>
-				<div className={styles["contact-box"]}>
-					<form className={styles["contact-box__left"]} name="contact" data-netlify="true" method="POST" action="/#formsuccess">
-						<input type='hidden' name='form-name' value='contact' />
-						<label htmlFor="name">
-							Name
-						</label>
-						<input type="text" id="name" name="name" required placeholder="Name" />
-						<label htmlFor="email">
-							Email
-						</label>
-						<input type="email" id="email" name="email" required placeholder="Email" />
-						<label htmlFor="message">
-							Message
-						</label>
-						<textarea name="message" id="message"  required placeholder="Message"/>
-						<button type="submit" className={styles["submit-button"]}>
-							<SendIcon />
-								Submit
-						</button>
-					</form>
-					<div className={styles["contact-box__right"]}>
-						<p>Contact me using this form or email me at <a href={`mailto:${frontmatter.email}`}>{frontmatter.email}</a></p>
-						<div className={styles["social-icons"]}>
-							<a href="https://www.instagram.com/reactoverflow" target="_blank" rel="noreferrer">
-								<InstagramIcon />
-							</a>
-							<a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer">
-								<GithubIcon />
-							</a>
-							<a href="https://twitter.com/reactoverflow" target="_blank" rel="noreferrer">
-								<TwitterIcon />
-							</a>
-						</div>
-						<div className={styles["icon-container"]}>
-							<AtIcon />
-						</div>
-					</div>
-				</div>
-			</section>
-			<div className={styles["form-success-container"]} id="formsuccess">
-				<div className={styles["form-success"]}>
-					Message sent successfully
-					<TickIcon />
-				</div>
-			</div>
-		</main>
-	</>)
+export default function Home({ projects, blogs }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const onChoosePlan = () => {
+    setMessage("Hi!, I'm -name- from -company-name- and I want you to make a website for me");
+  }
+
+  return (<>
+    <section className={styles.hero}>
+      <div className={styles.hero__left}>
+        <span className={styles['hi-message']}>Hi There!</span>
+        <h1 className={styles.introduction}>I’m Siddharth Roy</h1>
+        <p className={styles.about}>Passionate frontend enginner and designer from India</p>
+        <div className={styles.hero__buttons}>
+          <a href="#contact" className={styles.button}>
+            Connect with me
+          </a>
+          <a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer" className={styles['social-button']}>
+            <GithubIcon />
+          </a>
+          <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer" className={styles['social-button']}>
+            <InstagramIcon />
+          </a>
+          <a href="https://twitter.com/reactoverflow" target="_blank" rel="noreferrer" className={styles['social-button']}>
+            <TwitterIcon />
+          </a>
+        </div>
+      </div>
+      <div className={styles.hero__right}>
+        <Game />
+      </div>
+    </section>
+    <section className={styles.section} id="about">
+      <h2 className={styles.section__heading}>Things I do</h2>
+      <div className={styles['flex-box']}>
+        <div className={styles['thing-box']}>
+          <div className={styles['thing-box__top']}>
+            <span className={styles['thing-box__icon']}>
+              <CodeIcon />
+            </span>
+            <p className={styles['thing-box__title']}>
+              Web App Development
+            </p>
+          </div>
+          <p className={styles['thing-box__paragraph']}>
+            I know both Front-end and Back-end but
+            I’m more Front-end focused and I love ReactJS
+          </p>
+        </div>
+        <div className={styles['thing-box']}>
+          <div className={styles['thing-box__top']}>
+            <span className={styles['thing-box__icon']}>
+              <DesignIcon />
+            </span>
+            <p className={styles['thing-box__title']}>
+              UI/UX Design
+            </p>
+          </div>
+          <p className={styles['thing-box__paragraph']}>
+            I’m kinda new to this but I love making really cool website designs that also has nice User Experience
+          </p>
+        </div>
+        <div className={styles['thing-box']}>
+          <div className={styles['thing-box__top']}>
+            <span className={styles['thing-box__icon']}>
+              <WebIcon />
+            </span>
+            <p className={styles['thing-box__title']}>
+              Websites for startups
+            </p>
+          </div>
+          <p className={styles['thing-box__paragraph']}>
+            I make websites for new bussiness and startups as a freelancer
+          </p>
+        </div>
+      </div>
+    </section>
+    <section className={styles.section} id="projects">
+      <h2 className={styles.section__heading}>Apps I’ve made</h2>
+      <div className={styles['flex-box']}>
+        { projects.map(project => (
+          <div className={styles.project} key={project.title}>
+            <div className={styles['project__top']}>
+              <h3 className={styles['project-title']}>
+                { project.title }
+              </h3>
+              <p className={styles['project-description']}>
+                { project.desc }
+              </p>
+            </div>
+            <div className={styles['project__bottom']}>
+              <a href={project.code} target="_blank" rel="noreferrer" className={styles['project-link']}>
+                View Code <UpRightIcon />
+              </a>
+              <a href={project.live} target="_blank" rel="noreferrer" className={styles['project-link']}>
+                View Live <UpRightIcon />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+   <section className={styles.section}>
+      <h2 className={styles.section__heading}>Read My Articles</h2>
+      <p className={styles.section__paragraph}>
+        I write blogs about Web development, React, JavaScript and useful resources
+      </p>
+      <div className={styles['flex-box']} style={{alignItems: 'end'}}>
+        { blogs.map(blog => (
+          <div className={styles['blog']} key={blog.title}>
+            <Image src={blog.cover} alt="cover-image" width="500" height="250" objectFit="cover"/>
+            <p className={styles['blog-title']}>
+              { blog.title }
+            </p>
+            <a href={blog.url} target="_blank" rel="noreferrer" className={styles['button']}>Read</a>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section className={styles.section}>
+      <h2 className={styles.section__heading}>Websites for Startups</h2>
+      <p className={styles.section__paragraph}>
+        If you want to build a presence on the internet
+        then having a website is must and I can create one for you
+      </p>
+      <div className={styles['flex-box']} style={{alignItems: 'end'}}>
+        <div className={styles['pricing']}>
+          <div className={styles['pricing__inner']}>
+            <h3 className={styles['pricing__level']}>Basic</h3>
+            <p className={styles['pricing__desc']}> Essential Features </p>
+            <span className={styles['pricing__price']}>
+              $200
+            </span>
+            <ul className={styles['pricing__features']}>
+              <li><TickIcon /> Responsive Design</li>
+              <li><TickIcon /> 1 Page</li>
+              <li><TickIcon /> $100 for each extra page</li>
+            </ul>
+            <a href="#contact" className={styles['pricing__button']} onClick={onChoosePlan}>
+              Choose Basic
+            </a>
+          </div>
+        </div>
+        <div className={styles['pricing'] + ' ' + styles['pricing-rec']}>
+          <p> RECOMMENDED </p>
+          <div className={styles['pricing__inner']}>
+            <h3 className={styles['pricing__level']}>Standard</h3>
+            <p className={styles['pricing__desc']}> Essential Features </p>
+            <span className={styles['pricing__price']}>
+              $400
+            </span>
+            <ul className={styles['pricing__features']}>
+              <li><TickIcon /> Responsive Desgin</li>
+              <li><TickIcon /> Google Analytics Integration</li>
+              <li><TickIcon /> CMS Integration</li>
+              <li><TickIcon /> Upto 5 pages</li>
+            </ul>
+            <a href="#contact" className={styles['pricing__button']} onClick={onChoosePlan}>
+              Choose Standard
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className={styles.section} id="contact">
+      <h2 className={styles.section__heading}>Connect with me</h2>
+      <p className={styles.section__paragraph}>
+        If you wanna get in touch, talk to me about a project collaboration
+        or just say hi, fill up the awesome form below or send an email to
+        <a href="mailto:siddharthroy36912@gmail.com"> siddharthroy36912@gmail.com </a>
+        and ~let{"'"}s talk.
+      </p>
+      <form className={styles['contact-form']} data-netlify="true" method="POST">
+        <input type="hidden" name="form-name" value="contact" />
+        <div className={styles['contact-form__top']}>
+          <div className={styles['contact-form-input']} style={{marginRight: '10px'}}>
+            { name.trim() === '' ? (
+              <label htmlFor="name">Name</label>) : null }
+            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} required/>
+          </div>
+          <div className={styles['contact-form-input']} style={{marginLeft: '10px'}}>
+            { email.trim() === '' ? (
+              <label htmlFor="email">Email</label>) : null }
+            <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} required/>
+          </div>
+        </div>
+        <div className={styles['contact-form__bottom']} style={{marginTop: '20px'}}>
+          <div className={styles['contact-form-input']}>
+            { message.trim() === '' ? (
+              <label htmlFor="message">Message</label>) : null }
+            <textarea
+              required
+              name="message"
+              value={message}
+              onChange={e => setMessage(e.target.value)}
+              rows={10}
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          className={styles.button}
+          style={{width: '100%', marginTop: '20px', fontSize: '1em'}}>
+          Submit
+        </button>
+      </form>
+    </section>
+  </>);
 }
 
 export async function getStaticProps() {
-  const filesInProjects = fs.readdirSync('./content/projects')
-  const filesInDesigns = fs.readdirSync('./content/designs')
-  let projects = []
-  let designs = []
+  const filesInProjects = fs.readdirSync('./content/projects');
 
-  filesInProjects.forEach((file) => {
-    const data = matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
-    if (data.featured) {
-      projects.push(data)
+  const projects = filesInProjects.map(file => {
+    return matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
+  });
+
+  const response = await fetch("https://dev.to/api/articles/me/published", {
+    headers: {
+      "api-key": process.env.DEVTO_KEY
     }
-  })
+  });
 
-  filesInDesigns.forEach((file) => {
-    const data = matter(fs.readFileSync(`./content/designs/${file}`, 'utf8')).data
-    if (data.featured) {
-      designs.push(data)
-    }
-  })
+  let blogs = await response.json();
 
-  const frontmatter = matter(fs.readFileSync('./content/_index.md', 'utf8')).data
+  blogs = blogs.slice(0, 4);
+  let blogsMin = [];
 
-  return {
-    props: {
-      projects,
-      designs,
-      frontmatter,
-    }
-  }
+  blogs.forEach(blog => {
+    blogsMin.push({
+      title: blog.title,
+      url: blog.url,
+      cover: blog.cover_image
+    });
+  });
+
+  return {props: { projects, blogs: blogsMin }};
 }

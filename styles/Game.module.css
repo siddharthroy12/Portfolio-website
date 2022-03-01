@@ -1,0 +1,31 @@
+.container {
+  background-color: #1F1F1F;
+  border: 1px solid #2A2A2A;
+  border-radius: 7px;
+  filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25));
+}
+
+.top-bar {
+  height: 30px;
+  border-bottom: 1px solid #2A2A2A;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.circle {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  background-color: #2A2A2A;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.circle:hover {
+  background-color: #ffffff;
+}
+
+.container canvas {
+  width: 100%;
+}

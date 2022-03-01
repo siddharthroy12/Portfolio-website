@@ -5,7 +5,8 @@ module.exports = withTM({
   images: {
     domains: [
       'raw.githubusercontent.com',
-      'i.imgur.com'
+      'i.imgur.com',
+      'res.cloudinary.com'
     ],
   }
 })

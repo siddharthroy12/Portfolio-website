@@ -7,18 +7,6 @@ public_folder: "/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "content/blogs" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LL"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-
   - name: "project" # Used in routes, e.g., /admin/collections/blog
     label: "Project" # Used in the UI
     folder: "content/projects" # The path to the folder where the documents are stored
@@ -26,31 +14,6 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "desc", widget: "string"}
       - {label: "Source code", name: "code", widget: "string"}
       - {label: "Live", name: "live", widget: "string"}
-      - {label: "Preview", name: "preview", widget: "image"}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-
-  - name: "designs" # Used in routes, e.g., /admin/collections/designs
-    label: "Designs" # Used in the UI
-    folder: "content/designs" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Live", name: "live", widget: "string"}
-      - {label: "Preview", name: "preview", widget: "image"}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-
-  - label: "Pages"
-    name: "pages"
-    files:
-      - label: "Front Page"
-        name: "index"
-        file: "content/_index.md"
-        fields:
-          - {label: "Small Bio", name: smallbio, widget: text}
-          - {label: "About", name: about, widget: text}
-          - {label: "Email", name: email, widget: string}
-          - {label: "Head Title", name: headtitle, widget: text}
-          - {label: "Head Description", name: headdescription, widget: string}

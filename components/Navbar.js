@@ -1,40 +1,37 @@
-import { useState } from 'react'
-import Link from 'next/link'
-import MenuIcon from '@components/icons/Menu'
-import { useRouter } from 'next/router'
-import styles from '../styles/Navbar.module.css'
+import Link from 'next/link';
+import Switch from '@components/Switch';
+import BrandIcon from '@components/icons/Brand';
+import HomeIcon from '@components/icons/Home';
+import AboutIcon from '@components/icons/About';
+import CodeIcon from '@components/icons/Code';
+import WriteIcon from '@components/icons/Write';
+import styles from '@styles/Navbar.module.css';
 
-export default function Navbar() {
-	const [sideBarOpen, setSideBarOpen] = useState(false)
-	const router = useRouter();
-
-	const isActive = (path) => {
-		if (path === '/') {
-			if (router.asPath === '/') {
-				return styles.active
-			}
-		} else {
-			return router.asPath.startsWith(path) ? styles.active : ''
-		}
-	}
-
-	return (
-		<div className={styles.container}>
-			<Link href="/">
-			<div className={styles.brand}>
-				<img src="/BrandLogo.svg" alt="BrandIcon" className={styles.brandlogo}/>
-				<p className={styles.brandname}>SiddharthRoy</p>
-			</div>
-			</Link>
-			<nav className={styles.nav + ' ' + (sideBarOpen ? styles["nav-open"] : ' ')}>
-				<ul>
-					<li className={isActive('/')}><Link href="/">Home</Link></li>
-					<li className={isActive('/portfolio')}><Link href="/portfolio/1">Portfolio</Link></li>
-					<li className={isActive('/blogs')}><Link href="/blogs/1">Blogs</Link></li>
-					<li className={isActive('/templates')}><Link href="/templates">Templates</Link></li>
-				</ul>
-			</nav>
-			<Link href="/#contact"><span className={styles["contact-btn"]}>Contact</span></Link>
-		</div>
-	)
+export default function Navbar({ darkTheme, setDarkTheme }) {
+  return (
+    <header className={styles.header}>
+      <div className="container">
+        <div className={styles.left}>
+          <Link href="/">
+            <a>
+              <span>
+              <BrandIcon />
+              </span>
+            </a>
+          </Link>
+        </div>
+        <div className={styles.right}>
+          <nav className={styles.nav}>
+            <ul className={styles['nav-list']}>
+              <li className={styles.active}><Link href="/"><a><span>Home</span><HomeIcon /></a></Link></li>
+              <li><a href="#about"><span>About</span><AboutIcon /></a></li>
+              <li><a href="#projects"><span>Proof Of Work</span><CodeIcon /></a></li>
+              <li><a href="https://dev.to/siddharthroy" rel="noreferrer" target="_blank"><span>Blogs</span> <WriteIcon /></a></li>
+            </ul>
+          </nav>
+          <Switch on={darkTheme} onChange={e => setDarkTheme(e.target.checked)} />
+        </div>
+      </div>
+    </header>
+  );
 }
