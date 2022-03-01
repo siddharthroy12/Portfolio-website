@@ -56,8 +56,8 @@ class Circle {
     if (this.radius < 1) {
       this.radius = 1;
     }
-    this.position.x = this.position.x + this.direction.x * deltaTime * 0.09;
-    this.position.y = this.position.y + this.direction.y * deltaTime * 0.09;
+    this.position.x = this.position.x + this.direction.x * deltaTime * 0.2;
+    this.position.y = this.position.y + this.direction.y * deltaTime * 0.2;
     ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);

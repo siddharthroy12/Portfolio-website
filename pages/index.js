@@ -149,9 +149,9 @@ export default function Home({ projects, blogs }) {
               $200
             </span>
             <ul className={styles['pricing__features']}>
-              <li><TickIcon /> Responsive Design</li>
-              <li><TickIcon /> 1 Page</li>
-              <li><TickIcon /> $100 for each extra page</li>
+              <li><span><TickIcon /></span> Responsive Design</li>
+              <li><span><TickIcon /></span> 1 Page</li>
+              <li><span><TickIcon /></span> $100 for each extra page</li>
             </ul>
             <a href="#contact" className={styles['pricing__button']} onClick={onChoosePlan}>
               Choose Basic
@@ -167,10 +167,10 @@ export default function Home({ projects, blogs }) {
               $400
             </span>
             <ul className={styles['pricing__features']}>
-              <li><TickIcon /> Responsive Desgin</li>
-              <li><TickIcon /> Google Analytics Integration</li>
-              <li><TickIcon /> CMS Integration</li>
-              <li><TickIcon /> Upto 5 pages</li>
+              <li><span><TickIcon /></span> Responsive Desgin</li>
+              <li><span><TickIcon /></span> Google Analytics Integration</li>
+              <li><span><TickIcon /></span> CMS Integration</li>
+              <li><span><TickIcon /></span> Upto 5 pages</li>
             </ul>
             <a href="#contact" className={styles['pricing__button']} onClick={onChoosePlan}>
               Choose Standard
