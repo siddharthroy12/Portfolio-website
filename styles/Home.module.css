@@ -143,8 +143,6 @@
 }
 
 .thing-box {
-  background-color: var(--card-color);
-  border: 1px solid var(--border-color);
   padding: 20px;
   border-radius: 3px;
   margin: 20px 0;
@@ -156,7 +154,8 @@
 }
 
 .thing-box__icon {
-  padding: 10px;
+  width: 48px;
+  height: 48px;
   background-color: var(--text-color-1);
   border-radius: 10px;
   display: flex;
@@ -165,7 +164,7 @@
 }
 
 .thing-box__title {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-color-1);
   margin-left: 20px;
   font-size: 1em;
@@ -175,6 +174,8 @@
   margin-top: 20px;
   line-height: 24px;
   font-size: 1em;
+  color: var(--text-color-1);
+  font-weight: 500;
 }
 
 
