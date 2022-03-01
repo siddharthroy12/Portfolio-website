@@ -148,11 +148,13 @@
   font-weight: 500;
   color: var(--text-color-1);
   margin-left: 20px;
+  font-size: 1em;
 }
 
 .thing-box__paragraph {
   margin-top: 20px;
-  line-height: 24px
+  line-height: 24px;
+  font-size: 1em;
 }
 
 
