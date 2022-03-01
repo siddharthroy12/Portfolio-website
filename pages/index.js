@@ -151,7 +151,7 @@ export default function Home({ projects, blogs }) {
             <ul className={styles['pricing__features']}>
               <li><span><TickIcon /></span> Responsive Design</li>
               <li><span><TickIcon /></span> 1 Page</li>
-              <li><span><TickIcon /></span> $100 for each extra page</li>
+              <li><span><TickIcon /></span>$50 for each extra page</li>
             </ul>
             <a href="#contact" className={styles['pricing__button']} onClick={onChoosePlan}>
               Choose Basic
