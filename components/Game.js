@@ -48,6 +48,7 @@ class Circle {
     this.direction.y = (Math.random() * 2) - 1;
     setTimeout(() => this.die = true, 5000);
   }
+
   draw_and_update(ctx, deltaTime) {
     if (this.radius > 1) {
       this.radius = this.radius - 1 * deltaTime * 0.09;
@@ -80,19 +81,20 @@ function game(ctx, canvas) {
     mousePos = getMousePos(canvas, event);
   }
 
-  function createEffect() {
-    ripples.push(new Ripple(mousePos));
+  function createEffect(pos) {
+    ripples.push(new Ripple(pos));
     for (let i =0; i < 15; i++) {
-      circles.push(new Circle(mousePos));
+      circles.push(new Circle(pos));
     }
   }
 
   document.addEventListener('mousemove', updateMousePos);
-  document.addEventListener('mousedown', createEffect);
+  document.addEventListener('mousedown', () => createEffect(mousePos));
+  setInterval(() => createEffect({x:Math.random() * ctx.canvas.width,y: Math.random() * ctx.canvas.height}), 3000);
 
   function loop(elapsedTime) {
     deltaTime = elapsedTime - previousTime;
-    ctx.clearRect(0, 0, 1000, 1000);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.fillStyle = "white";
     let ripplesToDestroy = [];
     for (let i = 0; i < ripples.length; i++) {

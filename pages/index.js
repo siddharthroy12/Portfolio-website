@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import fs from 'fs';
 import matter from 'gray-matter';
 import GithubIcon from '@components/icons/Github';
@@ -16,6 +17,10 @@ export default function Home({ projects, blogs }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  const onChoosePlan = () => {
+    setMessage("Hi!, I'm -name- from -company-name- and I want you to make a website for me");
+  }
 
   return (<>
     <section className={styles.hero}>
@@ -120,7 +125,7 @@ export default function Home({ projects, blogs }) {
       <div className={styles['flex-box']} style={{alignItems: 'end'}}>
         { blogs.map(blog => (
           <div className={styles['blog']} key={blog.title}>
-            <img src={blog.cover} alt="cover-image"/>
+            <Image src={blog.cover} alt="cover-image" width="500" height="250" objectFit="cover"/>
             <p className={styles['blog-title']}>
               { blog.title }
             </p>
@@ -148,7 +153,7 @@ export default function Home({ projects, blogs }) {
               <li><TickIcon /> 1 Page</li>
               <li><TickIcon /> $100 for each extra page</li>
             </ul>
-            <a href="#contact" className={styles['pricing__button']}>
+            <a href="#contact" className={styles['pricing__button']} onClick={onChoosePlan}>
               Choose Basic
             </a>
           </div>
@@ -167,21 +172,20 @@ export default function Home({ projects, blogs }) {
               <li><TickIcon /> CMS Integration</li>
               <li><TickIcon /> Upto 5 pages</li>
             </ul>
-            <a href="#contact" className={styles['pricing__button']}>
+            <a href="#contact" className={styles['pricing__button']} onClick={onChoosePlan}>
               Choose Standard
             </a>
           </div>
         </div>
       </div>
     </section>
- 
     <section className={styles.section} id="contact">
       <h2 className={styles.section__heading}>Connect with me</h2>
       <p className={styles.section__paragraph}>
         If you wanna get in touch, talk to me about a project collaboration
         or just say hi, fill up the awesome form below or send an email to
         <a href="mailto:siddharthroy36912@gmail.com"> siddharthroy36912@gmail.com </a>
-        and ~let's talk.
+        and ~let{"'"}s talk.
       </p>
       <form className={styles['contact-form']} data-netlify="true" method="POST">
         <input type="hidden" name="form-name" value="contact" />
@@ -189,12 +193,12 @@ export default function Home({ projects, blogs }) {
           <div className={styles['contact-form-input']} style={{marginRight: '10px'}}>
             { name.trim() === '' ? (
               <label htmlFor="name">Name</label>) : null }
-            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)}/>
+            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} required/>
           </div>
           <div className={styles['contact-form-input']} style={{marginLeft: '10px'}}>
             { email.trim() === '' ? (
               <label htmlFor="email">Email</label>) : null }
-            <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>
+            <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} required/>
           </div>
         </div>
         <div className={styles['contact-form__bottom']} style={{marginTop: '20px'}}>
@@ -202,6 +206,7 @@ export default function Home({ projects, blogs }) {
             { message.trim() === '' ? (
               <label htmlFor="message">Message</label>) : null }
             <textarea
+              required
               name="message"
               value={message}
               onChange={e => setMessage(e.target.value)}

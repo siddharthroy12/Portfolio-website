@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Layout from '@components/Layout';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -13,6 +14,9 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
+      <Head>
+        <title>Siddharth Roy - Frontend Developer</title>
+      </Head>
       <Component {...pageProps} />
     </Layout>
   );
