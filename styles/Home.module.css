@@ -9,6 +9,10 @@
   width: 50%;
 }
 
+.hero__left {
+  padding-top: 70px;
+}
+
 @media screen and (max-width: 1050px) {
   .hero {
     flex-direction: column;
@@ -27,6 +31,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding-top: 0;
   }
 
   .hero__right {
@@ -142,6 +147,9 @@
   padding: 10px;
   background-color: var(--text-color-1);
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .thing-box__title {
@@ -298,7 +306,7 @@
 .blog {
   background-color: var(--card-color);
   max-width: 400px;
-  padding: 15px;
+  padding: 20px;
   margin: 30px;
 }
 

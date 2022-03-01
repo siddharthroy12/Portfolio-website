@@ -45,7 +45,7 @@
 @media screen and (max-width: 502px) {
   .nav-list li svg {
     display: inline-block;
-    width: 20px;
+    width: 18px;
     fill: var(--text-color-1) !important;
   }
 

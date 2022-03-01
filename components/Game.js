@@ -22,8 +22,8 @@ class Ripple {
     ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
     ctx.closePath();
     ctx.stroke();
-    this.radius = this.radius + 1 * deltaTime * 0.09;
-    this.opacity = this.opacity - 0.02 * deltaTime * 0.07;
+    this.radius = this.radius + 1 * deltaTime * 0.2;
+    this.opacity = this.opacity - 0.02 * deltaTime * 0.1;
   }
 }
 
