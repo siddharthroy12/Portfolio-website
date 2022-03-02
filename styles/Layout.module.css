@@ -7,6 +7,7 @@
   background-color: var(--accent-color);
   padding: 10px 0;
   font-weight: 500;
+  font-size: .9em;
 }
 
 .ad > div {
@@ -24,6 +25,11 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+}
+
+.ad a {
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .dark-theme {

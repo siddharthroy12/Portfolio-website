@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import CloseIcon from '@components/icons/Close';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -38,7 +39,7 @@ export default function Layout({ children }) {
     {showAd ? (
     <div className={styles.ad}>
       <div className="container">
-        <p>Want a website? I can build one for you! Check out the pricing section for more info</p>
+        <p>Want a website? I can build one for you! Check out the <Link href="/#pricing"><a>pricing section</a></Link> for more info</p>
         <button onClick={onAdClose}>
           <CloseIcon />
         </button>
