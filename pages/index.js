@@ -134,7 +134,7 @@ export default function Home({ projects, blogs }) {
         ))}
       </div>
     </section>
-    <section className={styles.section}>
+    <section className={styles.section} id="pricing">
       <h2 className={styles.section__heading}>Websites for Startups</h2>
       <p className={styles.section__paragraph}>
         If you want to build a presence on the internet
