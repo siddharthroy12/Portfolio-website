@@ -191,9 +191,10 @@ export default function Home({ projects, blogs }) {
         <input type="hidden" name="form-name" value="contact" />
         <div className={styles['contact-form__top']}>
           <div className={styles['contact-form-input']} style={{marginRight: '10px'}}>
+            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} required/>
             { name.trim() === '' ? (
               <label htmlFor="name">Name</label>) : null }
-            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} required/>
+
           </div>
           <div className={styles['contact-form-input']} style={{marginLeft: '10px'}}>
             { email.trim() === '' ? (

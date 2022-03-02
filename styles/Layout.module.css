@@ -3,6 +3,29 @@
   color: var(--text-color-2);
 }
 
+.ad {
+  background-color: var(--accent-color);
+  padding: 10px 0;
+  font-weight: 500;
+}
+
+.ad > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ad button {
+  border: none;
+  background-color: unset;
+}
+
+.ad svg {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
 .dark-theme {
   --page-color: #181818;
   --accent-color: #2489FF;
