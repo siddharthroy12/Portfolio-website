@@ -70,11 +70,12 @@ export default function Home({ projects, blogs }) {
               <DesignIcon />
             </span>
             <p className={styles['thing-box__title']}>
-              UI/UX Design
+              Content Creation
             </p>
           </div>
           <p className={styles['thing-box__paragraph']}>
-            I’m kinda new to this but I love making really cool website designs that also has nice User Experience
+            I post about Coding, Web Development tips and Tricks on my Instagram page {' '}
+            <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer">@reactoverflow</a>
           </p>
         </div>
         <div className={styles['thing-box']}>
@@ -87,7 +88,8 @@ export default function Home({ projects, blogs }) {
             </p>
           </div>
           <p className={styles['thing-box__paragraph']}>
-            I make websites for new bussiness and startups as a freelancer
+            I make websites for new bussiness and startups as a freelancer,
+            {' '} learn more in the pricing section
           </p>
         </div>
       </div>
@@ -167,7 +169,7 @@ export default function Home({ projects, blogs }) {
               $400
             </span>
             <ul className={styles['pricing__features']}>
-              <li><span><TickIcon /></span> Responsive Desgin</li>
+              <li><span><TickIcon /></span> Responsive Design</li>
               <li><span><TickIcon /></span> Google Analytics Integration</li>
               <li><span><TickIcon /></span> CMS Integration</li>
               <li><span><TickIcon /></span> Upto 5 pages</li>
