@@ -1,32 +1,37 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import Switch from '@components/Switch';
 import BrandIcon from '@components/icons/Brand';
-import HomeIcon from '@components/icons/Home';
-import AboutIcon from '@components/icons/About';
-import CodeIcon from '@components/icons/Code';
-import WriteIcon from '@components/icons/Write';
+import MenuIcon from '@components/icons/Menu';
 import styles from '@styles/Navbar.module.css';
 
 export default function Navbar({ darkTheme, setDarkTheme }) {
+  const [navIsOpen, setNavIsOpen] = useState(false);
   return (
     <header className={styles.header}>
       <div className="container">
+        <button className={styles['menu-button']} onClick={() => setNavIsOpen(prev => !prev)}>
+            <MenuIcon />
+          </button>
         <div className={styles.left}>
           <Link href="/">
             <a>
               <span>
-              <BrandIcon />
+                <BrandIcon />
+              </span>
+              <span>
+                Siddharth Roy
               </span>
             </a>
           </Link>
         </div>
         <div className={styles.right}>
           <nav className={styles.nav}>
-            <ul className={styles['nav-list']}>
-              <li className={styles.active}><Link href="/"><a><span>Home</span><HomeIcon /></a></Link></li>
-              <li><a href="#about"><span>About</span><AboutIcon /></a></li>
-              <li><a href="#projects"><span>Proof Of Work</span><CodeIcon /></a></li>
-              <li><a href="https://dev.to/siddharthroy" rel="noreferrer" target="_blank"><span>Blogs</span> <WriteIcon /></a></li>
+            <ul className={styles['nav-list'] + ' ' + (!navIsOpen ? styles['nav-hidden'] : '')}>
+              <li className={styles.active}><Link href="/"><a>Home</a></Link></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Proof Of Work</a></li>
+              <li><a href="https://dev.to/siddharthroy" rel="noreferrer" target="_blank">Blogs</a></li>
             </ul>
           </nav>
           <Switch on={darkTheme} onChange={e => setDarkTheme(e.target.checked)} />

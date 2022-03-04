@@ -50,11 +50,11 @@ class Circle {
   }
 
   draw_and_update(ctx, deltaTime) {
-    if (this.radius > 1) {
+    if (this.radius > 3) {
       this.radius = this.radius - 1 * deltaTime * 0.09;
     }
-    if (this.radius < 1) {
-      this.radius = 1;
+    if (this.radius < 3) {
+      this.radius = 3;
     }
     this.position.x = this.position.x + this.direction.x * deltaTime * 0.2;
     this.position.y = this.position.y + this.direction.y * deltaTime * 0.2;

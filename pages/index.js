@@ -2,9 +2,7 @@ import { useState } from 'react';
 import fs from 'fs';
 import Image from 'next/image';
 import matter from 'gray-matter';
-import GithubIcon from '@components/icons/Github';
-import InstagramIcon from '@components/icons/Instagram';
-import TwitterIcon from '@components/icons/Twitter';
+import RightIcon from '@components/icons/Right';
 import CodeIcon from '@components/icons/Code';
 import WebIcon from '@components/icons/Web';
 import DesignIcon from '@components/icons/Design';
@@ -25,21 +23,19 @@ export default function Home({ projects, blogs }) {
   return (<>
     <section className={styles.hero}>
       <div className={styles.hero__left}>
-        <span className={styles['hi-message']}>Hi There!</span>
-        <h1 className={styles.introduction}>I’m Siddharth Roy</h1>
-        <p className={styles.about}>Passionate frontend enginner and designer from India</p>
+        <h1 className={styles.introduction}>
+          I make beautiful <span className="highlight">web experience</span>_
+        </h1>
+        <p className={styles.about}>
+          Do you want a website? I can build one for you, check out the {' '}
+          <span className="highlight-secondary">pricing section</span>.
+        </p>
         <div className={styles.hero__buttons}>
           <a href="#contact" className={styles.button}>
-            Connect with me
+            Pricing
           </a>
-          <a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer" className={styles['social-button']}>
-            <GithubIcon />
-          </a>
-          <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer" className={styles['social-button']}>
-            <InstagramIcon />
-          </a>
-          <a href="https://twitter.com/reactoverflow" target="_blank" rel="noreferrer" className={styles['social-button']}>
-            <TwitterIcon />
+          <a href="#contact" className={styles['button-secondary']}>
+            Contact Me
           </a>
         </div>
       </div>
@@ -48,7 +44,6 @@ export default function Home({ projects, blogs }) {
       </div>
     </section>
     <section className={styles.section} id="about">
-      <h2 className={styles.section__heading}>Things I do</h2>
       <div className={styles['flex-box']}>
         <div className={styles['thing-box']}>
           <div className={styles['thing-box__top']}>
@@ -56,13 +51,16 @@ export default function Home({ projects, blogs }) {
               <CodeIcon />
             </span>
             <p className={styles['thing-box__title']}>
-              Web App Development
+              Development
             </p>
           </div>
           <p className={styles['thing-box__paragraph']}>
             I know both Front-end and Back-end but
             I’m more Front-end focused and I love ReactJS
           </p>
+          <a href="#projects" className={styles['thing-box__learnmore']}>
+            Learn More <RightIcon />
+          </a>
         </div>
         <div className={styles['thing-box']}>
           <div className={styles['thing-box__top']}>
@@ -74,9 +72,11 @@ export default function Home({ projects, blogs }) {
             </p>
           </div>
           <p className={styles['thing-box__paragraph']}>
-            I post about Coding, Web Development tips and Tricks on my Instagram page {' '}
-            <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer">@reactoverflow</a>
+            I post about Coding, Web Development tips and Tricks on my Instagram page
           </p>
+          <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer" className={styles['thing-box__learnmore']}>
+            Learn More <RightIcon />
+          </a>
         </div>
         <div className={styles['thing-box']}>
           <div className={styles['thing-box__top']}>
@@ -84,13 +84,15 @@ export default function Home({ projects, blogs }) {
               <WebIcon />
             </span>
             <p className={styles['thing-box__title']}>
-              Websites for startups
+             Freelancing
             </p>
           </div>
           <p className={styles['thing-box__paragraph']}>
             I make websites for new bussiness and startups as a freelancer,
-            {' '} learn more in the pricing section
           </p>
+          <a href="#pricing" className={styles['thing-box__learnmore']}>
+            Learn More <RightIcon />
+          </a>
         </div>
       </div>
     </section>
@@ -228,7 +230,7 @@ export default function Home({ projects, blogs }) {
   </>);
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const filesInProjects = fs.readdirSync('./content/projects');
 
   const projects = filesInProjects.map(file => {

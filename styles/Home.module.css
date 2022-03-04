@@ -35,7 +35,7 @@
   }
 
   .hero__right {
-    max-width: 500px;
+    max-width: 550px;
   }
 }
 
@@ -48,13 +48,13 @@
 }
 
 .introduction {
-  font-size: 2.5rem;
+  font-size: 2.6em;
   color: var(--text-color-1);
 }
 
 .about {
   margin-top: 20px;
-  font-size: 1.3rem;
+  font-size: 1.2em;
   font-weight: 400;
   max-width: 500px;
   margin-bottom: 30px;
@@ -67,11 +67,16 @@
   align-items: center;
 }
 
+.hero__buttons > .button {
+  margin-right: 20px;
+}
+
 .button {
   display: block;
-  padding: 0.8em 1em;
+  padding: 0.8em 0;
+  width: 160px;
   background-color: var(--accent-color);
-  font-weight: 500;
+  font-weight: 400;
   color: #ffffff;
   border-radius: 3px;
   transition-duration: 500ms;
@@ -82,6 +87,21 @@
 
 .button:hover {
   background-color: var(--accent-color-hover);
+}
+
+.button-secondary {
+  display: block;
+  padding: 0.8em 0;
+  width: 160px;
+  background-color: unset;
+  font-weight: 400;
+  color: var(--text-color-1);
+  border-radius: 3px;
+  transition-duration: 500ms;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+
 }
 
 .social-button {
@@ -154,8 +174,8 @@
 }
 
 .thing-box__icon {
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   background-color: var(--text-color-1);
   border-radius: 10px;
   display: flex;
@@ -169,7 +189,7 @@
 }
 
 .thing-box__title {
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-color-1);
   margin-left: 20px;
   font-size: 1em;
@@ -180,7 +200,18 @@
   line-height: 24px;
   font-size: 1em;
   color: var(--text-color-1);
-  font-weight: 500;
+  font-weight: 400;
+}
+
+.thing-box__learnmore {
+  display: flex;
+  color: var(--text-color-3);
+  margin-top: 20px;
+  align-items: center;
+}
+
+.thing-box__learnmore svg {
+  margin-left: 10px;
 }
 
 
@@ -324,6 +355,10 @@
   background-color: var(--card-color);
   padding: 20px;
   margin: 20px 0;
+}
+
+.blog .button {
+  width: 100%;
 }
 
 .blog img {
