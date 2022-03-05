@@ -31,7 +31,7 @@ export default function Home({ projects, blogs }) {
           <span className="highlight-secondary">pricing section</span>.
         </p>
         <div className={styles.hero__buttons}>
-          <a href="#contact" className={styles.button}>
+          <a href="#pricing" className={styles.button}>
             Pricing
           </a>
           <a href="#contact" className={styles['button-secondary']}>
