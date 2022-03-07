@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "fast-sort": "^3.0.2",
     "gray-matter": "^4.0.3",
     "next": "^11.1.0",

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import fs from 'fs';
+import axios from 'axios';
 import Image from 'next/image';
 import matter from 'gray-matter';
 import RightIcon from '@components/icons/Right';
@@ -230,12 +230,28 @@ export default function Home({ projects, blogs }) {
   </>);
 }
 
-export async function getStaticProps() {
-  const filesInProjects = fs.readdirSync('./content/projects');
 
-  const projects = filesInProjects.map(file => {
-    return matter(fs.readFileSync(`./content/projects/${file}`, 'utf8')).data
+export async function getServerSideProps() {
+  // I know this looks stupid fetching content from Githhub API when I can just use filehandling
+  // but Next.js won't let me use both getStaticProps and getServerSideProps
+  // and I rely on devo api to fetch my blogs
+
+  const GET_TREE_LINK = 'https://api.github.com/repos/siddharthroy12/Portfolio-website/git/trees/main?recursive=1';
+  const GET_RAW_LINK = 'https://raw.githubusercontent.com/siddharthroy12/Portfolio-website/main';
+
+  const tree = (await axios.get(GET_TREE_LINK)).data.tree;
+
+  const projectFiles = tree.filter(obj => {
+    return obj.path.startsWith('content/projects/');
+  }).map(obj => {
+    return obj.path;
   });
+
+  let projects = [];
+
+  for (let file of projectFiles) {
+    projects.push(matter((await axios.get(`${GET_RAW_LINK}/${file}`)).data).data);
+  }
 
   const response = await fetch("https://dev.to/api/articles/me/published", {
     headers: {
