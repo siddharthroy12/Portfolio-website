@@ -5,7 +5,8 @@ import styles from '@styles/Switch.module.css';
 export default function Switch({ on, onChange }) {
   return (
     <div className={styles.container}>
-      <input type="checkbox" className={styles.switch} checked={on} onChange={onChange}/>
+      <label htmlFor="theme-switch">Theme Switcher</label>
+      <input type="checkbox" className={styles.switch} checked={on} onChange={onChange} name="theme-switch" id="theme-switch" />
       { on ? <MoonIcon /> : <SunIcon /> }
     </div>
   );

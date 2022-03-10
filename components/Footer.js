@@ -14,9 +14,9 @@ export default function Footer() {
     <p>Created using <NextIcon /> and <NetlifyIcon /> </p>
     <hr />
     <div className={styles.socials}>
-      <a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer"><GithubIcon /></a>
-      <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer"><InstagramIcon /></a>
-      <a href="https://twitter.com/reactoverflow" target="_blank" rel="noreferrer"><TwitterIcon /></a>
+      <a href="https://github.com/siddharthroy12" target="_blank" rel="noreferrer" aria-label="Github"><GithubIcon /></a>
+      <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+      <a href="https://twitter.com/reactoverflow" target="_blank" rel="noreferrer" aria-label="Twitter"><TwitterIcon /></a>
     </div>
   </footer>
   );

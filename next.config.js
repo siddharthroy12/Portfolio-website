@@ -1,6 +1,4 @@
-const withTM = require('next-transpile-modules')(['react-syntax-highlighter', 'react-markdown', 'remark-gfm']);
-
-module.exports = withTM({
+module.exports = {
   reactStrictMode: true,
   images: {
     domains: [
@@ -9,4 +7,4 @@ module.exports = withTM({
       'res.cloudinary.com'
     ],
   }
-})
+}

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
 import matter from 'gray-matter';
 import RightIcon from '@components/icons/Right';
 import CodeIcon from '@components/icons/Code';
@@ -200,7 +199,7 @@ export default function Home({ projects, blogs }) {
         <input type="hidden" name="form-name" value="contact" />
         <div className={styles['contact-form__top']}>
           <div className={styles['contact-form-input']} style={{marginRight: '10px'}}>
-            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} required/>
+            <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} required/>
             { name.trim() === '' ? (
               <label htmlFor="name">Name</label>) : null }
 
@@ -208,7 +207,7 @@ export default function Home({ projects, blogs }) {
           <div className={styles['contact-form-input']} style={{marginLeft: '10px'}}>
             { email.trim() === '' ? (
               <label htmlFor="email">Email</label>) : null }
-            <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} required/>
+            <input type="email" id="email" name="email" value={email} onChange={e => setEmail(e.target.value)} required/>
           </div>
         </div>
         <div className={styles['contact-form__bottom']} style={{marginTop: '20px'}}>
@@ -218,6 +217,7 @@ export default function Home({ projects, blogs }) {
             <textarea
               required
               name="message"
+              id="message"
               value={message}
               onChange={e => setMessage(e.target.value)}
               rows={10}
@@ -244,7 +244,8 @@ export async function getServerSideProps() {
   const GET_TREE_LINK = 'https://api.github.com/repos/siddharthroy12/Portfolio-website/git/trees/main?recursive=1';
   const GET_RAW_LINK = 'https://raw.githubusercontent.com/siddharthroy12/Portfolio-website/main';
 
-  const tree = (await axios.get(GET_TREE_LINK)).data.tree;
+
+  const tree = (await (await fetch(GET_TREE_LINK)).json()).tree;
 
   const projectFiles = tree.filter(obj => {
     return obj.path.startsWith('content/projects/');
@@ -255,7 +256,7 @@ export async function getServerSideProps() {
   let projects = [];
 
   for (let file of projectFiles) {
-    projects.push(matter((await axios.get(`${GET_RAW_LINK}/${file}`)).data).data);
+    projects.push(matter((await (await fetch(`${GET_RAW_LINK}/${file}`)).text())).data);
   }
 
   const response = await fetch("https://dev.to/api/articles/me/published", {
