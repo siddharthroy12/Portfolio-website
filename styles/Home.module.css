@@ -4,6 +4,14 @@
   padding-bottom: 100px;
 }
 
+.highlight {
+  color: var(--accent-color);
+}
+
+.highlight-secondary {
+  color: var(--text-color-1);
+}
+
 .hero__left,
 .hero__right {
   width: 50%;
@@ -220,6 +228,9 @@
   border: 1px solid var(--border-color);
   border-radius: 3px;
   margin: 20px 0;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  min-height: 220px;
 }
 
 .project__top {
@@ -238,12 +249,16 @@
 
 .project__bottom {
   border-top: 1px solid var(--border-color);
-  background-color: var(--page-color);
+  background-color: var(--card-color-2);
   padding: 30px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .project-link {
-  background-color: var(--card-color);
+  background-color: var(--card-color-3);
   padding: 10px;
   border-radius: 3px;
   margin-right: 10px;
@@ -251,7 +266,7 @@
   display: inline-flex;
   align-items: center;
   transition-duration: 200ms;
-  border: 1px solid var(--card-color);
+  border: 1px solid var(--card-color-3);
 }
 
 .project-link:hover {
@@ -271,6 +286,7 @@
   max-width: 340px;
   margin: 20px 30px;
   height: fit-content;
+  box-shadow: var(--box-shadow);
 }
 
 .pricing-rec {
@@ -355,10 +371,22 @@
   background-color: var(--card-color);
   padding: 20px;
   margin: 20px 0;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
 }
 
-.blog .button {
-  width: 100%;
+.blog__tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blog__tags > * {
+  background-color: var(--border-color);
+  padding: 0.5em;
+  font-size: 0.8em;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  color: var(--text-color-4);
 }
 
 .blog img {

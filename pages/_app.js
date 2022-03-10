@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }) {
     <Layout>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="I make beautiful web experience; Do you want a website? I can build one for you, check out the pricing section" />
         <title>Siddharth Roy - Frontend Developer</title>
       </Head>
       <Component {...pageProps} />

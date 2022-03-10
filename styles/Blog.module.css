@@ -1,0 +1,160 @@
+.blog {
+  background-color: var(--card-color);
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+}
+
+.blog__tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blog__tags > * {
+  background-color: var(--border-color);
+  padding: 0.5em;
+  font-size: 0.8em;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  color: var(--text-color-4);
+}
+
+.blog img {
+  display: block;
+  width: 100%;
+}
+
+.blog-title {
+  margin: 20px 0;
+  color: var(--text-color-1);
+}
+
+.top {
+  text-align: center;
+  margin: 70px 0;
+}
+
+.top img {
+  border-radius: 5px;
+}
+
+.top h1 {
+  margin-top: 30px;
+  margin-bottom: 8px;
+}
+
+.wrapper {
+  color: var(--font-color-primary);
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: auto;
+  max-width: 50rem;
+  margin-bottom: 70px;
+}
+
+.wrapper h1,
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5,
+.wrapper h6 {
+	font-weight: 500;
+	margin: 1rem 0;
+}
+
+.wrapper ul,
+.wrapper ol {
+	padding-left: 3rem;
+}
+
+.wrapper li {
+	margin: 0.5rem 0;
+}
+
+.wrapper hr {
+	margin: 1rem 0;
+}
+
+.wrapper p {
+	margin: 1.5rem 0;
+}
+
+.wrapper code {
+	font-family: 'Roboto Mono', monospace;
+}
+
+.wrapper pre {
+	padding: 1rem;
+	border-radius: 3px;
+	overflow-x: auto;
+}
+
+.wrapper pre * {
+	font-family: 'Roboto Mono', monospace;
+}
+
+
+.wrapper blockquote {
+	border-left: 5px solid var(--card-color);
+	padding-left: 1rem;
+	font-style: italic;
+	background-color: var(--card-color-2);
+}
+
+.wrapper table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.wrapper table th {
+	font-weight: 500;
+	text-align: start;
+	padding: 0.5rem;
+	border-bottom: 1px solid gray;
+}
+
+.wrapper table td {
+	padding: 0.5rem;
+}
+
+.wrapper table tbody tr {
+	border-bottom: 1px solid gray;
+}
+
+.wrapper table tbody tr:nth-child(odd) {
+	background-color: #e6e6e6;
+}
+
+.wrapper img {
+	display: block;
+	width: 100%;
+	border: 1px solid black;
+}
+
+.wrapper a {
+	text-decoration: underline;
+}
+
+.bottom {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+  margin-bottom: 50px;
+}
+
+.bottom p {
+  margin-bottom: 20px;
+}
+
+.bottom svg {
+  width: 50px;
+  height: 50px;
+  fill: var(--text-color-1);
+}
+
+
+

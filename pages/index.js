@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
-import Image from 'next/image';
 import matter from 'gray-matter';
 import RightIcon from '@components/icons/Right';
 import CodeIcon from '@components/icons/Code';
@@ -9,6 +9,7 @@ import DesignIcon from '@components/icons/Design';
 import UpRightIcon from '@components/icons/UpRight';
 import TickIcon from '@components/icons/Tick';
 import Game from '@components/Game';
+import Blog from '@components/Blog';
 import styles from '@styles/Home.module.css';
 
 export default function Home({ projects, blogs }) {
@@ -24,11 +25,11 @@ export default function Home({ projects, blogs }) {
     <section className={styles.hero}>
       <div className={styles.hero__left}>
         <h1 className={styles.introduction}>
-          I make beautiful <span className="highlight">web experience</span>_
+          I make beautiful <span className={styles["highlight"]}>web experience</span>_
         </h1>
         <p className={styles.about}>
           Do you want a website? I can build one for you, check out the {' '}
-          <span className="highlight-secondary">pricing section</span>.
+          <span className={styles["highlight-secondary"]}>pricing section</span>.
         </p>
         <div className={styles.hero__buttons}>
           <a href="#pricing" className={styles.button}>
@@ -74,7 +75,10 @@ export default function Home({ projects, blogs }) {
           <p className={styles['thing-box__paragraph']}>
             I post about Coding, Web Development tips and Tricks on my Instagram page
           </p>
-          <a href="https://www.instagram.com/reactoverflow/" target="_blank" rel="noreferrer" className={styles['thing-box__learnmore']}>
+          <a href="https://www.instagram.com/reactoverflow/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles['thing-box__learnmore']}>
             Learn More <RightIcon />
           </a>
         </div>
@@ -110,10 +114,18 @@ export default function Home({ projects, blogs }) {
               </p>
             </div>
             <div className={styles['project__bottom']}>
-              <a href={project.code} target="_blank" rel="noreferrer" className={styles['project-link']}>
+              <a
+                href={project.code}
+                target="_blank"
+                rel="noreferrer"
+                className={styles['project-link']}>
                 View Code <UpRightIcon />
               </a>
-              <a href={project.live} target="_blank" rel="noreferrer" className={styles['project-link']}>
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                className={styles['project-link']}>
                 View Live <UpRightIcon />
               </a>
             </div>
@@ -121,22 +133,15 @@ export default function Home({ projects, blogs }) {
         ))}
       </div>
     </section>
-   <section className={styles.section}>
+    <section className={styles.section}>
       <h2 className={styles.section__heading}>Read My Articles</h2>
       <p className={styles.section__paragraph}>
         I write blogs about Web development, React, JavaScript and useful resources
       </p>
       <div className={styles['flex-box']} style={{alignItems: 'end'}}>
-        { blogs.map(blog => (
-          <div className={styles['blog']} key={blog.title}>
-            <Image src={blog.cover} alt="cover-image" width="500" height="250" objectFit="cover"/>
-            <p className={styles['blog-title']}>
-              { blog.title }
-            </p>
-            <a href={blog.url} target="_blank" rel="noreferrer" className={styles['button']}>Read</a>
-          </div>
-        ))}
+        { blogs.map(blog => <Blog blog={blog} key={blog.slug} />)}
       </div>
+      <Link href="/blogs"><a className={styles['button-secondary']} style={{ margin: 'auto', fontSize: '1.2em' }}>View More</a></Link>
     </section>
     <section className={styles.section} id="pricing">
       <h2 className={styles.section__heading}>Websites for Startups</h2>
@@ -262,15 +267,13 @@ export async function getServerSideProps() {
   let blogs = await response.json();
 
   blogs = blogs.slice(0, 4);
-  let blogsMin = [];
 
-  blogs.forEach(blog => {
-    blogsMin.push({
-      title: blog.title,
-      url: blog.url,
-      cover: blog.cover_image
-    });
-  });
+  let blogsMin = blogs.map(blog => ({
+    title: blog.title,
+    slug: blog.slug,
+    cover: blog.cover_image,
+    tags: blog.tag_list
+  }));
 
   return {props: { projects, blogs: blogsMin }};
 }

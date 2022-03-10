@@ -1,29 +1,43 @@
 .container {
-  background-color: #1F1F1F;
-  border: 1px solid #2A2A2A;
+  background-color: var(--card-color-2);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
 }
 
 .top-bar {
   height: 30px;
-  border-bottom: 1px solid #2A2A2A;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   padding-left: 20px;
+  background-color: #181818;
 }
 
 .circle {
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   display: inline-block;
-  background-color: #2A2A2A;
+  background-color: var(--text-color-3);
   border-radius: 50px;
   margin-right: 10px;
 }
 
+.circle:nth-child(1) {
+  background-color: #FF1461;
+}
+
+.circle:nth-child(2) {
+  background-color: #FBF38C;
+}
+
+.circle:nth-child(3) {
+  background-color: #18FF92;
+}
+
 .circle:hover {
-  background-color: #ffffff;
+  background-color: var(--text-color-1);
 }
 
 .container canvas {

@@ -76,7 +76,7 @@
 }
 
 .active {
-  border-bottom: 1px solid var(--text-color-2);
+  border-bottom: 2px solid var(--text-color-2);
 }
 
 @media screen and (max-width: 640px) {
