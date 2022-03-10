@@ -32,10 +32,9 @@ a {
 }
 
 .highlight {
-  background: var(--card-color);
-  color: var(--text-color-2);
-  --syntax-background-color: #08090a;
-  --syntax-text-color: var(--text-color-1);
+  background: #0F0F11;
+  color: #ABB2BF;
+  --syntax-text-color: #ABB2BF;
   --syntax-comment-color: #5C6370;
   --syntax-declaration-color: #FFD489;
   --syntax-literal-color: #FAB36F;

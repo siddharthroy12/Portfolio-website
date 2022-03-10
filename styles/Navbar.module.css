@@ -92,6 +92,7 @@
     flex-direction: column;
     padding-top: 30px;
     padding-bottom: 20px;
+    z-index: 9999; /* It's over 9000! */
   }
 
   .nav-hidden {
