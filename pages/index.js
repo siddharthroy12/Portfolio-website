@@ -154,7 +154,7 @@ export default function Home({ projects, blogs }) {
             <h3 className={styles['pricing__level']}>Basic</h3>
             <p className={styles['pricing__desc']}> Essential Features </p>
             <span className={styles['pricing__price']}>
-              $200
+              $150
             </span>
             <ul className={styles['pricing__features']}>
               <li><span><TickIcon /></span> Responsive Design</li>
@@ -172,7 +172,7 @@ export default function Home({ projects, blogs }) {
             <h3 className={styles['pricing__level']}>Standard</h3>
             <p className={styles['pricing__desc']}> Essential Features </p>
             <span className={styles['pricing__price']}>
-              $400
+              $350
             </span>
             <ul className={styles['pricing__features']}>
               <li><span><TickIcon /></span> Responsive Design</li>
