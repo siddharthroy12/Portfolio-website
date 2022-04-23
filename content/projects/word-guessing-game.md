@@ -1,6 +1,6 @@
 ---
-title: Word guessing game
-code: https://github.com/siddharthroy12/guess-what
-live: https://guess-what-game.netlify.app/
-desc: A complete clone of wordle game made in React
+title: Gravity Sandbox
+desc: A simple chaotic gravity simulator
+code: https://github.com/siddharthroy12/Gravity-Sandbox
+live: https://gravity-sandbox.netlify.app/
 ---
