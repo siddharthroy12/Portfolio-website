@@ -1,6 +1,6 @@
 ---
 title: Dash&Doge
-desc: A unique retro arcade
+desc: A unique retro arcade game
 stack:
   - C
 code: https://www.lexaloffle.com/bbs/?uid=49222
