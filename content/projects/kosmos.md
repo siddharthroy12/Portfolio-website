@@ -1,10 +1,10 @@
 ---
-title: Kosmos
-desc: A bullet-hell shooter game made in C99 for my college project.
+title: Dash&Doge
+desc: A unique retro arcade
 stack:
   - C
-code: https://github.com/siddharthroy12/kosmos
-live: https://siddharthroy12.itch.io/kosmos
+code: https://www.lexaloffle.com/bbs/?uid=49222
+live: https://siddharthroy12.itch.io/dashdoge
 preview: https://i.imgur.com/XLsvzMal.png
 featured: false
 ---
