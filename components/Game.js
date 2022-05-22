@@ -90,7 +90,7 @@ function game(ctx, canvas) {
 
   document.addEventListener('mousemove', updateMousePos);
   document.addEventListener('mousedown', () => createEffect(mousePos));
-  setInterval(() => createEffect({x:Math.random() * ctx.canvas.width,y: Math.random() * ctx.canvas.height}), 3000);
+  setInterval(() => createEffect({x:Math.random() * ctx.canvas.width,y: Math.random() * ctx.canvas.height}), 1000);
 
   function loop(elapsedTime) {
     deltaTime = elapsedTime - previousTime;
