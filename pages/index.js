@@ -72,7 +72,7 @@ export default function Home({ projects, blogs }) {
             </p>
           </div>
           <p className={styles['thing-box__paragraph']}>
-            I post about Coding, Web Development tips and Tricks on my Instagram page
+            I post about coding, web development tips and tricks on my Instagram page
           </p>
           <a href="https://www.instagram.com/reactoverflow/"
             target="_blank"
