@@ -31,8 +31,8 @@ export default function Home({ projects, blogs }) {
           <span className={styles["highlight-secondary"]}>pricing section</span>.
         </p>
         <div className={styles.hero__buttons}>
-          <a href="#pricing" className={styles.button}>
-            Pricing
+          <a href="#projects" className={styles.button}>
+            Proof of work
           </a>
           <a href="#contact" className={styles['button-secondary']}>
             Contact Me
@@ -56,10 +56,10 @@ export default function Home({ projects, blogs }) {
           </div>
           <p className={styles['thing-box__paragraph']}>
             I know both Front-end and Back-end but
-            I’m more Front-end focused and I love ReactJS
+            I’m more Front-end focused, mostly with React
           </p>
           <a href="#projects" className={styles['thing-box__learnmore']}>
-            Learn More <RightIcon />
+            Proof of work <RightIcon />
           </a>
         </div>
         <div className={styles['thing-box']}>
@@ -78,7 +78,7 @@ export default function Home({ projects, blogs }) {
             target="_blank"
             rel="noreferrer"
             className={styles['thing-box__learnmore']}>
-            Learn More <RightIcon />
+            Let me see! <RightIcon />
           </a>
         </div>
         <div className={styles['thing-box']}>
@@ -91,10 +91,10 @@ export default function Home({ projects, blogs }) {
             </p>
           </div>
           <p className={styles['thing-box__paragraph']}>
-            I make websites for new bussiness and startups as a freelancer,
+            I offer making websites and automation scripts
           </p>
-          <a href="#pricing" className={styles['thing-box__learnmore']}>
-            Learn More <RightIcon />
+          <a href="#contact" className={styles['thing-box__learnmore']}>
+            Cool! I want one <RightIcon />
           </a>
         </div>
       </div>
@@ -142,6 +142,7 @@ export default function Home({ projects, blogs }) {
       </div>
       <Link href="/blogs"><a className={styles['button-secondary']} style={{ margin: 'auto', fontSize: '1.2em' }}>View More</a></Link>
     </section>
+    {/*
     <section className={styles.section} id="pricing">
       <h2 className={styles.section__heading}>Websites for Startups</h2>
       <p className={styles.section__paragraph}>
@@ -187,6 +188,7 @@ export default function Home({ projects, blogs }) {
         </div>
       </div>
     </section>
+    */}
     <section className={styles.section} id="contact">
       <h2 className={styles.section__heading}>Connect with me</h2>
       <p className={styles.section__paragraph}>
