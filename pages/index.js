@@ -27,7 +27,7 @@ export default function Home({ projects, blogs }) {
           I make beautiful <span className={styles["highlight"]}>web experience</span>_
         </h1>
         <p className={styles.about}>
-          Do you want a website or an App? I can build one for you, check out the my {' '}
+          Do you want a website or an app? I can build one for you, check out the my {' '}
           <span className={styles["highlight-secondary"]}>proof of work</span>.
         </p>
         <div className={styles.hero__buttons}>
