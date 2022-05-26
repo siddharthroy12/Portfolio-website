@@ -359,7 +359,7 @@ export default function Game() {
   const canvasEl = useRef(null);
 
   useEffect(() => {
-    tab = Math.floor(Math.random() * 2);
+    tab = Math.floor(Math.random() * 3);
     const ctx = canvasEl.current.getContext('2d');
     game(ctx, canvasEl.current);
   }, []);
