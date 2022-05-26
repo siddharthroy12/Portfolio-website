@@ -333,7 +333,9 @@ function game(ctx, canvas) {
   document.addEventListener('mousemove', updateMousePos);
   document.addEventListener('touchmove', updateMousePos);
   canvas.addEventListener('mouseenter', () => { mouseOnCanvas = true; });
+  canvas.addEventListener('pointerenter', () => { mouseOnCanvas = true; });
   canvas.addEventListener('mouseleave', () => { mouseOnCanvas = false; });
+  canvas.addEventListener('pointerleave', () => { mouseOnCanvas = false; });
 
   function cleanDeadBodies(bodies) {
     const bodiesToClean = []
