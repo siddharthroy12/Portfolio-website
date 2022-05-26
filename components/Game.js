@@ -312,6 +312,7 @@ function game(ctx, canvas) {
   }
 
   document.addEventListener('mousemove', updateMousePos);
+  document.addEventListener('touchmove', updateMousePos);
   setInterval(() => createEffect({x:Math.random() * ctx.canvas.width,y: Math.random() * ctx.canvas.height}), 1000);
 
   function cleanDeadBodies(bodies) {
@@ -360,7 +361,6 @@ function getMousePos(canvas, e) {
     mouseY = e.clientY;
   }
 
-
   return {
     x: (mouseX - rect.left) * scaleX,   // scale mouse coordinates after they have
     y: (mouseY - rect.top) * scaleY     // been adjusted to be relative to element
@@ -383,7 +383,7 @@ export default function Game() {
         <span className={styles.circle} onClick={() => tab = 1}/>
         <span className={styles.circle} onClick={() => tab = 2}/>
       </div>
-      <canvas ref={canvasEl} height="300" width="500"/>
+      <canvas ref={canvasEl} height="300" width="500" style={{touchAction: 'none'}}/>
     </div>
   </>);
 }
