@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react';
 import styles from '@styles/Game.module.css';
 
+const CANVAS_WIDTH = 500;
+const CANVAS_HEIGHT = 300;
+
 const colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
 let tab = 0;
 
@@ -280,6 +283,20 @@ function game(ctx, canvas) {
     y: 0,
   };
 
+  let mouseOnCanvas = false;
+
+  let spawnerPos = {
+    x: Math.random() * CANVAS_WIDTH,
+    y: Math.random() * CANVAS_HEIGHT
+  };
+
+  let spawnerVel = {
+    x: Math.random(),
+    y: Math.random()
+  };
+
+  let spawnerTimer = 0;
+
   const bodies = [];
   let deltaTime = 0;
   let previousTime = 0;
@@ -298,7 +315,7 @@ function game(ctx, canvas) {
         }
         break;
       case 2:
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
           bodies.push(new Shape(pos));
         }
       default:
@@ -308,12 +325,15 @@ function game(ctx, canvas) {
 
   function updateMousePos(event) {
     mousePos = getMousePos(canvas, event);
-    createEffect(mousePos);
+    if (mouseOnCanvas) {
+      spawnerPos = mousePos;
+    }
   }
 
   document.addEventListener('mousemove', updateMousePos);
   document.addEventListener('touchmove', updateMousePos);
-  setInterval(() => createEffect({x:Math.random() * ctx.canvas.width,y: Math.random() * ctx.canvas.height}), 1000);
+  canvas.addEventListener('mouseenter', () => { mouseOnCanvas = true; });
+  canvas.addEventListener('mouseleave', () => { mouseOnCanvas = false; });
 
   function cleanDeadBodies(bodies) {
     const bodiesToClean = []
@@ -331,6 +351,33 @@ function game(ctx, canvas) {
 
   function loop(elapsedTime) {
     deltaTime = elapsedTime - previousTime;
+    spawnerTimer += deltaTime;
+
+    spawnerPos.x += spawnerVel.x * deltaTime * 0.5;
+    spawnerPos.y += spawnerVel.y * deltaTime * 0.5;
+
+    if (spawnerPos.x < 0) {
+      spawnerVel.x = -spawnerVel.x;
+      spawnerPos.x = 0;
+    }
+    if (spawnerPos.y < 0) {
+      spawnerVel.y = -spawnerVel.y;
+      spawnerPos.y = 0;
+    }
+    if (spawnerPos.x > CANVAS_WIDTH) {
+      spawnerVel.x = -spawnerVel.x;
+      spawnerPos.x = CANVAS_WIDTH;
+    }
+    if (spawnerPos.y > CANVAS_HEIGHT) {
+      spawnerVel.y = -spawnerVel.y;
+      spawnerPos.y = CANVAS_HEIGHT;
+    }
+
+    if (spawnerTimer > 20) {
+      spawnerTimer = 0;
+      createEffect(spawnerPos);
+    }
+
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.fillStyle = "white";
 
@@ -383,7 +430,7 @@ export default function Game() {
         <span className={styles.circle} onClick={() => tab = 1}/>
         <span className={styles.circle} onClick={() => tab = 2}/>
       </div>
-      <canvas ref={canvasEl} height="300" width="500" style={{touchAction: 'none'}}/>
+      <canvas ref={canvasEl} height={CANVAS_HEIGHT} width={CANVAS_WIDTH} style={{touchAction: 'none'}}/>
     </div>
   </>);
 }
