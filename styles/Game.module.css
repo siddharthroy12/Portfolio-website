@@ -1,14 +1,14 @@
 .container {
-  background-color: var(--card-color-2);
   border: 1px solid var(--border-color);
   border-radius: 5px;
   filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25));
   overflow: hidden;
+  background: #181818;
 }
 
 .top-bar {
   height: 30px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #2A2A2A;
   display: flex;
   align-items: center;
   padding-left: 20px;
@@ -22,6 +22,7 @@
   background-color: var(--text-color-3);
   border-radius: 50px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .circle:nth-child(1) {

@@ -246,37 +246,46 @@ export async function getServerSideProps() {
   const GET_TREE_LINK = 'https://api.github.com/repos/siddharthroy12/Portfolio-website/git/trees/main?recursive=1';
   const GET_RAW_LINK = 'https://raw.githubusercontent.com/siddharthroy12/Portfolio-website/main';
 
+  let projects = []
+  try {
+    const tree = (await (await fetch(GET_TREE_LINK)).json()).tree;
 
-  const tree = (await (await fetch(GET_TREE_LINK)).json()).tree;
+    const projectFiles = tree.filter(obj => {
+      return obj.path.startsWith('content/projects/');
+    }).map(obj => {
+      return obj.path;
+    });
 
-  const projectFiles = tree.filter(obj => {
-    return obj.path.startsWith('content/projects/');
-  }).map(obj => {
-    return obj.path;
-  });
-
-  let projects = [];
-
-  for (let file of projectFiles) {
-    projects.push(matter((await (await fetch(`${GET_RAW_LINK}/${file}`)).text())).data);
+    for (let file of projectFiles) {
+      projects.push(matter((await (await fetch(`${GET_RAW_LINK}/${file}`)).text())).data);
+    }
+  } catch {
   }
 
-  const response = await fetch("https://dev.to/api/articles/me/published", {
-    headers: {
-      "api-key": process.env.DEVTO_KEY
-    }
-  });
+  let blogsMin = []
 
-  let blogs = await response.json();
+  try { // Try catch block for offline development
+    const response = await fetch("https://dev.to/api/articles/me/published", {
+      headers: {
+        "api-key": process.env.DEVTO_KEY
+      }
+    });
 
-  blogs = blogs.slice(0, 4);
+    let blogs = await response.json();
 
-  let blogsMin = blogs.map(blog => ({
-    title: blog.title,
-    slug: blog.slug,
-    cover: blog.cover_image,
-    tags: blog.tag_list
-  }));
+    blogs = blogs.slice(0, 4);
+
+    blogsMin = blogs.map(blog => ({
+      title: blog.title,
+      slug: blog.slug,
+      cover: blog.cover_image,
+      tags: blog.tag_list
+    }));
+
+  } catch {
+    blogsMin = []
+  }
+
 
   return {props: { projects, blogs: blogsMin }};
 }
