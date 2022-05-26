@@ -344,14 +344,26 @@ function game(ctx, canvas) {
   loop(0);
 }
 
-function getMousePos(canvas, evt) {
-  var rect = canvas.getBoundingClientRect(), // abs. size of element
-    scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for X
-    scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for Y
+function getMousePos(canvas, e) {
+  const rect = canvas.getBoundingClientRect(); // abs. size of element
+  const scaleX = canvas.width / rect.width;    // relationship bitmap vs. element for X
+  const scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for Y
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  if (e.touches && e.touches.length == 1) {
+    mouseX = e.touches[0].clientX;
+    mouseY = e.touches[0].clientY;
+  } else if (e.clientX && e.clientY) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }
+
 
   return {
-    x: (evt.clientX - rect.left) * scaleX,   // scale mouse coordinates after they have
-    y: (evt.clientY - rect.top) * scaleY     // been adjusted to be relative to element
+    x: (mouseX - rect.left) * scaleX,   // scale mouse coordinates after they have
+    y: (mouseY - rect.top) * scaleY     // been adjusted to be relative to element
   }
 }
 
