@@ -129,7 +129,7 @@
 .section__heading {
   text-align: center;
   color: var(--text-color-1);
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -182,10 +182,10 @@
 }
 
 .thing-box__icon {
-  width: 45px;
-  height: 45px;
+  width: 32px;
+  height: 32px;
   background-color: var(--text-color-1);
-  border-radius: 10px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,6 +194,7 @@
 .thing-box__icon svg {
   width: 20px;
   height: 20px;
+  fill: var(--page-color);
 }
 
 .thing-box__title {
@@ -207,19 +208,20 @@
   margin-top: 20px;
   line-height: 24px;
   font-size: 1em;
-  color: var(--text-color-1);
+  color: var(--text-color-4);
   font-weight: 400;
 }
 
 .thing-box__learnmore {
   display: flex;
-  color: var(--text-color-3);
+  color: var(--text-color-4);
   margin-top: 20px;
   align-items: center;
 }
 
 .thing-box__learnmore svg {
   margin-left: 10px;
+  fill: var(--text-color-3);
 }
 
 

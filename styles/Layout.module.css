@@ -42,7 +42,7 @@
   --text-color-3: #696969;
   --text-color-4: #ADADAD;
   --card-color: #1F1F1F;
-  --card-color-2: var(--page-color);
+  --card-color-2: rgb(40, 40, 40);
   --card-color-3: var(--card-color);
   --border-color: #2A2A2A;
   --box-shadow: none;
