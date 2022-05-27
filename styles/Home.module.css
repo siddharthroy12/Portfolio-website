@@ -101,7 +101,7 @@
   display: block;
   padding: 0.8em 0;
   width: 160px;
-  background-color: unset;
+  background-color: var(--card-color-2);
   font-weight: 400;
   color: var(--text-color-1);
   border-radius: 3px;
@@ -137,7 +137,6 @@
 .section__paragraph {
   text-align: center;
   color: var(--text-color-1);
-  font-weight: 500;
   font-size: 1.2em;
   max-width: 650px;
   margin: auto;
@@ -232,11 +231,11 @@
   margin: 20px 0;
   box-shadow: var(--box-shadow);
   position: relative;
-  min-height: 220px;
 }
 
 .project__top {
   padding: 20px;
+  padding-bottom: 88px;
 }
 
 .project-title {
@@ -252,7 +251,7 @@
 .project__bottom {
   border-top: 1px solid var(--border-color);
   background-color: var(--card-color-2);
-  padding: 30px 20px;
+  padding: 15px 20px;
   position: absolute;
   bottom: 0;
   left: 0;
