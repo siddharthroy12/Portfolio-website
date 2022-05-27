@@ -15,7 +15,7 @@ export default function Navbar({ darkTheme, setDarkTheme }) {
         <button className={styles['menu-button']} onClick={() => setNavIsOpen(prev => !prev)}>
             <MenuIcon />
           </button>
-        <div className={styles.left}>
+        <div className={styles.left} onClick={() => setNavIsOpen(false)}>
           <Link href="/">
             <a>
               <span>
@@ -30,10 +30,10 @@ export default function Navbar({ darkTheme, setDarkTheme }) {
         <div className={styles.right}>
           <nav className={styles.nav}>
             <ul className={styles['nav-list'] + ' ' + (!navIsOpen ? styles['nav-hidden'] : '')}>
-              <li className={router.pathname === '/' ? styles.active : null}><Link href="/"><a>Home</a></Link></li>
-              <li><Link href="/#about"><a>About</a></Link></li>
-              <li><Link href="/#projects"><a>Proof of Work</a></Link></li>
-              <li className={router.pathname === '/blogs' || router.pathname.startsWith('/blog') ? styles.active : null}><Link href="/blogs"><a>Blogs</a></Link></li>
+              <li onClick={() => setNavIsOpen(false)} className={router.pathname === '/' ? styles.active : null}><Link href="/"><a>Home</a></Link></li>
+              <li onClick={() => setNavIsOpen(false)}><Link href="/#about"><a>About</a></Link></li>
+              <li onClick={() => setNavIsOpen(false)}><Link href="/#projects"><a>Proof of Work</a></Link></li>
+              <li onClick={() => setNavIsOpen(false)} className={router.pathname === '/blogs' || router.pathname.startsWith('/blog') ? styles.active : null}><Link href="/blogs"><a>Blogs</a></Link></li>
             </ul>
           </nav>
           <Switch on={darkTheme} onChange={e => setDarkTheme(e.target.checked)} />
