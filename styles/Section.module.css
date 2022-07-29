@@ -1,0 +1,30 @@
+.container {
+  color: #949494;
+  padding: 10px 0;
+  position: relative;
+  padding-left: 35px;
+  font-size: 16px;
+}
+
+.line {
+  width: 2px;
+  background-color: #3A3A3A;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 9px;
+  z-index: 0;
+}
+
+.container a {
+  text-decoration: underline;
+  color: #c7c7c7;
+  margin-right: 10px;
+}
+
+.container img {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 5px;
+}
