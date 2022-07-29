@@ -11,7 +11,7 @@ export default function Home({ projects }) {
       <h1 className={styles.introduction}>Hi, I&apos;m Siddharth Roy</h1>
     </header>
     <p className={styles.about}>
-      I`&apos;m a Front-end developer with some experience in back-end.
+      I&apos;m a Front-end developer with some experience in back-end.
       I run a mini-blog on Instagram with over 20k Followers.
       And In my free time, I like to learn new languages and frameworks.
     </p>
