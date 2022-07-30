@@ -49,7 +49,7 @@ export default function Home({ projects }) {
       </Section>
       <SectionHeading heading="Intro to Functional Programming" subSection/>
       <Section>
-        <InstagramEmbed url="https://www.instagram.com/p/CftBVLHp7sp/" width="100%" style={{ maxWidth: 328 }} />
+        <InstagramEmbed url="Data Structures to Learn for Interviews" width="100%" style={{ maxWidth: 328 }} />
       </Section>
       <SectionHeading heading="package-lock.json Explained" subSection last/>
       <Section last>
