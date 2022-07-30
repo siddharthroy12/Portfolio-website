@@ -9,6 +9,12 @@
   position: relative;
 }
 
+@media screen and (max-width: 600px) {
+  .container p {
+    transform: none !important;
+  }
+}
+
 .circle {
   width: 20px;
   height: 20px;

@@ -16,33 +16,35 @@ export default function Home({ projects }) {
       I run a mini-blog on Instagram with over 20k Followers.
       And In my free time, I like to learn new languages and frameworks.
     </p>
-    <SectionHeading heading="Projects" first/>
-    {projects.map(project => (<div key={project.title}>
-      <SectionHeading heading={project.title} subSection/>
+    <div className={styles.timeline}>
+      <SectionHeading heading="Projects" first/>
+      {projects.map(project => (<div key={project.title}>
+        <SectionHeading heading={project.title} subSection/>
+        <Section>
+          <p>{project.desc}</p>
+          <a href={project.live} target="_blank" rel="noreferrer">Live</a>
+          <a href={project.code} target="_blank" rel="noreferrer">Source Code</a>
+        </Section>
+      </div>))}
+      <SectionHeading heading="Popular Posts"/>
+      <SectionHeading heading="How to get good at LeetCode" subSection/>
       <Section>
-        <p>{project.desc}</p>
-        <a href={project.live} target="_blank" rel="noreferrer">Live</a>
-        <a href={project.code} target="_blank" rel="noreferrer">Source Code</a>
+        <InstagramEmbed url="https://www.instagram.com/p/Cf6rtHOrLyY/" width="100%" style={{ maxWidth: 328 }} />
       </Section>
-    </div>))}
-    <SectionHeading heading="Popular Posts"/>
-    <SectionHeading heading="How to get good at LeetCode" subSection/>
-    <Section>
-      <InstagramEmbed url="https://www.instagram.com/p/Cf6rtHOrLyY/" width="100%" style={{ maxWidth: 320 }} />
-    </Section>
-    <SectionHeading heading="Intro to Functional Programming" subSection/>
-    <Section>
-      <InstagramEmbed url="https://www.instagram.com/p/CfocKnWpuTq/" width="100%" style={{ maxWidth: 320 }}  />
-    </Section>
-    <SectionHeading heading="Intro to Functional Programming" subSection/>
-    <Section>
-      <InstagramEmbed url="https://www.instagram.com/p/CftBVLHp7sp/" width="100%" style={{ maxWidth: 320 }} />
-    </Section>
-    <SectionHeading heading="package-lock.json Explained" subSection last/>
-    <Section last>
-      <InstagramEmbed url="https://www.instagram.com/p/CchVk2fMppe/" width="100%" style={{ maxWidth: 320 }} />
-    </Section>
-   </div>);
+      <SectionHeading heading="Intro to Functional Programming" subSection/>
+      <Section>
+        <InstagramEmbed url="https://www.instagram.com/p/CfocKnWpuTq/" width="100%" style={{ maxWidth: 328 }}  />
+      </Section>
+      <SectionHeading heading="Intro to Functional Programming" subSection/>
+      <Section>
+        <InstagramEmbed url="https://www.instagram.com/p/CftBVLHp7sp/" width="100%" style={{ maxWidth: 328 }} />
+      </Section>
+      <SectionHeading heading="package-lock.json Explained" subSection last/>
+      <Section last>
+        <InstagramEmbed url="https://www.instagram.com/p/CchVk2fMppe/" width="100%" style={{ maxWidth: 328 }} />
+      </Section>
+    </div>
+  </div>);
 }
 
 

@@ -2,8 +2,8 @@ import styles from '../styles/SectionHeading.module.css';
 
 function convertToSlug(Text) {
   return Text.toLowerCase()
-             .replace(/[^\w ]+/g, '')
-             .replace(/ +/g, '-');
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-');
 }
 
 export default function SectionHeading({heading, subSection, first, last}) {
@@ -14,7 +14,11 @@ export default function SectionHeading({heading, subSection, first, last}) {
         <div/>
       </div>
       <div className={styles.line} style={{bottom : last ? '50%' : null, top: first ? '50%' : null}}/>
-        {heading}
+      <p ref={(el) => {
+        if (!subSection) {
+          el.style.transform = `translateX(-${el.clientWidth+45}px)`;
+        }
+      }}>{heading}</p>
     </div>
   );
 }

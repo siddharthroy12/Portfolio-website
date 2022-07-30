@@ -12,3 +12,13 @@
   line-height: 30px;
   margin-bottom: 50px;
 }
+
+.timeline {
+  padding-left: 140px;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline {
+    padding-left: 0;
+  }
+}
