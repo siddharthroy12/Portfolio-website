@@ -6,6 +6,7 @@
   border-radius: 50px;
   z-index: 99;
   transition: .1s;
+  pointer-events: none;
 }
 
 .cursor > div {
@@ -15,4 +16,5 @@
   border-radius: 50px;
   position: fixed;
   z-index: 99;
+  pointer-events: none;
 }
