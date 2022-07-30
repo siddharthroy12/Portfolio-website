@@ -1,3 +1,4 @@
+import fs from 'fs'
 import matter from 'gray-matter';
 import styles from '../styles/Home.module.css';
 import SectionHeading from '../components/SectionHeading';
@@ -27,43 +28,41 @@ export default function Home({ projects }) {
     <SectionHeading heading="Popular Posts"/>
     <SectionHeading heading="How to get good at LeetCode" subSection/>
     <Section>
-      <InstagramEmbed url="https://www.instagram.com/p/Cf6rtHOrLyY/" width={328} />
+      <InstagramEmbed url="https://www.instagram.com/p/Cf6rtHOrLyY/" width="100%" style={{ maxWidth: 320 }} />
     </Section>
     <SectionHeading heading="Intro to Functional Programming" subSection/>
     <Section>
-      <InstagramEmbed url="https://www.instagram.com/p/CfocKnWpuTq/" width={328} />
+      <InstagramEmbed url="https://www.instagram.com/p/CfocKnWpuTq/" width="100%" style={{ maxWidth: 320 }}  />
     </Section>
     <SectionHeading heading="Intro to Functional Programming" subSection/>
     <Section>
-      <InstagramEmbed url="https://www.instagram.com/p/CftBVLHp7sp/" width={328} />
+      <InstagramEmbed url="https://www.instagram.com/p/CftBVLHp7sp/" width="100%" style={{ maxWidth: 320 }} />
     </Section>
     <SectionHeading heading="package-lock.json Explained" subSection last/>
     <Section last>
-      <InstagramEmbed url="https://www.instagram.com/p/CchVk2fMppe/" width={328} />
+      <InstagramEmbed url="https://www.instagram.com/p/CchVk2fMppe/" width="100%" style={{ maxWidth: 320 }} />
     </Section>
    </div>);
 }
 
 
-export async function getServerSideProps() {
-  const GET_TREE_LINK = 'https://api.github.com/repos/siddharthroy12/Portfolio-website/git/trees/main?recursive=1';
-  const GET_RAW_LINK = 'https://raw.githubusercontent.com/siddharthroy12/Portfolio-website/main';
+export async function getStaticProps() {
+  // List of files in blgos folder
+  const filesInProjects = fs.readdirSync('./content/projects')
 
-  let projects = []
-  try {
-    const tree = (await (await fetch(GET_TREE_LINK)).json()).tree;
+  // Get the front matter and slug (the filename without .md) of all files
+  const projects = filesInProjects.map(filename => {
+    const file = fs.readFileSync(`./content/projects/${filename}`, 'utf8')
+    const matterData = matter(file)
 
-    const projectFiles = tree.filter(obj => {
-      return obj.path.startsWith('content/projects/');
-    }).map(obj => {
-      return obj.path;
-    });
-
-    for (let file of projectFiles) {
-      projects.push(matter((await (await fetch(`${GET_RAW_LINK}/${file}`)).text())).data);
+    return {
+      ...matterData.data, // matterData.data contains front matter
     }
-  } catch {
-  }
+  })
 
-  return {props: { projects }};
+  return {
+    props: {
+      projects
+    }
+  }
 }
