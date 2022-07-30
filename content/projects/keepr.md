@@ -5,8 +5,8 @@ stack:
   - React
   - Nodejs
   - MongoDB
+preview: /uploads/screenshot-from-2022-07-30-16-08-48.png
 code: https://github.com/siddharthroy12/recoded
 live: https://recoded.netlify.app/
-preview: /uploads/screenshot_2021-06-25_13-03-20.png
 featured: true
 ---
