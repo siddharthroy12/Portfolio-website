@@ -15,7 +15,7 @@ export default function SectionHeading({heading, subSection, first, last}) {
       </div>
       <div className={styles.line} style={{bottom : last ? '50%' : null, top: first ? '50%' : null}}/>
       <p ref={(el) => {
-        if (!subSection) {
+        if (!subSection && el !== null) {
           el.style.transform = `translateX(-${el.clientWidth+45}px)`;
         }
       }}>{heading}</p>
