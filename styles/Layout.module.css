@@ -18,3 +18,17 @@
   z-index: 99;
   pointer-events: none;
 }
+
+/* smartphones, touchscreens */
+@media (hover: none) and (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+/* stylus-based screens */
+@media (hover: none) and (pointer: fine) {
+  .cursor {
+    display: none;
+  }
+}
+

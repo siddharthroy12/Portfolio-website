@@ -1,50 +1,100 @@
 .container {
-  height: 80px;
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  background: #111;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  margin: auto;
+  transform: translateX(-50%);
+  border: 1px solid white;
+  border-radius: 50px;
+  background: #112;
   display: flex;
-  align-items: center;
   z-index: 10;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  max-width: 700px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* if backdrop support: very transparent and blurred */
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   .container {
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     background: rgba(17, 17, 17, 0.3);
 
   }
-  .backdrop-blur {
-    background-color: rgba(255, 255, 255, .5);
-    -webkit-backdrop-filter: blur(2em);
-    backdrop-filter: blur(2em);
-  }
-}
-
-.container > div {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
 }
 
 .container ul {
+  list-style: none;
   display: flex;
   color: white;
-  list-style: none;
+  border-radius: 50px;
 }
 
 .container ul li {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
+  margin-right: 10px;
+  transition-duration: .1s;
 }
 
 .container ul li a {
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #111;
+  padding: 10px 15px;
+}
+
+.container ul li:hover a {
+  border-color: white;
+}
+
+.container button {
+  border: none;
+  background: #40f59b;
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: .1s;
+  position: relative;
+}
+
+.container button:hover {
+  background-color: #40f59bbf;
+}
+
+.container button ul {
+  position: absolute;
+  top: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50px;
+  flex-direction: column;
+  padding: 10px;
+  background: rgb(66 66 66 / 11%);
+}
+
+.container button ul li {
+  margin-right: 0;
+}
+
+.container button ul li a {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
+
+.container button ul li {
+  margin-bottom: 10px;
+}
+
+.container button ul li:last-child {
+  margin-bottom: 0;
+}
+
+
