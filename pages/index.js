@@ -11,12 +11,12 @@ export default function Home({ projects }) {
     <header>
       <h1 className={styles.introduction}>Hi, I&apos;m Siddharth Roy</h1>
     </header>
-    <p className={styles.about}>
+    <p className={styles.about} test-id>
       I&apos;m a Front-end developer with some experience in back-end.
       I run a mini-blog on Instagram with over 20k Followers.
       And In my free time, I like to learn new languages and frameworks.
     </p>
-    <div className={styles.timeline}>
+      <div className={styles.timeline}>
       <SectionHeading heading="Projects" first/>
       {projects.map(project => (<div key={project.title}>
         <SectionHeading heading={project.title} subSection/>
@@ -56,27 +56,27 @@ export default function Home({ projects }) {
         <InstagramEmbed url="https://www.instagram.com/p/CchVk2fMppe/" width="100%" style={{ maxWidth: 328 }} />
       </Section>
     </div>
-  </div>);
-}
+    </div>);
+      }
 
 
-export async function getStaticProps() {
-  // List of files in blgos folder
-  const filesInProjects = fs.readdirSync('./content/projects')
+      export async function getStaticProps() {
+        // List of files in blgos folder
+        const filesInProjects = fs.readdirSync('./content/projects')
 
-  // Get the front matter and slug (the filename without .md) of all files
-  const projects = filesInProjects.map(filename => {
-    const file = fs.readFileSync(`./content/projects/${filename}`, 'utf8')
-    const matterData = matter(file)
+        // Get the front matter and slug (the filename without .md) of all files
+        const projects = filesInProjects.map(filename => {
+          const file = fs.readFileSync(`./content/projects/${filename}`, 'utf8')
+          const matterData = matter(file)
 
-    return {
-      ...matterData.data, // matterData.data contains front matter
-    }
-  })
+          return {
+            ...matterData.data, // matterData.data contains front matter
+          }
+        })
 
-  return {
-    props: {
-      projects
-    }
-  }
-}
+        return {
+          props: {
+            projects
+          }
+        }
+      }

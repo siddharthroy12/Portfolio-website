@@ -4,6 +4,7 @@
   position: relative;
   padding-left: 35px;
   font-size: 16px;
+  overflow: hidden;
 }
 
 .line {

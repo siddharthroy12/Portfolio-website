@@ -44,6 +44,12 @@
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #111;
   padding: 10px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.container > ul li svg {
+  margin-right: 10px;
 }
 
 .container ul li:hover a {
@@ -62,6 +68,15 @@
   align-items: center;
   transition-duration: .1s;
   position: relative;
+  cursor: pointer;
+}
+
+.container button > svg {
+  transition-duration: .3s;
+}
+
+.container .on > svg {
+  transform: rotate(90deg);
 }
 
 .container button:hover {
@@ -76,7 +91,38 @@
   flex-direction: column;
   padding: 10px;
   background: rgb(66 66 66 / 11%);
+  backdrop-filter: blur(4px);
 }
+
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .container, .container button ul {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    background: rgba(17, 17, 17, 0.3);
+  }
+}
+
+.show {
+  animation: fadeIn .5s;
+}
+
+.hide {
+  animation: fadeOut .5s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(1%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-1%); }
+}
+
 
 .container button ul li {
   margin-right: 0;
@@ -95,6 +141,25 @@
 
 .container button ul li:last-child {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: unset;
+    top: unset;
+    bottom: 20px;
+  }
+  .container > ul span {
+    display: none;
+  }
+  .container > ul li svg {
+    margin-right: 0;
+  }
+
+  .container button ul {
+    top: unset;
+    bottom: 60px;
+  }
 }
 
 

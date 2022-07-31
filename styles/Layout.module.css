@@ -1,34 +1,9 @@
-.cursor {
-  width: 30px;
-  height: 30px;
-  border: 1px solid white;
-  position: fixed;
-  border-radius: 50px;
-  z-index: 99;
-  transition: .1s;
-  pointer-events: none;
+.container {
+  margin-top: 150px;
 }
 
-.cursor > div {
-  width: 5px;
-  height: 5px;
-  background: white;
-  border-radius: 50px;
-  position: fixed;
-  z-index: 99;
-  pointer-events: none;
-}
-
-/* smartphones, touchscreens */
-@media (hover: none) and (pointer: coarse) {
-  .cursor {
-    display: none;
+@media screen and (max-width: 500px) {
+  .container {
+    margin-top: 50px;
   }
 }
-/* stylus-based screens */
-@media (hover: none) and (pointer: fine) {
-  .cursor {
-    display: none;
-  }
-}
-
