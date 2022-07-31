@@ -17,16 +17,6 @@
   align-items: center;
 }
 
-/* if backdrop support: very transparent and blurred */
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-  .container {
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    background: rgba(17, 17, 17, 0.3);
-
-  }
-}
-
 .container ul {
   list-style: none;
   display: flex;
@@ -104,25 +94,18 @@
 }
 
 .show {
-  animation: fadeIn .5s;
+  animation: fadeIn .2s;
 }
 
 .hide {
-  animation: fadeOut .5s;
   opacity: 0;
   pointer-events: none;
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(1%); }
+  0% { opacity: 0; transform: translateY(-1%); }
   100% { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes fadeOut {
-  0% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-1%); }
-}
-
 
 .container button ul li {
   margin-right: 0;
